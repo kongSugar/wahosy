@@ -1,0 +1,24 @@
+group 'de.kongsugar.sf.stockmad'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply from: 'javafx.plugin'
+
+
+repositories {
+    mavenCentral()
+}
+
+//https://jaxenter.com/tutorial-a-guide-to-the-gradle-javafx-plugin-105730.html
+javafx{
+    //TODO for packaging as exe
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'mysql:mysql-connector-java:5.1.36'
+    compile 'com.lowagie:itext:2.1.7'
+    compile 'org.apache.logging.log4j:log4j-core:2.3'
+}
