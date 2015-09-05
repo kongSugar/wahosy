@@ -12,6 +12,9 @@ public class MySQLConnection {
     private MySQLConnection() {
         try {
             //TODO Hiermit bin ich noch nicht ganz zufrieden
+            // Keine Anmeldedaten hardcoden!
+            // Zum Testen okay, aber vor commit wieder löschen
+            // Sensible Daten sind sonst ÖFFENTLICH einsehbar!
             Properties properties = new Properties();
             InputStream stream = MySQLConnection.class.getResourceAsStream("/mysql.properties");
             properties.load(stream);
