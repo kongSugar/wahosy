@@ -1,4 +1,4 @@
-package de.kongsugar.sf.stockmad.database;
+package de.kongsugar.wahosy.database;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -127,7 +127,7 @@ public class MySQLConnection {
             try {
     	  
     	/*----------------------------------------fehlt noch-----------------------------------------------
-    	 * 
+         *
     	 * "Getmethode" erzeugen die alte werte ausliest und in textfields im programm eintägt,
     	 * damit man nicht jeden einzelnen eintrag komplett neuschreiben sondern nur anpassen und absenden muss.
     	 * ------------------------------------------------------------------------------------------------ 

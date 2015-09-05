@@ -1,4 +1,4 @@
-group 'de.kongsugar.sf.stockmad'
+group 'de.kongsugar.wahosy'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'

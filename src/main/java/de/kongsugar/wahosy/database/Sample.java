@@ -1,4 +1,4 @@
-package de.kongsugar.sf.stockmad.database;
+package de.kongsugar.wahosy.database;
 
 /**
  * Created by nikog on 04.09.2015.
