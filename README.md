@@ -1,6 +1,10 @@
-# Another TheTVDB-API v1
-#ALPHA! NOT TESTED YET!
-#NOT FINISHED YET!
+# SahoSy
+
+[Trello](https://trello.com/b/TbM1DAna)
+
+Todo:
+- [ ] muhahah
+- [x] nope
 
 Library for accessing the TheTVDB-API in Java
 This library caches all requests in an embedded database to relieve slow connections and server.
