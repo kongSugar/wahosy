@@ -1,10 +1,14 @@
 package de.kongsugar.wahosy.database;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.sql.*;
 import java.util.prefs.Preferences;
 
 public class Database {
 
+    private static final Logger LOGGER = LogManager.getLogger(Database.class.getName());
     private static Connection conn = null;
 
     private Database() {
@@ -20,8 +24,7 @@ public class Database {
 
             conn = DriverManager.getConnection(url,user,password);
 
-            System.out.println(conn.toString());
-            System.out.println(conn.getMetaData().getURL());
+            LOGGER.info("Connected to " + conn.getMetaData().getURL());
         } catch (SQLException e) {
             System.out.println("Connect nicht moeglich " + e);
         } catch (Exception e) {
