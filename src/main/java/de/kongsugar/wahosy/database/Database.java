@@ -1,41 +1,47 @@
 package de.kongsugar.wahosy.database;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
-import java.util.Properties;
+import java.util.prefs.Preferences;
 
-public class MySQLConnection {
+public class Database {
 
     private static Connection conn = null;
 
-    private MySQLConnection() {
+    private Database() {
         try {
-            //TODO Hiermit bin ich noch nicht ganz zufrieden
-            // Keine Anmeldedaten hardcoden!
-            // Zum Testen okay, aber vor commit wieder löschen
-            // Sensible Daten sind sonst ÖFFENTLICH einsehbar!
-            Properties properties = new Properties();
-            InputStream stream = MySQLConnection.class.getResourceAsStream("/mysql.properties");
-            properties.load(stream);
+            Preferences prefs = Preferences.userNodeForPackage(this.getClass());
 
-            String url = properties.getProperty("url");
-            String user = properties.getProperty("user");
-            String password = properties.getProperty("password");
+            //if(prefs.nodeExists("url")&&prefs.nodeExists("user")&&prefs.nodeExists("password")){}
+            //else{throw new Exception("Couldn't load preferences");}
+
+            String url = prefs.get("url", null);
+            String user = prefs.get("user", null);
+            String password = prefs.get("password", null);
 
             conn = DriverManager.getConnection(url,user,password);
 
+            System.out.println(conn.toString());
+            System.out.println(conn.getMetaData().getURL());
         } catch (SQLException e) {
-            System.out.println("Connect nicht moeglich "+e);
-        } catch (IOException e) {
+            System.out.println("Connect nicht moeglich " + e);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static Connection getInstance()
+    public static void configure(String url, String port, String db, String user, String password) {
+        String jdbcURL = String.format("jdbc:mysql://%s:%s/%s", url, port, db);
+
+        Preferences prefs = Preferences.userNodeForPackage(Database.class);
+        prefs.put("url", jdbcURL);
+        prefs.put("user", user);
+        prefs.put("password", password);
+    }
+
+    public static Connection getInstance()
     {
         if(conn == null)
-            new MySQLConnection();
+            new Database();
         return conn;
     }
 
