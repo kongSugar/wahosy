@@ -22,6 +22,7 @@ dependencies {
 
     //Database
     compile 'mysql:mysql-connector-java:5.1.36'
+    compile 'org.mybatis:mybatis:3.3.0'
 
     //PDF
     compile 'com.lowagie:itext:2.1.7'
