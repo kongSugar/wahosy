@@ -12,7 +12,7 @@ public class Sample {
         //!! SENSIBLE DATEN SOLLTEN NIEMALS HARDCODED SEIN!!
         // Daten könnten sonst in GitHub und co landen und für ALLE einsehbar sein!
         Database.configure(args[0], args[1], args[2], args[3], args[4]);
-        Connection db = Database.getInstance();
+        Connection db = Database.getConnection();
 
     }
 }

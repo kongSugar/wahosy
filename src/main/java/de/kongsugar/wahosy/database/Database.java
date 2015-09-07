@@ -1,199 +1,68 @@
 package de.kongsugar.wahosy.database;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.SQLException;
 import java.util.prefs.Preferences;
 
+/**
+ * Created by nikog on 07.09.2015.
+ */
 public class Database {
+    public static void configure(String server, String port, String db, String user, String password) {
 
-    private static final Logger LOGGER = LogManager.getLogger(Database.class.getName());
-    private static Connection conn = null;
-
-    private Database() {
-        try {
-            Preferences prefs = Preferences.userNodeForPackage(this.getClass());
-
-            //if(prefs.nodeExists("url")&&prefs.nodeExists("user")&&prefs.nodeExists("password")){}
-            //else{throw new Exception("Couldn't load preferences");}
-
-            String url = prefs.get("url", null);
-            String user = prefs.get("user", null);
-            String password = prefs.get("password", null);
-
-            conn = DriverManager.getConnection(url,user,password);
-
-            LOGGER.info("Connected to " + conn.getMetaData().getURL());
-        } catch (SQLException e) {
-            System.out.println("Connect nicht moeglich " + e);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void configure(String url, String port, String db, String user, String password) {
-        String jdbcURL = String.format("jdbc:mysql://%s:%s/%s", url, port, db);
-
-        Preferences prefs = Preferences.userNodeForPackage(Database.class);
-        prefs.put("url", jdbcURL);
+        Preferences prefs = Preferences.userNodeForPackage(DatabaseOld.class);
+        prefs.put("server", server);
+        prefs.put("port", port);
+        prefs.put("database", db);
         prefs.put("user", user);
         prefs.put("password", password);
+        //TODO PFUUU - Password wird als Klartext gespeichert :(
     }
 
-    public static Connection getInstance()
-    {
-        if(conn == null)
-            new Database();
-        return conn;
-    }
 
-    public static void printItemList()
-    {
-        conn = getInstance();
+    public static Connection getConnection() {
+        Connection con = null;
+        Preferences prefs = Preferences.userNodeForPackage(Database.class);
 
-        if(conn != null)
-        {
-            Statement query;
-            try {
-                query = conn.createStatement();
+        try {
+            MysqlDataSource ds = new MysqlDataSource();
+            ds.setServerName(prefs.get("server", null));
+            ds.setPort(prefs.getInt("port", -1));
+            ds.setDatabaseName(prefs.get("database", null));
+            ds.setUser(prefs.get("user", null));
+            ds.setPassword(prefs.get("password", null));
 
-                // Ergebnistabelle erzeugen und abholen.
-                String sql = "SELECT * FROM items";
-                ResultSet result = query.executeQuery(sql);
+            // TODO ... setup by Preferences
+            con = ds.getConnection();
 
-                // Ergebnissätze durchfahren.
-                while (result.next()) {
+            // Getting a connection object
+            con = ds.getConnection();
 
-                    int id = result.getInt(1); // Alternativ: result.getString(1);
-                    String name = result.getString(2); // Alternativ: result.getString(2);
-                    String manufacturer = result.getString(3);
-                    System.out.format("%5d%20s%20s", id, name, manufacturer+"\n");
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            // Getting database info
+            DatabaseMetaData meta = con.getMetaData();
+            System.out.println("Server name: "
+                    + meta.getDatabaseProductName());
+            System.out.println("Server version: "
+                    + meta.getDatabaseProductVersion());
+
+            // Closing the connection
+            con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
+        return con;
     }
 
-    /**
-     * Fügt einen neuen Datensatz hinzu
-     */
-    public static void insertName(String name_, String manufacturer_,int quantity_,int weight_,String serialnumber_)
-    {
-        conn = getInstance();
-
-        if(conn != null)
-        {
-            try {
-
-                // Insert-Statement erzeugen (Fragezeichen werden später ersetzt).
-                String sql = "INSERT INTO items(name, manufacturer, quantity, weight, serialnumber) " +
-                        "VALUES(?, ?, ?, ?, ?)";
-                PreparedStatement preparedStatement = conn.prepareStatement(sql);
-                // Erstes Fragezeichen durch "name" Parameter ersetzen
-                preparedStatement.setString(1, name_);
-                // Zweites Fragezeichen durch "manufacturer" Parameter ersetzen
-                preparedStatement.setString(2, manufacturer_);
-                // Drittes Fragezeichen durch "quantity" Parameter ersetzen
-                preparedStatement.setInt(3, quantity_);
-                // Viertes Fragezeichen durch "weight" Parameter ersetzen
-                preparedStatement.setInt(4, weight_);
-                // Fünftes Fragezeichen durch "serialnumber" Parameter ersetzen
-                preparedStatement.setString(5, serialnumber_);
-                // SQL ausführen.
-                preparedStatement.executeUpdate();
-
-                // Es wird der letzte Datensatz abgefragt
-                String lastItem = "SELECT * FROM items ORDER BY id DESC LIMIT 1";
-                ResultSet result = preparedStatement.executeQuery(lastItem);
-
-                // Wenn ein Datensatz gefunden wurde, wird auf diesen zugegriffen
-                if(result.next())
-                {
-                    int id = result.getInt(1); // Alternativ: result.getString(1);
-                    String name = result.getString(2); // Alternativ: result.getString(2);
-                    String manufacturer = result.getString(3);
-                    int quantity = result.getInt(4);
-                    int weight = result.getInt(5);
-                    String serialnumber = result.getString(6);
-                    System.out.format("%5d%20s%20s%10d%10d%10s", id, name, manufacturer, quantity, weight, serialnumber);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    /**
-     * Aktualisiert einen Datensatz
-     */
-    public static void updateItem(int id_, String name_, String manufacturer_,int quantity_,int weight_,String serialnumber_)
-    {
-        conn = getInstance();
-
-        if(conn != null)
-        {
-            try {
-    	  
-    	/*----------------------------------------fehlt noch-----------------------------------------------
-         *
-    	 * "Getmethode" erzeugen die alte werte ausliest und in textfields im programm eintägt,
-    	 * damit man nicht jeden einzelnen eintrag komplett neuschreiben sondern nur anpassen und absenden muss.
-    	 * ------------------------------------------------------------------------------------------------ 
-    	 */
-
-
-                // Update-Statement erzeugen
-                String updateSql = "UPDATE items " +
-                        "SET name = ?, manufacturer = ? , quantity = ?, weight = ?, serialnumber = ?" +
-                        "WHERE id = ?";
-                PreparedStatement preparedUpdateStatement = conn.prepareStatement(updateSql);
-                // Erstes Fragezeichen durch "name" Parameter ersetzen
-                preparedUpdateStatement.setString(1, name_);
-                // Zweites Fragezeichen durch "manufacturer" Parameter ersetzen
-                preparedUpdateStatement.setString(2, manufacturer_);
-                // Drittes Fragezeichen durch "quantity" Parameter ersetzen
-                preparedUpdateStatement.setInt(3, quantity_);
-                // viertes Fragezeichen durch "weight" Parameter ersetzen
-                preparedUpdateStatement.setInt(4, weight_);
-                // Fünftes Fragezeichen durch "serialnumber" Parameter ersetzen
-                preparedUpdateStatement.setString(5, serialnumber_);
-
-                // sechstes Fragezeichen durch "id" Parameter ersetzen
-
-                preparedUpdateStatement.setInt(6, id_);
-                // SQL ausführen
-                preparedUpdateStatement.executeUpdate();
-
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+    private static void log(Object aObject) {
+        System.out.println(aObject);
     }
 
-    public static void deleteItem(int id_)
-    {
-        conn = getInstance();
-
-        if(conn != null)
-        {
-            try {
-
-                // Delete-Statement erzeugen
-                String deleteSql = "DELETE FROM items " +
-                        "WHERE id = ?";
-                PreparedStatement preparedDeleteStatement = conn.prepareStatement(deleteSql);
-                // Erstes Fragezeichen durch "id" Parameter ersetzen
-                preparedDeleteStatement.setInt(1, id_);
-
-                // SQL ausführen
-                preparedDeleteStatement.executeUpdate();
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+    public static void main(String[] args) {
+        Database t = new Database();
+        t.getConnection();
     }
-
 }
