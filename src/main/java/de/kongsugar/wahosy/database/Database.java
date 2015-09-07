@@ -56,13 +56,4 @@ public class Database {
 
         return con;
     }
-
-    private static void log(Object aObject) {
-        System.out.println(aObject);
-    }
-
-    public static void main(String[] args) {
-        Database t = new Database();
-        t.getConnection();
-    }
 }
