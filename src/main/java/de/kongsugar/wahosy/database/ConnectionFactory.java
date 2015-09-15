@@ -11,7 +11,7 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 // TODO google Factory-Pattern
 public class ConnectionFactory {
-	private static final Logger LOGGER = LogManager.getLogger(DatabaseOld.class.getName());
+	private static final Logger LOGGER = LogManager.getLogger(ConnectionFactory.class.getName());
 	private static MysqlDataSource dataSource = null;
 
 	private static ConnectionFactory instance = new ConnectionFactory();
@@ -41,7 +41,7 @@ public class ConnectionFactory {
 
 	public static void configureConnection(String server, String port, String db, String user, String password) {
 
-		Preferences prefs = Preferences.userNodeForPackage(DatabaseOld.class);
+		Preferences prefs = Preferences.userNodeForPackage(ConnectionFactory.class);
 		prefs.put("server", server);
 		prefs.put("port", port);
 		prefs.put("database", db);

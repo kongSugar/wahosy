@@ -2,10 +2,7 @@ package de.kongsugar.wahosy.database;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.jdbc.ScriptRunner;
@@ -23,6 +20,16 @@ public class DbUtil {
 	}
 
 	public static void close(Statement statement) {
+		if (statement != null) {
+			try {
+				statement.close();
+			} catch (SQLException e) {
+				/* log or print or ignore */
+			}
+		}
+	}
+
+	public static void close(PreparedStatement statement) {
 		if (statement != null) {
 			try {
 				statement.close();

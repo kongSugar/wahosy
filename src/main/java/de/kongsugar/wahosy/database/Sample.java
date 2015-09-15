@@ -5,6 +5,9 @@ import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import de.kongsugar.wahosy.dao.ItemDAO;
+import de.kongsugar.wahosy.to.Item;
+
 /**
  * Created by nikog on 04.09.2015.
  */
@@ -20,7 +23,13 @@ public class Sample {
 		Connection db = ConnectionFactory.getConnection();
 		db.close();
 
-		DbUtil.executeSQL("sql/Schema.sql");
+		// DbUtil.executeSQL("sql/Schema.sql");
+
+		ItemDAO i = new ItemDAO();
+		Item it = i.getItem(20);
+		System.out.println(it.getItemID());
+		System.out.println(it.getName());
+		System.out.println(it.getManufacturer());
 
 	}
 }
