@@ -13,21 +13,21 @@ public class ItemDAO {
 
     public static Item getItem(int itemID) throws Exception {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectOne("selectById", itemID);
+            return session.selectOne("Item.selectById", itemID);
         }
     }
 
     public static List<Item> getAllItems() {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("selectAll");
+            return session.selectList("Item.selectAll");
         }
     }
 
     public static Item addItem(Item item) {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            session.insert("insertItem", item);
+            session.insert("Item.insert", item);
             session.commit();
-            item = session.selectOne("selectById", item.getItemID()); //Workaround - also set storeID after Insert
+            item = session.selectOne("Item.selectById", item.getItemID()); //Workaround - also set storeID after Insert
             return item;
         }
     }

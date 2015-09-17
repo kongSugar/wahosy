@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="ItemMapper">
+<mapper namespace="Item">
 
     <resultMap id="resultItem" type="Item">
         <id property="itemID" column="itemID"/>
@@ -27,11 +27,10 @@
         FROM item
     </select>
 
-    <insert id="insertItem" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID" parameterType="Item">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID" parameterType="Item">
         INSERT INTO Item(name,manufacturer,weight,serialnumber,note,categoryID)
         VALUES (#{name},#{manufacturer},#{weight},#{serialNumber},#{note},#{categoryID})
 
     </insert>
-
 
 </mapper>

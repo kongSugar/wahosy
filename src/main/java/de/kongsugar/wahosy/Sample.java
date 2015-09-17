@@ -3,6 +3,7 @@ package de.kongsugar.wahosy;
 import de.kongsugar.wahosy.dao.EventDAO;
 import de.kongsugar.wahosy.dao.ItemDAO;
 import de.kongsugar.wahosy.database.ConnectionFactory;
+import de.kongsugar.wahosy.to.Event;
 import de.kongsugar.wahosy.to.Item;
 
 import java.util.List;
@@ -38,5 +39,14 @@ public class Sample {
 
         System.out.println(EventDAO.getEvent(2));
         System.out.println(ItemDAO.getItem(20));
+
+        for (Event e : EventDAO.getAllEvents()) {
+            System.out.println(e);
+            if (!e.getItems().isEmpty()) {
+                for (Item i : e.getItems()) {
+                    System.out.println("--" + i);
+                }
+            }
+        }
     }
 }

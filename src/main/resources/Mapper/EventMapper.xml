@@ -5,34 +5,43 @@
 
 <mapper namespace="Event">
 
-    <resultMap id="resultEvent" type="Event">
+    <resultMap id="resultEventItems" type="Event">
         <id property="eventID" column="eventID"/>
-        <result property="name" column="blogName"/>
         <result property="till" column="till"/>
         <result property="from" column="from"/>
-        <result property="note" column="note"/>
+        <result property="note" column="eventNote"/>
         <result property="customer" column="customer"/>
         <result property="location" column="location"/>
+        <collection property="items" column="eventID" javaType="ArrayList" ofType="Item">
+            <id property="itemID" column="itemID"/>
+            <result property="note" column="itemNote"/>
+            <result property="name" column="name"/>
+            <result property="manufacturer" column="manufacturer"/>
+            <result property="weight" column="weight"/>
+            <result property="serialnumber" column="serialnumber"/>
+            <result property="categoryID" column="categoryID"/>
+            <result property="storeID" column="storeID"/>
+        </collection>
 
     </resultMap>
 
 
-    <select id="selectAll" resultMap="resultEvent">
+    <select id="selectAll" resultMap="resultEventItems">
         SELECT
-            e.eventID,
+        e.eventID as eventID,
             e.note AS eventNote,
-            e.location,
-            e.customer,
-            e.till,
-            e.from,
-            i.itemID,
-            i.name,
-            i.manufacturer,
-            i.weight,
-            i.serialNumber,
+        e.location as location,
+        e.customer as customer,
+        e.till as till,
+        e.from as 'from',
+        i.itemID as itemID,
+        i.name as name,
+        i.manufacturer as manufacturer,
+        i.weight as weight,
+        i.serialNumber as serialNumber,
             i.note AS itemNote,
-            i.categoryID,
-            i.storeID
+        i.categoryID as categoryID,
+        i.storeID as storeID
         FROM Event e
             LEFT OUTER JOIN event_has_item ehi ON e.eventID = ehi.eventID
             LEFT OUTER JOIN Item i ON ehi.itemID = i.itemID

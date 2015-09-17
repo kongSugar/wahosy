@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 public class DbUtil {
 
+    //TODO Can be used for initializing the database
     public static void executeSQL(String sqlFile) throws IOException, SQLException {
         Reader reader = Resources.getResourceAsReader(sqlFile);
         SqlSession session = de.kongsugar.wahosy.database.ConnectionFactory.getSession().openSession();
