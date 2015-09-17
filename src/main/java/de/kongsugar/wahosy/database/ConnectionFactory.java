@@ -24,8 +24,9 @@ public class ConnectionFactory {
         try {
             props = new Properties();
             props.load(Files.newBufferedReader(Paths.get("data/jdbc.properties")));
-            reader = Resources.getResourceAsReader("sql/configuration.xml");
+            reader = Resources.getResourceAsReader("configuration.xml");
             sqlMapper = new SqlSessionFactoryBuilder().build(reader, props);
+            //sqlMapper.getConfiguration().addMapper(EventDAO.class);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Event">
+
+    <resultMap id="resultEvent" type="Event">
+        <id property="eventID" column="eventID"/>
+        <result property="name" column="blogName"/>
+        <result property="till" column="till"/>
+        <result property="from" column="from"/>
+        <result property="note" column="note"/>
+        <result property="customer" column="customer"/>
+        <result property="location" column="location"/>
+
+    </resultMap>
+
+
+    <select id="getAllEvents" resultMap="resultEvent">
+        SELECT
+            e.eventID,
+            e.note AS eventNote,
+            e.location,
+            e.customer,
+            e.till,
+            e.from,
+            i.itemID,
+            i.name,
+            i.manufacturer,
+            i.weight,
+            i.serialNumber,
+            i.note AS itemNote,
+            i.categoryID,
+            i.storeID
+        FROM Event e
+            LEFT OUTER JOIN event_has_item ehi ON e.eventID = ehi.eventID
+            LEFT OUTER JOIN Item i ON ehi.itemID = i.itemID
+    </select>
+
+    <select id="getEventByID" resultType="de.kongsugar.wahosy.to.Event">
+        SELECT *
+        FROM Event
+        WHERE eventID = #{id}
+    </select>
+
+</mapper>

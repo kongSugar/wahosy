@@ -2,6 +2,14 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <typeAliases>
+        <typeAlias type="de.kongsugar.wahosy.to.Box" alias="Box"/>
+        <typeAlias type="de.kongsugar.wahosy.to.Category" alias="Category"/>
+        <typeAlias type="de.kongsugar.wahosy.to.Event" alias="Event"/>
+        <typeAlias type="de.kongsugar.wahosy.to.Item" alias="Item"/>
+
+    </typeAliases>
+
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -13,7 +21,11 @@
             </dataSource>
         </environment>
     </environments>
+
     <mappers>
-        <mapper resource="sql/ItemMapper.xml"/>
+        <mapper class="de.kongsugar.wahosy.dao.BoxDAO"></mapper>
+        <mapper class="de.kongsugar.wahosy.dao.CategoryDAO"></mapper>
+        <mapper resource="Mapper/EventMapper.xml"></mapper>
+        <mapper resource="Mapper/ItemMapper.xml"></mapper>
     </mappers>
 </configuration>

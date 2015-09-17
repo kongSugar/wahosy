@@ -1,14 +1,19 @@
 package de.kongsugar.wahosy.dao;
 
+import de.kongsugar.wahosy.database.ConnectionFactory;
 import de.kongsugar.wahosy.to.Item;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.session.SqlSession;
 
 /**
- * Created by nikog on 17.09.2015.
+ * Created by nikog on 07.09.2015.
  */
-public interface ItemDAO {
-    String  GET_ITEM_BY_ID = "select * from item where itemID = #{itemID}";
+public class ItemDAO {
 
-    @Select(GET_ITEM_BY_ID)
-    public Item getItem(int itemID) throws Exception;
+    public static Item getItem(int itemID) throws Exception {
+        SqlSession session = ConnectionFactory.getSession().openSession();
+        Item item = session.selectOne("getItemByID", itemID);
+        session.close();
+        return item;
+    }
+
 }

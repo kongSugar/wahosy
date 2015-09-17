@@ -1,6 +1,8 @@
 package de.kongsugar.wahosy.database;
 
-import de.kongsugar.wahosy.dao.ItemBO;
+import de.kongsugar.wahosy.dao.EventDAO;
+import de.kongsugar.wahosy.dao.ItemDAO;
+import de.kongsugar.wahosy.to.Event;
 import de.kongsugar.wahosy.to.Item;
 
 /**
@@ -16,15 +18,28 @@ public class Sample {
 
 		ConnectionFactory.setProperties(args[0], args[1], args[2], args[3], args[4]);
 
-		// DbUtil.executeSQL("sql/Schema.sql");
+		// DbUtil.executeSQL("Schema.sql");
 
-		ItemBO i = new ItemBO();
-
-		Item it = ItemBO.getItem(20);
+		ItemDAO i = new ItemDAO();
+		Item it = ItemDAO.getItem(20);
 
 		System.out.println(it.getItemID());
 		System.out.println(it.getName());
 		System.out.println(it.getManufacturer());
+
+		for (Event e : EventDAO.getAllEvents()) {
+			System.out.println(e.getNote());
+			System.out.println(e.getEventID());
+			System.out.println(e.getLocation());
+			System.out.println(e.getFrom());
+			System.out.println(e.getTill());
+			if (e.getItems() != null)
+				for (Item ii : e.getItems()) {
+					System.out.println("--" + ii.getItemID());
+					System.out.println("--" + ii.getName());
+					System.out.println("--" + ii.getNote());
+				}
+		}
 
 	}
 }
