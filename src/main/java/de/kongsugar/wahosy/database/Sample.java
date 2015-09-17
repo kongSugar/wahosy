@@ -1,9 +1,7 @@
-package de.kongsugar.wahosy.databaseJDBCWay;
+package de.kongsugar.wahosy.database;
 
 import de.kongsugar.wahosy.dao.ItemBO;
 import de.kongsugar.wahosy.to.Item;
-
-import java.sql.Connection;
 
 /**
  * Created by nikog on 04.09.2015.
@@ -15,11 +13,8 @@ public class Sample {
 		// !! SENSIBLE DATEN SOLLTEN NIEMALS HARDCODED SEIN!!
 		// Daten könnten sonst in GitHub und co landen und für ALLE einsehbar
 		// sein!
-		//ConnectionFactory.configureConnection(args[0], args[1], args[2], args[3], args[4]);
-		DbUtil.setProperties(args[0], args[1], args[2], args[3], args[4]);
 
-		Connection db = ConnectionFactory.getConnection();
-		db.close();
+		ConnectionFactory.setProperties(args[0], args[1], args[2], args[3], args[4]);
 
 		// DbUtil.executeSQL("sql/Schema.sql");
 

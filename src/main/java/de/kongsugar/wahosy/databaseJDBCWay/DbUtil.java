@@ -96,5 +96,6 @@ public class DbUtil {
         runner.runScript(reader);
         conn.commit();
         reader.close();
+        conn.close();
     }
 }
