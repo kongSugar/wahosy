@@ -9,7 +9,7 @@ public class Box {
     private int boxID;
     private String name;
     private String note;
-    private List<Item> box_has_item; // TODO ??! Mybatis?
+    private List<Item> box_has_item; // TODO -
 
     public int getBoxID() {
         return boxID;

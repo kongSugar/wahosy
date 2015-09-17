@@ -11,7 +11,7 @@
         <result property="name" column="name"/>
         <result property="manufacturer" column="manufacturer"/>
         <result property="weight" column="weight"/>
-        <result property="serialnumber" column="serialnumber"/>
+        <result property="serialNumber" column="serialNumber"/>
         <result property="categoryID" column="categoryID"/>
         <result property="storeID" column="storeID"/>
     </resultMap>

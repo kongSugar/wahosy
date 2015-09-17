@@ -26,7 +26,6 @@ public class ConnectionFactory {
             props.load(Files.newBufferedReader(Paths.get("data/jdbc.properties")));
             reader = Resources.getResourceAsReader("configuration.xml");
             sqlMapper = new SqlSessionFactoryBuilder().build(reader, props);
-            //sqlMapper.getConfiguration().addMapper(EventDAO.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -59,7 +58,6 @@ public class ConnectionFactory {
             prop.setProperty("database.username", user);
             prop.setProperty("database.password", password);
 
-            // TODO - Mybatis Integration
             BufferedWriter bw = Files.newBufferedWriter(p, StandardCharsets.ISO_8859_1, StandardOpenOption.CREATE);
             prop.store(bw, null);
         } catch (IOException e) {

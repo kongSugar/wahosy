@@ -1,4 +1,3 @@
--- TODO DB erstellen & auswählen
 -- CREATE DATABASE IF NOT EXISTS `showfactory` /*!40100 DEFAULT CHARACTER SET utf8 */;
 -- USE `showfactory`;
 
@@ -23,8 +22,6 @@
 --
 -- Table structure for table `...`
 --
-
--- TODO RUN SCRIPT
 
 DROP TABLE IF EXISTS `...`;
 /*!40101 SET @saved_cs_client = @@character_set_client */;
