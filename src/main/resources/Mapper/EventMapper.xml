@@ -51,4 +51,19 @@
         WHERE eventID = #{id}
     </select>
 
+    <update id="update">
+        UPDATE Event SET
+        note=#{note},
+        location=#{location},
+        customer=#{customer},
+        till=#{till},
+        from=#{from}
+        WHERE eventID= #{eventID}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM Event
+        WHERE eventID = #{eventID}
+    </delete>
+
 </mapper>

@@ -5,4 +5,17 @@
 
 <mapper namespace="Category">
 
+
+        <update id="update">
+                UPDATE Category
+                SET
+                        name         = #{name},
+                        abbreviation = #{abbreviation}
+                WHERE categoryID = #{categoryID}
+        </update>
+
+        <delete id="delete">
+                DELETE FROM Category
+                WHERE categoryID = #{categoryID}
+        </delete>
 </mapper>
