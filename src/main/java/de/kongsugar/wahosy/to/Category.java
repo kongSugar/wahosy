@@ -40,4 +40,14 @@ public class Category {
     public void setLastID(int lastID) {
         this.lastID = lastID;
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "categoryID=" + categoryID +
+                ", name='" + name + '\'' +
+                ", abbreviation='" + abbreviation + '\'' +
+                ", lastID=" + lastID +
+                '}';
+    }
 }

@@ -16,11 +16,22 @@
         <result property="storeID" column="storeID"/>
     </resultMap>
 
-
-    <select id="getItemByID" resultType="de.kongsugar.wahosy.to.Item">
+    <select id="selectById" resultType="de.kongsugar.wahosy.to.Item">
         SELECT *
         FROM item
         WHERE itemID = #{itemID}
     </select>
+
+    <select id="selectAll" resultType="de.kongsugar.wahosy.to.Item">
+        SELECT *
+        FROM item
+    </select>
+
+    <insert id="insertItem" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID" parameterType="Item">
+        INSERT INTO Item(name,manufacturer,weight,serialnumber,note,categoryID)
+        VALUES (#{name},#{manufacturer},#{weight},#{serialNumber},#{note},#{categoryID})
+
+    </insert>
+
 
 </mapper>

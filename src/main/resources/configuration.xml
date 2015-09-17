@@ -23,8 +23,8 @@
     </environments>
 
     <mappers>
-        <mapper class="de.kongsugar.wahosy.dao.BoxDAO"></mapper>
-        <mapper class="de.kongsugar.wahosy.dao.CategoryDAO"></mapper>
+        <mapper resource="Mapper/BoxMapper.xml"></mapper>
+        <mapper resource="Mapper/CategoryMapper.xml"></mapper>
         <mapper resource="Mapper/EventMapper.xml"></mapper>
         <mapper resource="Mapper/ItemMapper.xml"></mapper>
     </mappers>

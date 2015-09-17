@@ -14,14 +14,15 @@ public class EventDAO {
     public static List<Event> getAllEvents() throws Exception {
         SqlSession session = ConnectionFactory.getSession().openSession();
         //EventDAO dao = session.getMapper(EventDAO.class);
-        List<Event> events = session.selectList("getAllEvents");  //dao.getAllEvents();
+        //dao.getAllEvents();
+        List<Event> events = session.selectList("selectAll");
         session.close();
         return events;
     }
 
     public static Event getEvent(int eventID) {
         SqlSession session = ConnectionFactory.getSession().openSession();
-        Event event = session.selectOne("getEventByID", eventID);
+        Event event = session.selectOne("selectById", eventID);
         session.close();
         return event;
 

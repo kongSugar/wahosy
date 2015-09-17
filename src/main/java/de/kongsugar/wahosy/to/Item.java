@@ -17,10 +17,6 @@ public class Item {
 		return itemID;
 	}
 
-	public void setItemID(int itemID) {
-		this.itemID = itemID;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -73,7 +69,17 @@ public class Item {
 		return storeID;
 	}
 
-	public void setStoreID(String storeID) {
-		this.storeID = storeID;
+	@Override
+	public String toString() {
+		return "Item{" +
+				"itemID=" + itemID +
+				", name='" + name + '\'' +
+				", manufacturer='" + manufacturer + '\'' +
+				", weight=" + weight +
+				", serialNumber='" + serialNumber + '\'' +
+				", note='" + note + '\'' +
+				", categoryID=" + categoryID +
+				", storeID='" + storeID + '\'' +
+				'}';
 	}
 }

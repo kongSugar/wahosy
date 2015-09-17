@@ -14,6 +14,15 @@ public class Event {
     private Timestamp from;
     private Timestamp till;
     private List<Item> items;
+    private List<Box> boxes;
+
+    public List<Box> getBoxes() {
+        return boxes;
+    }
+
+    public void setBoxes(List<Box> boxes) {
+        this.boxes = boxes;
+    }
 
     public List<Item> getItems() {
         return items;
@@ -69,5 +78,19 @@ public class Event {
 
     public void setTill(Timestamp till) {
         this.till = till;
+    }
+
+    @Override
+    public String toString() {
+        return "Event{" +
+                "eventID=" + eventID +
+                ", note='" + note + '\'' +
+                ", location='" + location + '\'' +
+                ", customer='" + customer + '\'' +
+                ", from=" + from +
+                ", till=" + till +
+                ", items=" + items +
+                ", boxes=" + boxes +
+                '}';
     }
 }

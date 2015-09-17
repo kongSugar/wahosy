@@ -17,7 +17,7 @@
     </resultMap>
 
 
-    <select id="getAllEvents" resultMap="resultEvent">
+    <select id="selectAll" resultMap="resultEvent">
         SELECT
             e.eventID,
             e.note AS eventNote,
@@ -38,7 +38,7 @@
             LEFT OUTER JOIN Item i ON ehi.itemID = i.itemID
     </select>
 
-    <select id="getEventByID" resultType="de.kongsugar.wahosy.to.Event">
+    <select id="selectById" resultType="de.kongsugar.wahosy.to.Event">
         SELECT *
         FROM Event
         WHERE eventID = #{id}

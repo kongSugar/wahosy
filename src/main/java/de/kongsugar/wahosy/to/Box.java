@@ -34,4 +34,14 @@ public class Box {
     public void setNote(String note) {
         this.note = note;
     }
+
+    @Override
+    public String toString() {
+        return "Box{" +
+                "boxID=" + boxID +
+                ", name='" + name + '\'' +
+                ", note='" + note + '\'' +
+                ", box_has_item=" + box_has_item +
+                '}';
+    }
 }
