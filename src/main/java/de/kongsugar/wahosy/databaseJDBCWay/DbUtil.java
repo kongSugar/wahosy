@@ -1,4 +1,4 @@
-package de.kongsugar.wahosy.database;
+package de.kongsugar.wahosy.databaseJDBCWay;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.jdbc.ScriptRunner;
@@ -16,7 +16,16 @@ import java.util.Properties;
 
 public class DbUtil {
 
-    public static void setupProperties(String server, String port, String db, String user, String password) {
+    /**
+     * Sets parameters in data/jdbc.properties required for connection to the database
+     *
+     * @param server
+     * @param port
+     * @param db
+     * @param user
+     * @param password
+     */
+    public static void setProperties(String server, String port, String db, String user, String password) {
         try {
             Path p = Paths.get("data/jdbc.properties");
             Files.createDirectories(p.getParent());
@@ -36,7 +45,6 @@ public class DbUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public static void close(Connection connection) {
