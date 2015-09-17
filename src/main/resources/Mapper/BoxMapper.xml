@@ -6,15 +6,17 @@
 <mapper namespace="Box">
 
 
-        <update id="update">
-                UPDATE Box SET
-                name=#{name},
-                note=#{note}
-                WHERE boxID= #{boxID}
-        </update>
+    <update id="update">
+        UPDATE Box
+        SET
+            name = #{name},
+            note = #{note}
+        WHERE boxID = #{boxID}
+    </update>
 
-        <delete id="delete">
-                DELETE FROM Box WHERE boxID= #{boxID}
-        </delete>
+    <delete id="delete">
+        DELETE FROM Box
+        WHERE boxID = #{boxID}
+    </delete>
 
 </mapper>

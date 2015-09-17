@@ -59,6 +59,7 @@
         till=#{till},
         from=#{from}
         WHERE eventID= #{eventID}
+
     </update>
 
     <delete id="delete">
