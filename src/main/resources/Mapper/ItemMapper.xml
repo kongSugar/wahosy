@@ -33,4 +33,20 @@
 
     </insert>
 
+    <update id="update">
+        UPDATE Item SET
+        name=#{name},
+        manufacturer = #{manufacturer},
+        weight = #{weight},
+        serialNumber = #{serialNumber},
+        note = #{note},
+        categoryID = #{categoryID}
+        WHERE itemID = #{itemID}
+
+    </update>
+
+    <delete id="delete">
+        DELETE FROM Item WHERE itemID= #{itemID}
+    </delete>
+
 </mapper>

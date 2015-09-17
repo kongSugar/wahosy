@@ -32,4 +32,19 @@ public class ItemDAO {
         }
     }
 
+    public static void delete(int itemID) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            session.delete("Item.delete", itemID);
+            session.commit();
+        }
+    }
+
+    public static Item update(Item item) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            session.update("update", item);
+            session.commit();
+            return item;
+        }
+    }
+
 }
