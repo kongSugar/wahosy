@@ -35,6 +35,7 @@ public class ConnectionFactory {
         return sqlMapper;
     }
 
+    //TODO rebuild SqlSessionFactory nach Änderungen an den Settings!
     /**
      * Sets parameters in data/jdbc.properties required for connection to the database
      *
