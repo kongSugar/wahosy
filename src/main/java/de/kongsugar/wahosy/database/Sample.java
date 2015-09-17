@@ -1,12 +1,12 @@
 package de.kongsugar.wahosy.database;
 
+import de.kongsugar.wahosy.dao.ItemDAO;
+import de.kongsugar.wahosy.to.Item;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.SQLException;
-
-import de.kongsugar.wahosy.dao.ItemDAO;
-import de.kongsugar.wahosy.to.Item;
 
 /**
  * Created by nikog on 04.09.2015.
@@ -19,6 +19,7 @@ public class Sample {
 		// Daten könnten sonst in GitHub und co landen und für ALLE einsehbar
 		// sein!
 		ConnectionFactory.configureConnection(args[0], args[1], args[2], args[3], args[4]);
+		DbUtil.setupProperties(args[0], args[1], args[2], args[3], args[4]);
 
 		Connection db = ConnectionFactory.getConnection();
 		db.close();

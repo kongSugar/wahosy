@@ -1,20 +1,19 @@
 package de.kongsugar.wahosy.dao;
 
+import de.kongsugar.wahosy.database.ConnectionFactory;
+import de.kongsugar.wahosy.database.DbUtil;
+import de.kongsugar.wahosy.to.Item;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import de.kongsugar.wahosy.database.ConnectionFactory;
-import de.kongsugar.wahosy.database.DbUtil;
-import de.kongsugar.wahosy.to.Item;
-
 /**
  * Created by nikog on 07.09.2015.
  */
 public class ItemDAO {
-	// TODO
-	// http://theopentutorials.com/tutorials/java/jdbc/jdbc-examples-introduction/#Design_Patterns_Used
+	// TODO http://theopentutorials.com/tutorials/java/jdbc/jdbc-examples-introduction/#Design_Patterns_Used
 	Connection connection;
 	private PreparedStatement stmt;
 
@@ -48,6 +47,12 @@ public class ItemDAO {
 			DbUtil.close(rs);
 			DbUtil.close(stmt);
 		}
+		return item;
+	}
+
+	public Item getItemWithMybatis(int itemID){
+		Item item = null;
+
 		return item;
 	}
 
