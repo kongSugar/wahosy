@@ -34,6 +34,16 @@
         LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
     </select>
 
+    <select id="selectByCategory" resultType="de.kongsugar.wahosy.to.Item">
+        SELECT *
+        FROM Item
+        WHERE categoryID = #{id}
+    </select>
+
+    <select id="selectAllNotBoxed" resultType="de.kongsugar.wahosy.to.Item">
+        <!-- TODO Select statement -->
+    </select>
+
     <insert id="insert" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID" parameterType="Item">
         INSERT INTO Item (name, manufacturer, weight, serialnumber, note, categoryID)
         VALUES (#{name}, #{manufacturer}, #{weight}, #{serialNumber}, #{note}, #{categoryID})

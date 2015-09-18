@@ -1,10 +1,12 @@
 package de.kongsugar.wahosy;
 
 import de.kongsugar.wahosy.dao.BoxDAO;
+import de.kongsugar.wahosy.dao.CategoryDAO;
 import de.kongsugar.wahosy.dao.EventDAO;
 import de.kongsugar.wahosy.dao.ItemDAO;
 import de.kongsugar.wahosy.database.ConnectionFactory;
 import de.kongsugar.wahosy.to.Box;
+import de.kongsugar.wahosy.to.Category;
 import de.kongsugar.wahosy.to.Event;
 import de.kongsugar.wahosy.to.Item;
 
@@ -70,7 +72,6 @@ public class Sample {
             }
         }
 
-        // Boxen
         for (Box b : BoxDAO.getAllBoxes()) {
             System.out.println(b);
             if (!b.getItems().isEmpty()) {
@@ -80,6 +81,13 @@ public class Sample {
             }
         }
 
-        System.out.println(BoxDAO.getBox(1));
+        System.out.println("Box 1 =" + BoxDAO.getBox(1));
+
+        System.out.println("Category 3 = " + CategoryDAO.getCategory(3));
+        for (Category c : CategoryDAO.getAllCategories()) {
+            System.out.println("--categories: " + c);
+        }
+
+        System.out.println("Item by Category =" + ItemDAO.getByCategory(1));
     }
 }

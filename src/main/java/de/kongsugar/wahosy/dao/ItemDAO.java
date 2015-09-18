@@ -1,6 +1,7 @@
 package de.kongsugar.wahosy.dao;
 
 import de.kongsugar.wahosy.database.ConnectionFactory;
+import de.kongsugar.wahosy.to.Category;
 import de.kongsugar.wahosy.to.Item;
 import org.apache.ibatis.session.SqlSession;
 
@@ -50,6 +51,18 @@ public class ItemDAO {
             session.update("update", item);
             session.commit();
             return item;
+        }
+    }
+
+    public static List<Item> getByCategory(int categoryID) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            return session.selectList("selectByCategory", categoryID);
+        }
+    }
+
+    public static List<Item> getByCategory(Category category) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            return session.selectList("selectByCategory", category.getCategoryID());
         }
     }
 
