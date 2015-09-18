@@ -23,6 +23,12 @@ public class ItemDAO {
         }
     }
 
+    public static List<Item> getAllBoxed() {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            return session.selectList("selectAllBoxed");
+        }
+    }
+
     public static Item addItem(Item item) {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
             session.insert("Item.insert", item);

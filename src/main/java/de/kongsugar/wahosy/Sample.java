@@ -1,8 +1,10 @@
 package de.kongsugar.wahosy;
 
+import de.kongsugar.wahosy.dao.BoxDAO;
 import de.kongsugar.wahosy.dao.EventDAO;
 import de.kongsugar.wahosy.dao.ItemDAO;
 import de.kongsugar.wahosy.database.ConnectionFactory;
+import de.kongsugar.wahosy.to.Box;
 import de.kongsugar.wahosy.to.Event;
 import de.kongsugar.wahosy.to.Item;
 
@@ -39,6 +41,11 @@ public class Sample {
         // Einfügen des Gegenstandes in die Datenbank
         System.out.println(ItemDAO.addItem(item));
 
+        // Select all items within boxes
+        for (Item i : ItemDAO.getAllBoxed()) {
+            System.out.println("boxes: " + i);
+        }
+
         // Abfrage aller Items als Liste
         long t = System.currentTimeMillis();
         List<Item> list = ItemDAO.getAllItems();
@@ -62,5 +69,17 @@ public class Sample {
                 }
             }
         }
+
+        // Boxen
+        for (Box b : BoxDAO.getAllBoxes()) {
+            System.out.println(b);
+            if (!b.getItems().isEmpty()) {
+                for (Item i : b.getItems()) {
+                    System.out.println("--" + i);
+                }
+            }
+        }
+
+        System.out.println(BoxDAO.getBox(1));
     }
 }

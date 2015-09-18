@@ -9,7 +9,15 @@ public class Box {
     private int boxID;
     private String name;
     private String note;
-    private List<Item> box_has_item; // TODO -
+    private List<Item> items;
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
 
     public int getBoxID() {
         return boxID;
@@ -41,7 +49,7 @@ public class Box {
                 "boxID=" + boxID +
                 ", name='" + name + '\'' +
                 ", note='" + note + '\'' +
-                ", box_has_item=" + box_has_item +
+                ", items=" + items +
                 '}';
     }
 }

@@ -26,39 +26,34 @@
 
     <select id="selectAll" resultMap="resultEventItems">
         SELECT
-        e.eventID as eventID,
+        *,
             e.note AS eventNote,
-        e.location as location,
-        e.customer as customer,
-        e.till as till,
-        e.from as 'from',
-        i.itemID as itemID,
-        i.name as name,
-        i.manufacturer as manufacturer,
-        i.weight as weight,
-        i.serialNumber as serialNumber,
-            i.note AS itemNote,
-        i.categoryID as categoryID,
-        i.storeID as storeID
+        i.note AS itemNote
         FROM Event e
             LEFT OUTER JOIN event_has_item ehi ON e.eventID = ehi.eventID
             LEFT OUTER JOIN Item i ON ehi.itemID = i.itemID
     </select>
 
-    <select id="selectById" resultType="de.kongsugar.wahosy.to.Event">
-        SELECT *
-        FROM Event
-        WHERE eventID = #{id}
+    <select id="selectById" resultMap="resultEventItems">
+        SELECT
+        *,
+        e.note AS eventNote,
+        i.note AS itemNote
+        FROM Event e
+        LEFT OUTER JOIN event_has_item ehi ON e.eventID = ehi.eventID
+        LEFT OUTER JOIN Item i ON ehi.itemID = i.itemID
+        WHERE e.eventID = #{id}
     </select>
 
     <update id="update">
-        UPDATE Event SET
-        note=#{note},
-        location=#{location},
-        customer=#{customer},
-        till=#{till},
-        from=#{from}
-        WHERE eventID= #{eventID}
+        UPDATE Event
+        SET
+        note = #{note},
+        location = #{location},
+        customer = #{customer},
+        till = #{till},
+        from = #{from}
+        WHERE eventID = #{eventID}
 
     </update>
 

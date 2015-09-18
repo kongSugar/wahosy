@@ -27,15 +27,23 @@
         FROM item
     </select>
 
+    <select id="selectAllBoxed" resultType="de.kongsugar.wahosy.to.Item">
+        SELECT i.*
+        FROM Box b
+        LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
+        LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
+    </select>
+
     <insert id="insert" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID" parameterType="Item">
-        INSERT INTO Item(name,manufacturer,weight,serialnumber,note,categoryID)
-        VALUES (#{name},#{manufacturer},#{weight},#{serialNumber},#{note},#{categoryID})
+        INSERT INTO Item (name, manufacturer, weight, serialnumber, note, categoryID)
+        VALUES (#{name}, #{manufacturer}, #{weight}, #{serialNumber}, #{note}, #{categoryID})
 
     </insert>
 
     <update id="update">
-        UPDATE Item SET
-        name=#{name},
+        UPDATE Item
+        SET
+        name = #{name},
         manufacturer = #{manufacturer},
         weight = #{weight},
         serialNumber = #{serialNumber},
@@ -46,7 +54,8 @@
     </update>
 
     <delete id="delete">
-        DELETE FROM Item WHERE itemID= #{itemID}
+        DELETE FROM Item
+        WHERE itemID = #{itemID}
     </delete>
 
 </mapper>

@@ -4,7 +4,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Box">
+    <resultMap id="resultBoxMap" type="Box">
+        <id property="boxID" column="boxID"/>
+        <result property="name" column="name"/>
+        <result property="note" column="boxNote"/>
+        <collection property="items" column="boxID" javaType="ArrayList" ofType="Item">
+            <id property="itemID" column="itemID"/>
+            <result property="note" column="itemNote"/>
+            <result property="name" column="name"/>
+            <result property="manufacturer" column="manufacturer"/>
+            <result property="weight" column="weight"/>
+            <result property="serialNumber" column="serialNumber"/>
+            <result property="categoryID" column="categoryID"/>
+            <result property="storeID" column="storeID"/>
+        </collection>
+    </resultMap>
 
+    <select id="selectAll" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.to.Box">
+        SELECT *, b.note as boxNote, i.note as itemNote
+        FROM Box b
+        LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
+        LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
+    </select>
+
+    <select id="selectById" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.to.Box">
+        SELECT *, b.note as boxNote, i.note as itemNote
+        FROM Box b
+        LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
+        LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
+        WHERE b.boxID = #{boxID}
+    </select>
 
     <update id="update">
         UPDATE Box
