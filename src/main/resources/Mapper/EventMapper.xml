@@ -24,7 +24,35 @@
         </collection>
     </resultMap>
 
-    <select id="selectAll" resultMap="resultEventItems">
+    <resultMap id="resultEvent" type="Event">
+        <id property="eventID" column="eventID"/>
+        <result property="till" column="till"/>
+        <result property="from" column="from"/>
+        <result property="note" column="eventNote"/>
+        <result property="customer" column="customer"/>
+        <result property="location" column="location"/>
+        <collection property="items" column="eventID" javaType="ArrayList" ofType="Item">
+            <id property="itemID" column="itemID"/>
+        </collection>
+        <collection property="boxes" column="eventID" javaType="ArrayList" ofType="Box">
+            <id property="boxID" column="boxID"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectById" resultMap="resultEvent">
+        SELECT e.*, i.itemID, b.boxID
+        FROM Event e, event_has_item i, event_has_box b
+        WHERE e.eventID = #{eventID} AND i.eventID = #{eventID} AND b.eventID = #{eventID}
+    </select>
+
+    <select id="selectAll" resultMap="resultEvent">
+        SELECT e.*, i.itemID, b.boxID
+        FROM event_has_box b right outer join Event e on b.eventID = e.eventID
+        left outer join event_has_item i on e.eventID = i.eventID
+    </select>
+
+
+    <select id="selectAllUncompleteAndComplicated" resultMap="resultEventItems">
         SELECT
         *,
             e.note AS eventNote,
@@ -34,7 +62,7 @@
             LEFT OUTER JOIN Item i ON ehi.itemID = i.itemID
     </select>
 
-    <select id="selectById" resultMap="resultEventItems">
+    <select id="selectByIdUncompleteAndComplicated" resultMap="resultEventItems">
         SELECT
         *,
         e.note AS eventNote,
@@ -43,6 +71,23 @@
         LEFT OUTER JOIN event_has_item ehi ON e.eventID = ehi.eventID
         LEFT OUTER JOIN Item i ON ehi.itemID = i.itemID
         WHERE e.eventID = #{id}
+    </select>
+
+    <select id="selectByDate" resultMap="resultEvent">
+        SELECT e.*, i.itemID, b.boxID
+        FROM event_has_box b right outer join Event e on b.eventID = e.eventID
+        left outer join event_has_item i on e.eventID = i.eventID
+        <choose>
+            <when test="from != null and till != null">
+                WHERE e.from >= #{from} AND #{till} >= e.till
+            </when>
+            <when test="from != null">
+                WHERE e.from >= #{from}
+            </when>
+            <when test="till != null">
+                WHERE #{till} >= e.till
+            </when>
+        </choose>
     </select>
 
     <update id="update">

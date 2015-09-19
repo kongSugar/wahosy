@@ -1,6 +1,7 @@
 package de.kongsugar.wahosy.to;
 
 import java.sql.Timestamp;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,71 +14,79 @@ public class Event {
     private String customer;
     private Timestamp from;
     private Timestamp till;
-    private List<Item> items;
-    private List<Box> boxes;
+    private List<Item> items = new LinkedList<>();
+    private List<Box> boxes = new LinkedList<>();
 
     public List<Box> getBoxes() {
         return boxes;
     }
 
-    public void setBoxes(List<Box> boxes) {
+    public Event setBoxes(List<Box> boxes) {
         this.boxes = boxes;
+        return this;
     }
 
     public List<Item> getItems() {
         return items;
     }
 
-    public void setItems(List<Item> items) {
+    public Event setItems(List<Item> items) {
         this.items = items;
+        return this;
     }
 
     public int getEventID() {
         return eventID;
     }
 
-    public void setEventID(int eventID) {
+    public Event setEventID(int eventID) {
         this.eventID = eventID;
+        return this;
     }
 
     public String getNote() {
         return note;
     }
 
-    public void setNote(String note) {
+    public Event setNote(String note) {
         this.note = note;
+        return this;
     }
 
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public Event setLocation(String location) {
         this.location = location;
+        return this;
     }
 
     public String getCustomer() {
         return customer;
     }
 
-    public void setCustomer(String customer) {
+    public Event setCustomer(String customer) {
         this.customer = customer;
+        return this;
     }
 
     public Timestamp getFrom() {
         return from;
     }
 
-    public void setFrom(Timestamp from) {
+    public Event setFrom(Timestamp from) {
         this.from = from;
+        return this;
     }
 
     public Timestamp getTill() {
         return till;
     }
 
-    public void setTill(Timestamp till) {
+    public Event setTill(Timestamp till) {
         this.till = till;
+        return this;
     }
 
     @Override

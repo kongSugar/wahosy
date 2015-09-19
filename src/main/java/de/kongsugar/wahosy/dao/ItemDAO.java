@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ItemDAO {
 
-    public static Item getItem(int itemID) throws Exception {
+    public static Item getItem(int itemID) {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
             return session.selectOne("Item.selectById", itemID);
         }

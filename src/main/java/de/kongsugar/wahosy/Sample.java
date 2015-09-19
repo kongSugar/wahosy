@@ -1,10 +1,15 @@
 package de.kongsugar.wahosy;
 
 import de.kongsugar.wahosy.dao.BoxDAO;
+import de.kongsugar.wahosy.dao.EventDAO;
 import de.kongsugar.wahosy.dao.ItemDAO;
 import de.kongsugar.wahosy.database.ConnectionFactory;
+import de.kongsugar.wahosy.to.Box;
+import de.kongsugar.wahosy.to.Event;
 import de.kongsugar.wahosy.to.Item;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Random;
 
 /**
@@ -24,6 +29,7 @@ public class Sample {
         //setProperties(String server, String port, String db, String user, String password)
         ConnectionFactory.setProperties(args[0], args[1], args[2], args[3], args[4]);
 
+        long t;
         // Unfertig - so könnte eine SQL-Datei ausgeführt werden -> laden des schemas
         // DbUtil.executeSQL("Schema.sql");
 
@@ -46,6 +52,30 @@ public class Sample {
 
         System.out.println(BoxDAO.getBoxByItem(98));
 
+        t = System.currentTimeMillis();
+        System.out.println(EventDAO.getEvent(1));
+        System.out.println("query event took " + (System.currentTimeMillis() - t));
+
+        if (EventDAO.getEvent(2).getItems() != null)
+            for (Item i : EventDAO.getEvent(2).getItems()) {
+                System.out.println("--items=" + i);
+            }
+
+        if (EventDAO.getEvent(2).getBoxes() != null)
+            for (Box b : EventDAO.getEvent(2).getBoxes()) {
+                System.out.println("--boxes=" + b);
+            }
+
+        for (Event e : EventDAO.getAllEvents()) {
+            System.out.println(e);
+        }
+
+        for (Event e : EventDAO.getByDate(Timestamp.valueOf("2015-12-20 12:00:00"), Timestamp.valueOf("2016-12-20 12:00:00"))) {
+            System.out.println("byDate=" + e);
+        }
+
+        System.out.println(EventDAO.getFrom(Timestamp.from(Instant.now())));
+        System.out.println(EventDAO.getTill(Timestamp.from(Instant.now())));
     }
 
     public static String generateString(Random rng, String characters, int length) {
