@@ -30,7 +30,7 @@ public class ItemDAO {
         }
     }
 
-    public static Item addItem(Item item) {
+    public static Item insertItem(Item item) {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
             session.insert("Item.insert", item);
             session.commit();

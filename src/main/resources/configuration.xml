@@ -18,6 +18,8 @@
                 <property name="url" value="${database.url}"/>
                 <property name="username" value="${database.username}"/>
                 <property name="password" value="${database.password}"/>
+                <property name="poolMaximumActiveConnections" value="25"/>
+
             </dataSource>
         </environment>
     </environments>

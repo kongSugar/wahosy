@@ -21,14 +21,15 @@ dependencies {
     compile 'org.apache.logging.log4j:log4j-core:2.3'
 
     //Database
-    compile 'mysql:mysql-connector-java:5.1.36'
-    compile 'org.mybatis:mybatis:3.3.0'
+    compile 'mysql:mysql-connector-java:5.1.36' //GPL 2
+    compile 'org.mybatis:mybatis:3.3.0' //APL 2.0
 
     //PDF
-    compile 'com.lowagie:itext:2.1.7'
+    compile 'com.lowagie:itext:2.1.7' // MPL 1.1
+    compile 'org.xhtmlrenderer:flying-saucer-pdf:9.0.8' //LGPL2.1
 
     //QR-Code
-    compile 'com.google.zxing:core:3.2.1'
+    compile 'com.google.zxing:core:3.2.1' //APL 2.0
 
 }
 

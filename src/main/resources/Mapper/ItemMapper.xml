@@ -44,10 +44,10 @@
         <!-- TODO Select statement -->
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID" parameterType="Item">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID"
+            parameterType="de.kongsugar.wahosy.to.Item">
         INSERT INTO Item (name, manufacturer, weight, serialnumber, note, categoryID)
         VALUES (#{name}, #{manufacturer}, #{weight}, #{serialNumber}, #{note}, #{categoryID})
-
     </insert>
 
     <update id="update">
