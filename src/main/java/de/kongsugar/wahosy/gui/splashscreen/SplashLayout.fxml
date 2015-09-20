@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<Pane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/null">
+    <children>
+        <ImageView fitHeight="329.0" fitWidth="566.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true"
+                   preserveRatio="true"/>
+        <ProgressBar layoutX="28.0" layoutY="353.0" prefHeight="18.0" prefWidth="545.0" progress="0.0"/>
+    </children>
+</Pane>

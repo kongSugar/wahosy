@@ -4,11 +4,21 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
+apply plugin: 'application'
 //apply from: 'javafx.plugin'
 
 
 repositories {
     mavenCentral()
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/java"]
+            includes = ["**/*.fxml"]
+        }
+    }
 }
 
 //https://jaxenter.com/tutorial-a-guide-to-the-gradle-javafx-plugin-105730.html
