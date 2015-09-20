@@ -76,6 +76,8 @@ public class Sample {
 
         System.out.println(EventDAO.getFrom(Timestamp.from(Instant.now())));
         System.out.println(EventDAO.getTill(Timestamp.from(Instant.now())));
+
+        System.out.println(ItemDAO.findUnboxedBy("Licht"));
     }
 
     public static String generateString(Random rng, String characters, int length) {

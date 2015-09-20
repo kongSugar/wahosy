@@ -5,17 +5,6 @@
 
 <mapper namespace="Item">
 
-    <resultMap id="resultItem" type="Item">
-        <id property="itemID" column="itemID"/>
-        <result property="note" column="note"/>
-        <result property="name" column="name"/>
-        <result property="manufacturer" column="manufacturer"/>
-        <result property="weight" column="weight"/>
-        <result property="serialNumber" column="serialNumber"/>
-        <result property="categoryID" column="categoryID"/>
-        <result property="storeID" column="storeID"/>
-    </resultMap>
-
     <select id="selectById" resultType="de.kongsugar.wahosy.to.Item">
         SELECT *
         FROM item
@@ -41,7 +30,40 @@
     </select>
 
     <select id="selectAllNotBoxed" resultType="de.kongsugar.wahosy.to.Item">
-        <!-- TODO Select statement -->
+        SELECT DISTINCT i.*
+        FROM Item i
+        WHERE NOT EXISTS(SELECT *
+        FROM box_has_item b
+        WHERE i.itemID = b.itemID)
+    </select>
+
+    <select id="find" parameterType="String" resultType="de.kongsugar.wahosy.to.Item">
+        SELECT *
+        FROM Item
+        WHERE 'name' LIKE '%${value}%' OR
+        manufacturer LIKE '%${value}%' OR
+        note LIKE '%${value}%'
+    </select>
+
+    <select id="findUnboxed" parameterType="String" resultType="de.kongsugar.wahosy.to.Item">
+        SELECT i.*
+        FROM Item i
+        WHERE NOT EXISTS(SELECT *
+        FROM box_has_item b
+        WHERE i.itemID = b.itemID)
+        AND (i.name LIKE '%${value}%' OR
+        i.manufacturer LIKE '%${value}%' OR
+        i.note LIKE '%${value}%')
+    </select>
+
+    <select id="findBoxed" parameterType="String" resultType="de.kongsugar.wahosy.to.Item">
+        SELECT i.*
+        FROM Box b
+        LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
+        LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
+        WHERE i.name LIKE '%${value}%' OR
+        i.manufacturer LIKE '%${value}%' OR
+        i.note LIKE '%${value}%'
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID"
@@ -60,7 +82,6 @@
         note = #{note},
         categoryID = #{categoryID}
         WHERE itemID = #{itemID}
-
     </update>
 
     <delete id="delete">

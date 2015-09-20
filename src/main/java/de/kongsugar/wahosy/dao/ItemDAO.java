@@ -54,6 +54,24 @@ public class ItemDAO {
         }
     }
 
+    public static List<Item> findBy(String s) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            return session.selectList("find", s);
+        }
+    }
+
+    public static List<Item> findUnboxedBy(String s) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            return session.selectList("findUnboxed", s);
+        }
+    }
+
+    public static List<Item> findBoxedBy(String s) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            return session.selectList("findBoxed", s);
+        }
+    }
+
     public static List<Item> getByCategory(int categoryID) {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
             return session.selectList("selectByCategory", categoryID);
