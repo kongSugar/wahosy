@@ -1,4 +1,4 @@
-package de.kongsugar.wahosy.gui.splashscreen;
+package de.kongsugar.wahosy.gui.splash;
 
 import javafx.animation.FadeTransition;
 import javafx.application.Application;

@@ -5,7 +5,7 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'application'
-//apply from: 'javafx.plugin'
+apply from: 'javafx.plugin'
 
 
 repositories {
@@ -15,16 +15,19 @@ repositories {
 sourceSets {
     main {
         resources {
-            srcDirs = ["src/main/java"]
+            srcDirs = ["src/main/java", "src/main/resources"]
             includes = ["**/*.fxml"]
+            includes = ["**/*.*"]
         }
     }
 }
 
 //https://jaxenter.com/tutorial-a-guide-to-the-gradle-javafx-plugin-105730.html
-//javafx{
-// TODO for packaging as exe
-//}
+javafx {
+    appID 'Sahosy'
+    appName 'Sahosy - A Data Warehouse System'
+    mainClass 'de.kongsugar.wahosy.gui.MainApp'
+}
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
