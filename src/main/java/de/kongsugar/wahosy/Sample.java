@@ -66,6 +66,7 @@ public class Sample {
                 System.out.println("--boxes=" + b);
             }
 
+        ConnectionFactory.setProperties(args[0], args[1], args[2], "niko", args[4]);
         for (Event e : EventDAO.getAllEvents()) {
             System.out.println(e);
         }
@@ -77,7 +78,8 @@ public class Sample {
         System.out.println(EventDAO.getFrom(Timestamp.from(Instant.now())));
         System.out.println(EventDAO.getTill(Timestamp.from(Instant.now())));
 
-        System.out.println(ItemDAO.findUnboxedBy("Licht"));
+        //System.out.println(ItemDAO.findUnboxedBy("Licht"));
+
     }
 
     public static String generateString(Random rng, String characters, int length) {

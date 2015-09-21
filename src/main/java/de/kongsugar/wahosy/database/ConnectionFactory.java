@@ -17,14 +17,12 @@ import java.util.Properties;
 public class ConnectionFactory {
 
     private static SqlSessionFactory sqlMapper;
-    private static Reader reader;
-    private static Properties props;
 
     static {
         try {
-            props = new Properties();
+            Properties props = new Properties();
             props.load(Files.newBufferedReader(Paths.get("data/jdbc.properties")));
-            reader = Resources.getResourceAsReader("configuration.xml");
+            Reader reader = reader = Resources.getResourceAsReader("configuration.xml");
             sqlMapper = new SqlSessionFactoryBuilder().build(reader, props);
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,7 +33,6 @@ public class ConnectionFactory {
         return sqlMapper;
     }
 
-    //TODO rebuild SqlSessionFactory nach Änderungen an den Settings!
     /**
      * Sets parameters in data/jdbc.properties required for connection to the database
      *
@@ -61,6 +58,8 @@ public class ConnectionFactory {
 
             BufferedWriter bw = Files.newBufferedWriter(p, StandardCharsets.ISO_8859_1, StandardOpenOption.CREATE);
             prop.store(bw, null);
+
+            sqlMapper.getConfiguration().setVariables(prop);
         } catch (IOException e) {
             e.printStackTrace();
         }

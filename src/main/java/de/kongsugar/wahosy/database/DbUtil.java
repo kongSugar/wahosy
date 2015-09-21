@@ -6,23 +6,18 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class DbUtil {
 
-    //TODO Can be used for initializing the database
     public static void executeSQL(String sqlFile) throws IOException, SQLException {
-        Reader reader = Resources.getResourceAsReader(sqlFile);
-        SqlSession session = de.kongsugar.wahosy.database.ConnectionFactory.getSession().openSession();
-        Connection conn = session.getConnection();
-        ScriptRunner runner = new ScriptRunner(conn);
-        runner.setLogWriter(null);
-        runner.setErrorLogWriter(null);
-        runner.runScript(reader);
-        conn.commit();
-        reader.close();
-        conn.close();
-        session.close();
+        try (SqlSession session = de.kongsugar.wahosy.database.ConnectionFactory.getSession().openSession()) {
+            Reader reader = Resources.getResourceAsReader(sqlFile);
+            ScriptRunner runner = new ScriptRunner(session.getConnection());
+            runner.setLogWriter(null);
+            runner.setErrorLogWriter(null);
+            runner.runScript(reader);
+            session.commit();
+        }
     }
 }

@@ -7,7 +7,6 @@
         <typeAlias type="de.kongsugar.wahosy.to.Category" alias="Category"/>
         <typeAlias type="de.kongsugar.wahosy.to.Event" alias="Event"/>
         <typeAlias type="de.kongsugar.wahosy.to.Item" alias="Item"/>
-
     </typeAliases>
 
     <environments default="development">

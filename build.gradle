@@ -24,8 +24,8 @@ sourceSets {
 
 //https://jaxenter.com/tutorial-a-guide-to-the-gradle-javafx-plugin-105730.html
 javafx {
-    appID 'Sahosy'
-    appName 'Sahosy - A Data Warehouse System'
+    appID 'Wahosy'
+    appName 'Wahosy - A Data Warehouse System'
     mainClass 'de.kongsugar.wahosy.gui.MainApp'
 }
 
