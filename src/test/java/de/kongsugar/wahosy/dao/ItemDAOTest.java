@@ -1,72 +1,89 @@
 package de.kongsugar.wahosy.dao;
 
+import de.kongsugar.wahosy.to.Item;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
 /**
- * Created by nikog on 21.09.2015.
+ * Created by nikog on 23.09.2015.
  */
 public class ItemDAOTest {
 
-    @Before
-    public void setUp() throws Exception {
-    }
+	@Before
+	public void setUp() throws Exception {
+		Setup.HSQLDB();
+	}
 
-    @Test
-    public void testGetItem() throws Exception {
-        assertEquals("Test", "False");
+	@After
+	public void tearDown() throws Exception {
 
-    }
+	}
 
-    @Test
-    public void testGetAllItems() throws Exception {
+	@Test
+	public void testGetItem() throws Exception {
+		Item exp = new Item();
+		exp.setItemID(42);
+		exp.setStoreID("ri0");
+		exp.setName("LODESTAR");
+		exp.setManufacturer("Columbus Mc Kinnon");
+		exp.setWeight(34100);
+		exp.setSerialNumber("1234567890");
+		exp.setNote("100kg max last");
+		exp.setCategoryID(5);
+		// ItemDAO.insertItem(exp);
 
-    }
+		System.out.println(ItemDAO.getItem(5));
+		// assertEquals("Obj", ItemDAO.getItem(42), exp);
+	}
 
-    @Test
-    public void testGetAllBoxed() throws Exception {
+	@Test
+	public void testGetAllItems() throws Exception {
 
-    }
+	}
 
-    @Test
-    public void testInsertItem() throws Exception {
+	@Test
+	public void testGetAllBoxed() throws Exception {
 
-    }
+	}
 
-    @Test
-    public void testDelete() throws Exception {
+	@Test
+	public void testInsertItem() throws Exception {
 
-    }
+	}
 
-    @Test
-    public void testUpdate() throws Exception {
+	@Test
+	public void testDelete() throws Exception {
 
-    }
+	}
 
-    @Test
-    public void testFindBy() throws Exception {
+	@Test
+	public void testUpdate() throws Exception {
 
-    }
+	}
 
-    @Test
-    public void testFindUnboxedBy() throws Exception {
+	@Test
+	public void testFindBy() throws Exception {
 
-    }
+	}
 
-    @Test
-    public void testFindBoxedBy() throws Exception {
+	@Test
+	public void testFindUnboxedBy() throws Exception {
+		ItemDAO.getItem(1);
+	}
 
-    }
+	@Test
+	public void testFindBoxedBy() throws Exception {
 
-    @Test
-    public void testGetByCategory() throws Exception {
+	}
 
-    }
+	@Test
+	public void testGetByCategory() throws Exception {
 
-    @Test
-    public void testGetByCategory1() throws Exception {
+	}
 
-    }
+	@Test
+	public void testGetByCategory1() throws Exception {
+
+	}
 }

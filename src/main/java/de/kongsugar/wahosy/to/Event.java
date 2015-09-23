@@ -7,6 +7,7 @@ import java.util.List;
 /**
  * Created by nikog on 17.09.2015.
  */
+@Deprecated
 public class Event {
     private int eventID;
     private String note;

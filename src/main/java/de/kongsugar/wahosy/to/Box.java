@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class Box {
     private int boxID;
-    private String name;
-    private String note;
+    private String name = "";
+    private String note = "";
     private List<Item> items = new LinkedList<>();
 
     public List<Item> getItems() {

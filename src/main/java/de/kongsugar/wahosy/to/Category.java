@@ -5,8 +5,8 @@ package de.kongsugar.wahosy.to;
  */
 public class Category {
     private int categoryID;
-    private String name;
-    private String abbreviation;
+    private String name = "";
+    private String abbreviation = "";
     private int lastID;
 
     public int getCategoryID() {

@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.sql.SQLException;
 
+
+@Deprecated
 public class DbUtil {
 
     public static void executeSQL(String sqlFile) throws IOException, SQLException {

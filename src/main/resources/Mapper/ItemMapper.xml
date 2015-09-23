@@ -16,17 +16,17 @@
         FROM item
     </select>
 
-    <select id="selectAllBoxed" resultType="de.kongsugar.wahosy.to.Item">
-        SELECT i.*
-        FROM Box b
-        LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
-        LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
-    </select>
-
     <select id="selectByCategory" resultType="de.kongsugar.wahosy.to.Item">
         SELECT *
         FROM Item
         WHERE categoryID = #{id}
+    </select>
+
+    <select id="selectAllBoxed" resultType="de.kongsugar.wahosy.to.Item">
+        SELECT i.*
+        FROM Box b
+            LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
+            LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
     </select>
 
     <select id="selectAllNotBoxed" resultType="de.kongsugar.wahosy.to.Item">

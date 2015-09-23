@@ -1,20 +1,47 @@
 package de.kongsugar.wahosy.to;
 
+import java.util.Objects;
+
 /**
  * Created by nikog on 07.09.2015.
  */
 public class Item {
 	private int itemID;
-	private String name;
-	private String manufacturer;
+	private String name = "";
+	private String manufacturer = "";
 	private int weight;
-	private String serialNumber;
-	private String note;
+	private String serialNumber = "";
+	private String note = "";
 	private int categoryID;
-	private String storeID;
+	private String storeID = "";
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Item item = (Item) o;
+		return Objects.equals(itemID, item.itemID) &&
+				Objects.equals(weight, item.weight) &&
+				Objects.equals(categoryID, item.categoryID) &&
+				Objects.equals(name, item.name) &&
+				Objects.equals(manufacturer, item.manufacturer) &&
+				Objects.equals(serialNumber, item.serialNumber) &&
+				Objects.equals(note, item.note) &&
+				Objects.equals(storeID, item.storeID);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(itemID, name, manufacturer, weight, serialNumber, note, categoryID, storeID);
+	}
 
 	public int getItemID() {
 		return itemID;
+	}
+
+	@Deprecated
+	public void setItemID(int itemID) {
+		this.itemID = itemID;
 	}
 
 	public String getName() {
@@ -67,6 +94,11 @@ public class Item {
 
 	public String getStoreID() {
 		return storeID;
+	}
+
+	@Deprecated
+	public void setStoreID(String storeID) {
+		this.storeID = storeID;
 	}
 
 	@Override

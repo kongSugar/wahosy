@@ -8,15 +8,26 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.List;
 
 /**
- * Created by nikog on 17.09.2015.
+ * Provides access to box-objects in the database
+ * @author Niko Gillen
  */
 public class BoxDAO {
+
+    /**
+     * Returns all boxes of the table 'box'
+     * @return List of Boxes
+     */
     public static List<Box> getAllBoxes() {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
             return session.selectList("Box.selectAll");
         }
     }
 
+    /**
+     * Returns a specific box from the table 'box'
+     * @param boxID
+     * @return Box
+     */
     public static Box getBox(int boxID) {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
             return session.selectOne("Box.selectById", boxID);

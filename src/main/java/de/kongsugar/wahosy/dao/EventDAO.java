@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * Created by nikog on 17.09.2015.
  */
+@Deprecated
 public class EventDAO {
 
     public static List<Event> getAllEvents() throws Exception {
