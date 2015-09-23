@@ -1,9 +1,12 @@
 package de.kongsugar.wahosy.dao;
 
+import de.kongsugar.wahosy.database.ConnectionFactory;
 import de.kongsugar.wahosy.to.Item;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by nikog on 23.09.2015.
@@ -13,11 +16,12 @@ public class ItemDAOTest {
 	@Before
 	public void setUp() throws Exception {
 		Setup.HSQLDB();
+
 	}
 
 	@After
 	public void tearDown() throws Exception {
-
+		ConnectionFactory.getSession().openSession().getConnection().createStatement().execute("SHUTDOWN");
 	}
 
 	@Test
@@ -31,15 +35,15 @@ public class ItemDAOTest {
 		exp.setSerialNumber("1234567890");
 		exp.setNote("100kg max last");
 		exp.setCategoryID(5);
-		// ItemDAO.insertItem(exp);
+		ItemDAO.insertItem(exp);
 
+		//files_readonly=true
 		System.out.println(ItemDAO.getItem(5));
-		// assertEquals("Obj", ItemDAO.getItem(42), exp);
+		assertEquals("Obj", ItemDAO.getItem(42), exp);
 	}
 
 	@Test
 	public void testGetAllItems() throws Exception {
-
 	}
 
 	@Test
@@ -69,7 +73,7 @@ public class ItemDAOTest {
 
 	@Test
 	public void testFindUnboxedBy() throws Exception {
-		ItemDAO.getItem(1);
+
 	}
 
 	@Test
