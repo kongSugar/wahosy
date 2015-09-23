@@ -27,19 +27,20 @@ public class ItemDAOTest {
 	@Test
 	public void testGetItem() throws Exception {
 		Item exp = new Item();
-		exp.setItemID(42);
-		exp.setStoreID("ri0");
+		//exp.setItemID(42);
+		//exp.setStoreID("ri0");
 		exp.setName("LODESTAR");
 		exp.setManufacturer("Columbus Mc Kinnon");
 		exp.setWeight(34100);
 		exp.setSerialNumber("1234567890");
 		exp.setNote("100kg max last");
-		exp.setCategoryID(5);
+		exp.setCategoryID(4);
+
 		ItemDAO.insertItem(exp);
 
 		//files_readonly=true
-		System.out.println(ItemDAO.getItem(5));
-		assertEquals("Obj", ItemDAO.getItem(42), exp);
+		//System.out.println(ItemDAO.getItem(5));
+		assertEquals("Obj", exp, ItemDAO.getItem(42));
 	}
 
 	@Test
