@@ -1,5 +1,6 @@
 package de.kongsugar.wahosy.gui.splash;
 
+import de.kongsugar.wahosy.gui.MainApp;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -13,6 +14,7 @@ import java.util.ResourceBundle;
 public class SplashController implements Initializable {
     @FXML
     private Label countdown;
+    private MainApp application;
 
     public Label getCountdown() {
         return countdown;
@@ -29,5 +31,9 @@ public class SplashController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void setApp(MainApp mainApp) {
+        this.application = application;
     }
 }
