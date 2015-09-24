@@ -6,17 +6,44 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.lang.reflect.Field;
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 /**
  * Created by nikog on 23.09.2015.
  */
-public class ItemDAOTest {
+public class ItemDAOTest extends Item {
+	Item i12 = new Item();
+	Item i20 = new Item();
 
 	@Before
 	public void setUp() throws Exception {
 		Setup.HSQLDB();
 
+		Class itemClass = Item.class;
+		Field itemID = itemClass.getDeclaredField("itemID");
+		Field storeID = itemClass.getDeclaredField("storeID");
+		itemID.setAccessible(true);
+		storeID.setAccessible(true);
+
+		itemID.set(i12, 12);
+		storeID.set(i12, "ri0");
+		i12.setName("LODESTAR");
+		i12.setManufacturer("Columbus Mc Kinnon");
+		i12.setWeight(34100);
+		i12.setSerialNumber("1234567890");
+		i12.setNote("100kg max last");
+		i12.setCategoryID(4);
+
+		itemID.set(i20, 20);
+		storeID.set(i20, "li2");
+		i20.setName("Source Four MultiPAR 12");
+		i20.setManufacturer("ETC");
+		i20.setWeight(22222);
+		i20.setSerialNumber("ETC01");
+		i20.setCategoryID(1);
 	}
 
 	@After
@@ -26,30 +53,23 @@ public class ItemDAOTest {
 
 	@Test
 	public void testGetItem() throws Exception {
-		Item exp = new Item();
-		//exp.setItemID(42);
-		//exp.setStoreID("ri0");
-		exp.setName("LODESTAR");
-		exp.setManufacturer("Columbus Mc Kinnon");
-		exp.setWeight(34100);
-		exp.setSerialNumber("1234567890");
-		exp.setNote("100kg max last");
-		exp.setCategoryID(4);
-
-		ItemDAO.insertItem(exp);
-
-		//files_readonly=true
-		//System.out.println(ItemDAO.getItem(5));
-		assertEquals("Obj", exp, ItemDAO.getItem(42));
+		assertEquals("Obj", i12, ItemDAO.getItem(12));
 	}
 
 	@Test
 	public void testGetAllItems() throws Exception {
+		List<Item> act = ItemDAO.getAllItems();
+		assertEquals("Length", 23, act.size());
+		assertEquals("Contains", true, act.contains(i12));
+		assertEquals("Contains", true, act.contains(i20));
 	}
 
 	@Test
 	public void testGetAllBoxed() throws Exception {
-
+		List<Item> act = ItemDAO.getAllBoxed();
+		assertEquals("Length", 9, act.size());
+		assertEquals("Contains", true, act.contains(i12));
+		assertEquals("Contains", false, act.contains(i20));
 	}
 
 	@Test
@@ -90,5 +110,17 @@ public class ItemDAOTest {
 	@Test
 	public void testGetByCategory1() throws Exception {
 
+	}
+
+	class ItemTestable extends Item {
+		@Override
+		public void setItemID(int itemID) {
+			super.setItemID(itemID);
+		}
+
+		@Override
+		public void setStoreID(String storeID) {
+			super.setStoreID(storeID);
+		}
 	}
 }

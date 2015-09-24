@@ -39,11 +39,6 @@ public class Item {
 		return itemID;
 	}
 
-	@Deprecated
-	public void setItemID(int itemID) {
-		this.itemID = itemID;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -95,12 +90,7 @@ public class Item {
 	public String getStoreID() {
 		return storeID;
 	}
-
-	@Deprecated
-	public void setStoreID(String storeID) {
-		this.storeID = storeID;
-	}
-
+	
 	@Override
 	public String toString() {
 		return "Item{" +
