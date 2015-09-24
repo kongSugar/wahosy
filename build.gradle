@@ -45,6 +45,6 @@ dependencies {
 
     //QR-Code
     compile 'com.google.zxing:core:3.2.1' //APL 2.0
-
+    compile 'com.google.zxing:javase:3.2.1'
 }
 
