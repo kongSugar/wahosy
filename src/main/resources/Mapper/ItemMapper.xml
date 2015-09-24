@@ -40,9 +40,9 @@
     <select id="find" parameterType="String" resultType="de.kongsugar.wahosy.to.Item">
         SELECT *
         FROM Item
-        WHERE 'name' LIKE '%${value}%' OR
-        manufacturer LIKE '%${value}%' OR
-        note LIKE '%${value}%'
+        WHERE LOWER(name) LIKE LOWER('%${value}%') OR
+        LOWER(manufacturer) LIKE LOWER('%${value}%') OR
+        LOWER(note) LIKE LOWER('%${value}%')
     </select>
 
     <select id="findUnboxed" parameterType="String" resultType="de.kongsugar.wahosy.to.Item">

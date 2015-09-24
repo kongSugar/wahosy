@@ -89,7 +89,7 @@ public class ItemDAOTest extends Item {
 
 	@Test
 	public void testFindBy() throws Exception {
-
+		System.out.println(ItemDAO.findBy("par"));
 	}
 
 	@Test
@@ -112,15 +112,4 @@ public class ItemDAOTest extends Item {
 
 	}
 
-	class ItemTestable extends Item {
-		@Override
-		public void setItemID(int itemID) {
-			super.setItemID(itemID);
-		}
-
-		@Override
-		public void setStoreID(String storeID) {
-			super.setStoreID(storeID);
-		}
-	}
 }

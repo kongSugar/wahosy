@@ -59,14 +59,13 @@ public class ConnectionFactory {
             BufferedWriter bw = Files.newBufferedWriter(p, StandardCharsets.ISO_8859_1, StandardOpenOption.CREATE);
             prop.store(bw, null);
 
-            //sqlMapper.getConfiguration().setVariables(prop);
             sqlMapper = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader("configuration.xml"), prop);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void setNew() {
+    public static void reset() {
         try {
             Properties props = new Properties();
             props.load(Files.newBufferedReader(Paths.get("data/jdbc.properties")));

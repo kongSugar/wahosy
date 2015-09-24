@@ -34,7 +34,7 @@ public class Setup {
             BufferedWriter bw = Files.newBufferedWriter(p, StandardCharsets.ISO_8859_1, StandardOpenOption.CREATE);
             prop.store(bw, null);
 
-            ConnectionFactory.setNew();
+            ConnectionFactory.reset();
         } catch (IOException e) {
             e.printStackTrace();
         }
