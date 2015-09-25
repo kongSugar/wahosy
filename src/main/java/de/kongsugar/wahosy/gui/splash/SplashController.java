@@ -5,6 +5,7 @@ import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,34 +17,29 @@ public class SplashController implements Initializable {
     @FXML
     private Label countdown;
     private MainApp application;
+    @FXML
+    private ProgressBar progBar;
 
-    public Label getCountdown() {
-        return countdown;
-    }
-
-    public void setCountdown(Label countdown) {
-        this.countdown = countdown;
-    }
-
-    public void startCountdown() {
-
+    private void startCountdown() {
         Task<Long> task = new Task<Long>() {
             @Override
             protected Long call() throws Exception {
                 long iterations;
-                for (iterations = 0; iterations < 1000000000; iterations++) {
+                for (iterations = 0; iterations <= 100; iterations++) {
                     if (isCancelled()) {
                         break;
                     }
 
-                    Thread.sleep(1);
+                    Thread.sleep(100);
                     updateMessage("" + iterations);
+                    updateProgress(iterations, 100);
                 }
                 return iterations;
             }
         };
 
         countdown.textProperty().bind(task.messageProperty());
+        progBar.progressProperty().bind(task.progressProperty());
 
         Thread th = new Thread(task);
         th.setDaemon(true);
@@ -56,6 +52,6 @@ public class SplashController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        startCountdown();
     }
 }

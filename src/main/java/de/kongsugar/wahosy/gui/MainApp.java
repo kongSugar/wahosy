@@ -43,7 +43,7 @@ public class MainApp extends Application {
         try {
             SplashController splash = (SplashController) replaceSceneContent("splash/SplashLayout.fxml");
             splash.setApp(this);
-            splash.startCountdown();
+            //splash.startCountdown();
         } catch (Exception e) {
             e.printStackTrace();
         }
