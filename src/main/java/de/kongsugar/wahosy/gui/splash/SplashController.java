@@ -30,7 +30,7 @@ public class SplashController implements Initializable {
                         break;
                     }
 
-                    Thread.sleep(100);
+                    Thread.sleep(50);
                     updateMessage("" + iterations);
                     updateProgress(iterations, 100);
                 }
@@ -38,8 +38,15 @@ public class SplashController implements Initializable {
             }
         };
 
+        //application.gotoRoot();
         countdown.textProperty().bind(task.messageProperty());
         progBar.progressProperty().bind(task.progressProperty());
+        progBar.progressProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.intValue() == 1) {
+                task.cancel();
+                application.gotoRoot();
+            }
+        });
 
         Thread th = new Thread(task);
         th.setDaemon(true);
@@ -47,7 +54,7 @@ public class SplashController implements Initializable {
     }
 
     public void setApp(MainApp mainApp) {
-        this.application = application;
+        this.application = mainApp;
     }
 
     @Override

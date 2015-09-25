@@ -39,20 +39,19 @@ public class MainApp extends Application {
         return root;
     }
 
-    private void gotoSplash() {
+    public void gotoSplash() {
         try {
             SplashController splash = (SplashController) replaceSceneContent("splash/SplashLayout.fxml");
             splash.setApp(this);
-            //splash.startCountdown();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void gotoRoot() {
+    public void gotoRoot() {
         try {
-            RootController start = (RootController) replaceSceneContent("root/RootLayout.fxml");
-            start.setApp(this);
+            RootController root = (RootController) replaceSceneContent("root/RootLayout.fxml");
+            root.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
