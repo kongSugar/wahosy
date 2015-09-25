@@ -1,6 +1,7 @@
 package de.kongsugar.wahosy.gui.splash;
 
 import de.kongsugar.wahosy.gui.MainApp;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -24,16 +25,37 @@ public class SplashController implements Initializable {
         this.countdown = countdown;
     }
 
-    public void setLabel(String s) {
-        countdown.setText(s);
+    public void startCountdown() {
+
+        Task<Long> task = new Task<Long>() {
+            @Override
+            protected Long call() throws Exception {
+                long iterations;
+                for (iterations = 0; iterations < 1000000000; iterations++) {
+                    if (isCancelled()) {
+                        break;
+                    }
+
+                    Thread.sleep(1);
+                    updateMessage("" + iterations);
+                }
+                return iterations;
+            }
+        };
+
+        countdown.textProperty().bind(task.messageProperty());
+
+        Thread th = new Thread(task);
+        th.setDaemon(true);
+        th.start();
+    }
+
+    public void setApp(MainApp mainApp) {
+        this.application = application;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-    public void setApp(MainApp mainApp) {
-        this.application = application;
     }
 }

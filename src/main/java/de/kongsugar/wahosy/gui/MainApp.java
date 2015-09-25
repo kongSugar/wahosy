@@ -1,8 +1,8 @@
 package de.kongsugar.wahosy.gui;
 
+import de.kongsugar.wahosy.gui.root.RootController;
 import de.kongsugar.wahosy.gui.splash.SplashController;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
@@ -41,16 +41,17 @@ public class MainApp extends Application {
 
     private void gotoSplash() {
         try {
-            SplashController start = (SplashController) replaceSceneContent("splash/SplashLayout.fxml");
-            start.setApp(this);
+            SplashController splash = (SplashController) replaceSceneContent("splash/SplashLayout.fxml");
+            splash.setApp(this);
+            splash.startCountdown();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void gotoStart() {
+    private void gotoRoot() {
         try {
-            StartController start = (StartController) replaceSceneContent("Start.fxml");
+            RootController start = (RootController) replaceSceneContent("root/RootLayout.fxml");
             start.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,35 +76,6 @@ public class MainApp extends Application {
         root.getChildren().removeAll();
         root.getChildren().addAll(page);
         return (Initializable) loader.getController();
-    }
-
-    public void showSplashscreen(Stage initStage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("splash/SplashLayout.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-        initStage.setTitle("AxxG - FXML Beispiel");
-        initStage.setScene(scene);
-
-        initStage.show();
-
-
-        SplashController c = loader.getController();
-
-        c.setLabel("Thr");
-        Platform.runLater(() -> {
-            c.getCountdown();
-            System.out.println("Is Running . . .");
-            for (int i = 0; i < 10; i++) {
-                c.setLabel("Time = " + i);
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            c.getCountdown().setText("JAAA");
-        });
-
     }
 
 }
