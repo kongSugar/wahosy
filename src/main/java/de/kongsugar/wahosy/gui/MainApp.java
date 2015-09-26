@@ -72,7 +72,8 @@ public class MainApp extends Application {
         } finally {
             in.close();
         }
-        root.getChildren().removeAll();
+        //root.getChildren().removeAll();
+        root.getChildren().clear();
         root.getChildren().addAll(page);
         return (Initializable) loader.getController();
     }
