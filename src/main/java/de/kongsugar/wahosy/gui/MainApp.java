@@ -20,7 +20,7 @@ import java.io.InputStream;
  */
 public class MainApp extends Application {
     private Group root = new Group();
-
+    private Stage stage;
 
     public static void main(String[] args) {
         launch(args);
@@ -28,10 +28,11 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setResizable(true);
-        primaryStage.setScene(new Scene(createContent()));
-        primaryStage.show();
-
+        stage = primaryStage;
+        stage.setResizable(true);
+        //stage.setScene(new Scene(createContent()));
+        gotoSplash();
+        stage.show();
     }
 
     private Parent createContent() {
@@ -43,6 +44,12 @@ public class MainApp extends Application {
         try {
             SplashController splash = (SplashController) replaceSceneContent("splash/SplashLayout.fxml");
             splash.setApp(this);
+            stage.setResizable(false);
+            stage.centerOnScreen();
+            stage.setWidth(600);
+            stage.setHeight(400);
+            stage.centerOnScreen();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,6 +59,7 @@ public class MainApp extends Application {
         try {
             RootController root = (RootController) replaceSceneContent("root/RootLayout.fxml");
             root.setApp(this);
+            stage.setResizable(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -72,9 +80,8 @@ public class MainApp extends Application {
         } finally {
             in.close();
         }
-        //root.getChildren().removeAll();
-        root.getChildren().clear();
-        root.getChildren().addAll(page);
+        //root.getChildren().setAll(page);
+        stage.setScene(new Scene(page));
         return (Initializable) loader.getController();
     }
 
