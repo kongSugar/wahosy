@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,9 +18,12 @@ import java.util.ResourceBundle;
 public class SplashController implements Initializable {
     @FXML
     private Label countdown;
-    private MainApp application;
+    @FXML
+    private ImageView logo;
     @FXML
     private ProgressBar progBar;
+
+    private MainApp application;
 
     private void startCountdown() {
         Task<Long> task = new Task<Long>() {
@@ -37,8 +42,6 @@ public class SplashController implements Initializable {
                 return iterations;
             }
         };
-
-        //application.gotoRoot();
         countdown.textProperty().bind(task.messageProperty());
         progBar.progressProperty().bind(task.progressProperty());
         progBar.progressProperty().addListener((observable, oldValue, newValue) -> {
@@ -60,5 +63,6 @@ public class SplashController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         startCountdown();
+        logo.setImage(new Image(this.getClass().getClassLoader().getResourceAsStream("Images/test.jpg")));
     }
 }

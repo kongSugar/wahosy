@@ -2,18 +2,15 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/null"
-            fx:controller="de.kongsugar.wahosy.gui.splash.SplashController">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/null" fx:controller="de.kongsugar.wahosy.gui.splash.SplashController">
     <children>
-        <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                    AnchorPane.topAnchor="0.0">
-            <center>
-                <ProgressBar fx:id="progBar" prefWidth="300.0" progress="0.0" BorderPane.alignment="CENTER"/>
-            </center>
-            <top>
-                <Label fx:id="countdown" text="Label" BorderPane.alignment="CENTER"/>
-            </top>
-        </BorderPane>
+        <ProgressBar fx:id="progBar" layoutX="131.0" layoutY="347.0" prefWidth="300.0" progress="0.0"/>
+        <Label fx:id="countdown" layoutX="465.0" layoutY="347.0" text="Countdown"/>
+        <Label fx:id="credits" layoutX="343.0" layoutY="318.0" text="Credits"/>
+        <ImageView fx:id="logo" fitHeight="369.0" fitWidth="570.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true"
+                   preserveRatio="true"/>
     </children>
 </AnchorPane>
