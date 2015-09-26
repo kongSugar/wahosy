@@ -6,8 +6,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -19,7 +17,6 @@ import java.io.InputStream;
  * Created by nikog on 21.09.2015.
  */
 public class MainApp extends Application {
-    private Group root = new Group();
     private Stage stage;
 
     public static void main(String[] args) {
@@ -29,15 +26,8 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        stage.setResizable(true);
-        //stage.setScene(new Scene(createContent()));
         gotoSplash();
         stage.show();
-    }
-
-    private Parent createContent() {
-        gotoSplash();
-        return root;
     }
 
     public void gotoSplash() {
@@ -80,7 +70,6 @@ public class MainApp extends Application {
         } finally {
             in.close();
         }
-        //root.getChildren().setAll(page);
         stage.setScene(new Scene(page));
         return (Initializable) loader.getController();
     }
