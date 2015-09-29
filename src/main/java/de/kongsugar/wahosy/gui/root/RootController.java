@@ -1,11 +1,14 @@
 package de.kongsugar.wahosy.gui.root;
 
 import de.kongsugar.wahosy.gui.MainApp;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
+import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -29,6 +32,10 @@ public class RootController implements Initializable {
     private MainApp application;
 
     @FXML
+    private Accordion menuAccordion;
+    @FXML
+    private TitledPane homeMenu;
+    @FXML
     private Button btn;
     @FXML
     private AnchorPane content;
@@ -48,6 +55,8 @@ public class RootController implements Initializable {
 
             node.prefHeightProperty().bind(content.heightProperty());
             node.prefWidthProperty().bind(content.widthProperty());
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -59,7 +68,13 @@ public class RootController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //setContent("scene/test/TestLayout.fxml");
+        Platform.runLater(() -> {
+            menuAccordion.setExpandedPane(homeMenu);
+            application.stage.minWidthProperty().bind(menuAccordion.minWidthProperty().multiply(3));
+            application.stage.minHeightProperty().bind(menuAccordion.minHeightProperty());
+        });
+
+
     }
 }
 
