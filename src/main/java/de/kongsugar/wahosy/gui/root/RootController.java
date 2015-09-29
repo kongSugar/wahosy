@@ -15,16 +15,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-enum SceneE {
-    TEST_LAYOUT("scene/test/TestLayout.fxml");
-
-    String path;
-
-    SceneE(String path) {
-        this.path = path;
-    }
-}
-
 /**
  * Created by nikog on 25.09.2015.
  */
@@ -62,9 +52,7 @@ public class RootController implements Initializable {
         }
     }
 
-    public void loadStartpage() {
-        setContent(Scenes.TEST_LAYOUT);
-    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -76,8 +64,17 @@ public class RootController implements Initializable {
 
 
     }
+
+    public void loadTestScene() {
+        setContent(Scenes.TEST_LAYOUT);
+    }
+
+    public void loadStoreOverview() {
+        setContent(Scenes.STORE_OVERVIEW);
+    }
 }
 
 class Scenes {
     static final String TEST_LAYOUT = "scene/test/TestLayout.fxml";
+    static final String STORE_OVERVIEW = "scene/store/OverviewLayout.fxml";
 }
