@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
@@ -22,7 +21,7 @@ public class RootController implements Initializable {
     private MainApp application;
 
     @FXML
-    private Accordion menuAccordion;
+    private AnchorPane menuLeft;
     @FXML
     private TitledPane homeMenu;
     @FXML
@@ -57,9 +56,8 @@ public class RootController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
-            menuAccordion.setExpandedPane(homeMenu);
-            application.stage.minWidthProperty().bind(menuAccordion.minWidthProperty().multiply(3));
-            application.stage.minHeightProperty().bind(menuAccordion.minHeightProperty());
+            application.stage.minWidthProperty().bind(menuLeft.minWidthProperty().multiply(3));
+            application.stage.minHeightProperty().bind(menuLeft.minHeightProperty());
         });
 
 
