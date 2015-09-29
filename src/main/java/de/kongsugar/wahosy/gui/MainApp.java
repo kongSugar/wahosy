@@ -66,7 +66,7 @@ public class MainApp extends Application {
         loader.setLocation(MainApp.class.getResource(fxml));
         AnchorPane page;
         try {
-            page = loader.load(in);
+            page = (AnchorPane) loader.load(in);
         } finally {
             in.close();
         }
