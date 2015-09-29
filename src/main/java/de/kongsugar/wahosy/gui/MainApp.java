@@ -17,7 +17,7 @@ import java.io.InputStream;
  * Created by nikog on 21.09.2015.
  */
 public class MainApp extends Application {
-    private Stage stage;
+    public Stage stage;
 
     public static void main(String[] args) {
         launch(args);

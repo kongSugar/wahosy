@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="452.0" prefWidth="679.0"
-            xmlns="http://javafx.com/javafx/null" fx:controller="de.kongsugar.wahosy.gui.root.RootController">
+            xmlns="http://javafx.com/javafx/8.0.40" fx:controller="de.kongsugar.wahosy.gui.root.RootController">
     <children>
         <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
@@ -26,11 +24,11 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <SplitPane dividerPositions="0.5" layoutY="84.0" prefHeight="368.0" prefWidth="679.0"
-                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                   AnchorPane.topAnchor="25.0">
-            <items>
-                <Accordion maxWidth="200.0" minWidth="200.0">
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+            <children>
+                <Accordion maxWidth="200.0" minWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                           AnchorPane.topAnchor="0.0">
                     <panes>
                         <TitledPane text="Home">
                             <content>
@@ -38,20 +36,8 @@
                                     <children>
                                         <VBox prefHeight="319.0" prefWidth="200.0">
                                             <children>
-                                                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="264.0"
-                                                        text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
-                                                <Button mnemonicParsing="false" text="Button"/>
+                                                <Button fx:id="btn" mnemonicParsing="false" onAction="#loadStartpage"
+                                                        prefHeight="25.0" prefWidth="264.0" text="Start"/>
                                             </children>
                                         </VBox>
                                     </children>
@@ -75,23 +61,9 @@
                         </TitledPane>
                     </panes>
                 </Accordion>
-                <StackPane fx:id="contentPane" prefHeight="150.0" prefWidth="200.0">
-                    <children>
-                        <BorderPane>
-                            <center>
-                                <Label text="ROOT!!">
-                                    <font>
-                                        <Font name="Ebrima Bold" size="45.0"/>
-                                    </font>
-                                </Label>
-                            </center>
-                        </BorderPane>
-                    </children>
-                </StackPane>
-            </items>
-            <cursor>
-                <Cursor fx:constant="DEFAULT"/>
-            </cursor>
-        </SplitPane>
+                <AnchorPane fx:id="content" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0"
+                            AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0"/>
+            </children>
+        </AnchorPane>
     </children>
 </AnchorPane>

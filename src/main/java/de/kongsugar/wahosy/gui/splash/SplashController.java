@@ -29,17 +29,17 @@ public class SplashController implements Initializable {
         Task<Long> task = new Task<Long>() {
             @Override
             protected Long call() throws Exception {
-                long iterations;
-                for (iterations = 0; iterations <= 100; iterations++) {
+                long time = 2;
+                for (long i = 0; i <= time; i++) {
                     if (isCancelled()) {
                         break;
                     }
+                    updateMessage("" + i);
+                    updateProgress(i, time);
+                    Thread.sleep(1000);
 
-                    Thread.sleep(50);
-                    updateMessage("" + iterations);
-                    updateProgress(iterations, 100);
                 }
-                return iterations;
+                return time;
             }
         };
         countdown.textProperty().bind(task.messageProperty());
