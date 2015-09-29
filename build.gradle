@@ -1,11 +1,20 @@
-group 'de.kongsugar.wahosy'
-version '1.0-SNAPSHOT'
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.2'
+    }
+}
 
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'application'
+apply plugin: 'com.github.johnrengelman.shadow'
 apply from: 'javafx.plugin'
+
+mainClassName = 'de.kongsugar.wahosy.gui.MainApp'
+group 'de.kongsugar.wahosy'
+version '1.0-SNAPSHOT'
 
 
 repositories {
