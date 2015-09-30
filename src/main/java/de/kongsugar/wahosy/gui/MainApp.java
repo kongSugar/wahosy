@@ -47,9 +47,14 @@ public class MainApp extends Application {
 
     public void gotoRoot() {
         try {
+            stage.setResizable(true);
+            stage.setWidth(1000);
+            stage.setHeight(800);
+            stage.centerOnScreen();
+            stage.setMaximized(true);
+
             RootController root = (RootController) replaceSceneContent("root/RootLayout.fxml");
             root.setApp(this);
-            stage.setResizable(true);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -45,7 +45,7 @@ dependencies {
     compile 'org.apache.logging.log4j:log4j-core:2.3'
 
     //FX
-    // compile 'io.datafx:flow:8.0.7'
+    compile 'io.datafx:flow:8.0.7'
     compile 'org.controlsfx:controlsfx:8.40.9'
 
     //Database

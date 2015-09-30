@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 
@@ -60,8 +61,10 @@ public class RootController implements Initializable {
             application.stage.minHeightProperty().bind(menuLeft.minHeightProperty());
         });
 
+        setContent(Scenes.TEST_LAYOUT);
 
     }
+
 
     public void loadTestScene() {
         setContent(Scenes.TEST_LAYOUT);
