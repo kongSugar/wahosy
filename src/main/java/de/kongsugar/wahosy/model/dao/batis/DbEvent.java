@@ -1,9 +1,7 @@
-package de.kongsugar.wahosy.dao.batis;
+package de.kongsugar.wahosy.model.dao.batis;
 
-import de.kongsugar.wahosy.dao.BoxDAO;
-import de.kongsugar.wahosy.dao.EventDAO;
-import de.kongsugar.wahosy.database.ConnectionFactory;
-import de.kongsugar.wahosy.to.Event;
+import de.kongsugar.wahosy.model.dao.EventDAO;
+import de.kongsugar.wahosy.model.to.Event;
 import org.apache.ibatis.session.SqlSession;
 
 import java.sql.Timestamp;

@@ -1,6 +1,6 @@
-package de.kongsugar.wahosy.dao;
+package de.kongsugar.wahosy.model.dao;
 
-import de.kongsugar.wahosy.database.ConnectionFactory;
+import de.kongsugar.wahosy.model.dao.batis.ConnectionFactory;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

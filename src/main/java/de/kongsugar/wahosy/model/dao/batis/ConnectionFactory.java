@@ -1,4 +1,4 @@
-package de.kongsugar.wahosy.database;
+package de.kongsugar.wahosy.model.dao.batis;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;

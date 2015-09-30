@@ -3,10 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <typeAlias type="de.kongsugar.wahosy.to.Box" alias="Box"/>
-        <typeAlias type="de.kongsugar.wahosy.to.Category" alias="Category"/>
-        <typeAlias type="de.kongsugar.wahosy.to.Event" alias="Event"/>
-        <typeAlias type="de.kongsugar.wahosy.to.Item" alias="Item"/>
+        <typeAlias type="de.kongsugar.wahosy.model.to.Box" alias="Box"/>
+        <typeAlias type="de.kongsugar.wahosy.model.to.Category" alias="Category"/>
+        <typeAlias type="de.kongsugar.wahosy.model.to.Event" alias="Event"/>
+        <typeAlias type="de.kongsugar.wahosy.model.to.Item" alias="Item"/>
     </typeAliases>
 
     <environments default="development">

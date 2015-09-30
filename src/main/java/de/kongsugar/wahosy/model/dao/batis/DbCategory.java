@@ -1,8 +1,7 @@
-package de.kongsugar.wahosy.dao.batis;
+package de.kongsugar.wahosy.model.dao.batis;
 
-import de.kongsugar.wahosy.dao.CategoryDAO;
-import de.kongsugar.wahosy.database.ConnectionFactory;
-import de.kongsugar.wahosy.to.Category;
+import de.kongsugar.wahosy.model.dao.CategoryDAO;
+import de.kongsugar.wahosy.model.to.Category;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;

@@ -20,7 +20,7 @@
         </collection>
     </resultMap>
 
-    <select id="selectAll" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.to.Box">
+    <select id="selectAll" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
         SELECT
         *,
         b.note AS boxNote,
@@ -30,7 +30,7 @@
         LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
     </select>
 
-    <select id="selectById" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.to.Box">
+    <select id="selectById" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
         SELECT
         *,
         b.note AS boxNote,

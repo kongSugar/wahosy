@@ -5,31 +5,31 @@
 
 <mapper namespace="Item">
 
-    <select id="selectById" resultType="de.kongsugar.wahosy.to.Item">
+    <select id="selectById" resultType="de.kongsugar.wahosy.model.to.Item">
         SELECT *
         FROM item
         WHERE itemID = #{itemID}
     </select>
 
-    <select id="selectAll" resultType="de.kongsugar.wahosy.to.Item">
+    <select id="selectAll" resultType="de.kongsugar.wahosy.model.to.Item">
         SELECT *
         FROM item
     </select>
 
-    <select id="selectByCategory" resultType="de.kongsugar.wahosy.to.Item">
+    <select id="selectByCategory" resultType="de.kongsugar.wahosy.model.to.Item">
         SELECT *
         FROM Item
         WHERE categoryID = #{id}
     </select>
 
-    <select id="selectAllBoxed" resultType="de.kongsugar.wahosy.to.Item">
+    <select id="selectAllBoxed" resultType="de.kongsugar.wahosy.model.to.Item">
         SELECT i.*
         FROM Box b
             LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
             LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
     </select>
 
-    <select id="selectAllNotBoxed" resultType="de.kongsugar.wahosy.to.Item">
+    <select id="selectAllNotBoxed" resultType="de.kongsugar.wahosy.model.to.Item">
         SELECT DISTINCT i.*
         FROM Item i
         WHERE NOT EXISTS(SELECT *
@@ -37,7 +37,7 @@
         WHERE i.itemID = b.itemID)
     </select>
 
-    <select id="find" parameterType="String" resultType="de.kongsugar.wahosy.to.Item">
+    <select id="find" parameterType="String" resultType="de.kongsugar.wahosy.model.to.Item">
         SELECT *
         FROM Item
         WHERE LOWER(name) LIKE LOWER('%${value}%') OR
@@ -45,7 +45,7 @@
         LOWER(note) LIKE LOWER('%${value}%')
     </select>
 
-    <select id="findUnboxed" parameterType="String" resultType="de.kongsugar.wahosy.to.Item">
+    <select id="findUnboxed" parameterType="String" resultType="de.kongsugar.wahosy.model.to.Item">
         SELECT i.*
         FROM Item i
         WHERE NOT EXISTS(SELECT *
@@ -56,7 +56,7 @@
         i.note LIKE '%${value}%')
     </select>
 
-    <select id="findBoxed" parameterType="String" resultType="de.kongsugar.wahosy.to.Item">
+    <select id="findBoxed" parameterType="String" resultType="de.kongsugar.wahosy.model.to.Item">
         SELECT i.*
         FROM Box b
         LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
@@ -67,7 +67,7 @@
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID"
-            parameterType="de.kongsugar.wahosy.to.Item">
+            parameterType="de.kongsugar.wahosy.model.to.Item">
         INSERT INTO Item (name, manufacturer, weight, serialnumber, note, categoryID)
         VALUES (#{name}, #{manufacturer}, #{weight}, #{serialNumber}, #{note}, #{categoryID})
     </insert>

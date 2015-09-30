@@ -1,4 +1,4 @@
-package de.kongsugar.wahosy.to;
+package de.kongsugar.wahosy.model.to;
 
 /**
  * Created by nikog on 17.09.2015.

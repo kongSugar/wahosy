@@ -1,8 +1,8 @@
-package de.kongsugar.wahosy.dao;
+package de.kongsugar.wahosy.model.dao;
 
-import de.kongsugar.wahosy.dao.batis.DbItem;
-import de.kongsugar.wahosy.database.ConnectionFactory;
-import de.kongsugar.wahosy.to.Item;
+import de.kongsugar.wahosy.model.dao.batis.DbItem;
+import de.kongsugar.wahosy.model.dao.batis.ConnectionFactory;
+import de.kongsugar.wahosy.model.to.Item;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package de.kongsugar.wahosy.to;
+package de.kongsugar.wahosy.model.to;
 
 import java.util.Objects;
 

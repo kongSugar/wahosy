@@ -1,6 +1,6 @@
-package de.kongsugar.wahosy.dao;
+package de.kongsugar.wahosy.model.dao;
 
-import de.kongsugar.wahosy.to.Event;
+import de.kongsugar.wahosy.model.to.Event;
 
 import java.sql.Timestamp;
 import java.util.List;
