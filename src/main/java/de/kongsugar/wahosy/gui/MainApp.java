@@ -60,10 +60,6 @@ public class MainApp extends Application {
         }
     }
 
-    private void gotoSettings() {
-
-    }
-
     private Initializable replaceSceneContent(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         InputStream in = MainApp.class.getResourceAsStream(fxml);

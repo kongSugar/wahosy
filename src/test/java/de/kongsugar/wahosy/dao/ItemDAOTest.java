@@ -1,5 +1,6 @@
 package de.kongsugar.wahosy.dao;
 
+import de.kongsugar.wahosy.dao.batis.DbItem;
 import de.kongsugar.wahosy.database.ConnectionFactory;
 import de.kongsugar.wahosy.to.Item;
 import org.junit.After;
@@ -15,6 +16,7 @@ import static org.junit.Assert.assertEquals;
  * Created by nikog on 23.09.2015.
  */
 public class ItemDAOTest extends Item {
+	ItemDAO dao = new DbItem();
 	Item i12 = new Item();
 	Item i20 = new Item();
 
@@ -53,12 +55,12 @@ public class ItemDAOTest extends Item {
 
 	@Test
 	public void testGetItem() throws Exception {
-		assertEquals("Obj", i12, ItemDAO.getItem(12));
+		assertEquals("Obj", i12, dao.getItem(12));
 	}
 
 	@Test
 	public void testGetAllItems() throws Exception {
-		List<Item> act = ItemDAO.getAllItems();
+		List<Item> act = dao.getAllItems();
 		assertEquals("Length", 23, act.size());
 		assertEquals("Contains", true, act.contains(i12));
 		assertEquals("Contains", true, act.contains(i20));
@@ -66,7 +68,7 @@ public class ItemDAOTest extends Item {
 
 	@Test
 	public void testGetAllBoxed() throws Exception {
-		List<Item> act = ItemDAO.getAllBoxed();
+		List<Item> act = dao.getAllBoxed();
 		assertEquals("Length", 9, act.size());
 		assertEquals("Contains", true, act.contains(i12));
 		assertEquals("Contains", false, act.contains(i20));
@@ -89,7 +91,7 @@ public class ItemDAOTest extends Item {
 
 	@Test
 	public void testFindBy() throws Exception {
-		System.out.println(ItemDAO.findBy("par"));
+		System.out.println(dao.findBy("par"));
 	}
 
 	@Test

@@ -7,81 +7,27 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-/**
- * Created by nikog on 07.09.2015.
- */
-public class ItemDAO {
+public interface ItemDAO {
+    Item getItem(int itemID);
 
-    public static Item getItem(int itemID) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectOne("Item.selectById", itemID);
-        }
-    }
+    List<Item> getAllItems();
 
-    public static List<Item> getAllItems() {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("Item.selectAll");
-        }
-    }
+    List<Item> getAllBoxed();
 
-    public static List<Item> getAllBoxed() {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("selectAllBoxed");
-        }
-    }
+    Item insertItem(Item item);
 
-    public static Item insertItem(Item item) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            session.insert("Item.insert", item);
-            session.commit();
-            item = session.selectOne("Item.selectById", item.getItemID()); //Workaround - also set storeID after Insert
-            return item;
-        }
-    }
+    void delete(int itemID);
 
-    public static void delete(int itemID) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            session.delete("Item.delete", itemID);
-            session.commit();
-        }
-    }
+    Item update(Item item);
 
-    public static Item update(Item item) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            session.update("update", item);
-            session.commit();
-            return item;
-        }
-    }
+    List<Item> findBy(String s);
 
-    public static List<Item> findBy(String s) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("find", s);
-        }
-    }
+    List<Item> findUnboxedBy(String s);
 
-    public static List<Item> findUnboxedBy(String s) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("findUnboxed", s);
-        }
-    }
+    List<Item> findBoxedBy(String s);
 
-    public static List<Item> findBoxedBy(String s) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("findBoxed", s);
-        }
-    }
+    List<Item> getByCategory(int categoryID);
 
-    public static List<Item> getByCategory(int categoryID) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("selectByCategory", categoryID);
-        }
-    }
-
-    public static List<Item> getByCategory(Category category) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("selectByCategory", category.getCategoryID());
-        }
-    }
+    List<Item> getByCategory(Category category);
 
 }

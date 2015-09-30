@@ -6,19 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
 
-/**
- * Created by nikog on 17.09.2015.
- */
-public class CategoryDAO {
-    public static List<Category> getAllCategories() {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("Category.selectAll");
-        }
-    }
 
-    public static Category getCategory(int categoryID) {
-        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectOne("Category.selectById", categoryID);
-        }
-    }
+public interface CategoryDAO {
+     List<Category> getAllCategories();
+
+     Category getCategory(int categoryID) ;
 }
