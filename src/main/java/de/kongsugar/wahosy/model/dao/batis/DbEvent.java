@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 
-public class DbEvent implements EventDAO{
+public class DbEvent implements EventDAO {
     public List<Event> getAllEvents() {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
             List<Event> events = session.selectList("Event.selectAll");
@@ -53,7 +53,8 @@ public class DbEvent implements EventDAO{
     public Event fillUp(Event event) {
         if (event != null) {
             if (!event.getBoxes().isEmpty()) event.getBoxes().replaceAll(box -> new DbBox().getBox(box.getBoxID()));
-            if (!event.getItems().isEmpty()) event.getItems().replaceAll(item -> new DbItem().getItem(item.getItemID()));
+            if (!event.getItems().isEmpty())
+                event.getItems().replaceAll(item -> new DbItem().getItem(item.getItemID()));
         }
         return event;
     }
@@ -63,7 +64,8 @@ public class DbEvent implements EventDAO{
             for (Event e : events) {
                 if (e != null) {
                     if (!e.getBoxes().isEmpty()) e.getBoxes().replaceAll(box -> new DbBox().getBox(box.getBoxID()));
-                    if (!e.getItems().isEmpty()) e.getItems().replaceAll(item -> new DbItem().getItem(item.getItemID()));
+                    if (!e.getItems().isEmpty())
+                        e.getItems().replaceAll(item -> new DbItem().getItem(item.getItemID()));
                 }
             }
         }

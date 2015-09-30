@@ -8,9 +8,10 @@ import org.apache.ibatis.session.SqlSession;
 import java.util.List;
 
 
-public class DbBox implements BoxDAO{
+public class DbBox implements BoxDAO {
     /**
      * Returns all boxes of the table 'box'
+     *
      * @return List of Boxes
      */
     public List<Box> getAllBoxes() {
@@ -21,6 +22,7 @@ public class DbBox implements BoxDAO{
 
     /**
      * Returns a specific box from the table 'box'
+     *
      * @param boxID
      * @return Box
      */

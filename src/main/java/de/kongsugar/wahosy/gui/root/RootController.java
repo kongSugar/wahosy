@@ -7,7 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 
@@ -51,7 +50,6 @@ public class RootController implements Initializable {
             e.printStackTrace();
         }
     }
-
 
 
     @Override
