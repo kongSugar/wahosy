@@ -59,13 +59,13 @@ public class RootController implements Initializable {
             application.stage.minHeightProperty().bind(menuLeft.minHeightProperty());
         });
 
-        setContent(Scenes.TEST_LAYOUT);
+        setContent(Scenes.STARTPAGE);
 
     }
 
 
-    public void loadTestScene() {
-        setContent(Scenes.TEST_LAYOUT);
+    public void loadStartScene() {
+        setContent(Scenes.STARTPAGE);
     }
 
     public void loadStoreOverview() {
@@ -79,6 +79,7 @@ public class RootController implements Initializable {
 
 class Scenes {
     static final String TEST_LAYOUT = "scene/test/TestLayout.fxml";
+    static final String STARTPAGE = "scene/start/StartpageLayout.fxml";
     static final String STORE_OVERVIEW = "scene/store/OverviewLayout.fxml";
     static final String SETTINGS = "scene/settings/SettingsLayout.fxml";
 }

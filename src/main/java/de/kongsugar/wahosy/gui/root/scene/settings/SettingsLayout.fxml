@@ -15,68 +15,58 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="-86.0" layoutY="-41.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+      <ScrollPane layoutX="-86.0" layoutY="-41.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
          <content>
-            <VBox prefHeight="488.0" prefWidth="400.0">
+            <VBox prefHeight="488.0" prefWidth="348.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Label" />
-                        <TextField />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Label" />
-                        <TextField />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Label" />
-                        <TextField />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Label" />
-                        <TextField />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Label" />
-                        <TextField />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Label" />
-                        <TextField />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <Label text="Label" />
-                        <TextField />
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="78.0" prefWidth="400.0">
-                     <children>
-                        <Label text="Label" />
-                        <TextField />
-                     </children>
-                  </HBox>
+                  <Label text="Datenbank">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <BorderPane prefHeight="40.0" prefWidth="400.0">
+                     <left>
+                        <Label text="Adresse" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER" />
+                     </right>
+                  </BorderPane>
+                  <BorderPane prefHeight="40.0" prefWidth="400.0">
+                     <left>
+                        <Label text="Datenbank" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER" />
+                     </right>
+                  </BorderPane>
+                  <BorderPane prefHeight="40.0" prefWidth="400.0">
+                     <left>
+                        <Label text="Username" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER" />
+                     </right>
+                  </BorderPane>
+                  <BorderPane prefHeight="40.0" prefWidth="400.0">
+                     <left>
+                        <Label text="Passwort" BorderPane.alignment="CENTER" />
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER" />
+                     </right>
+                  </BorderPane>
                </children>
             </VBox>
          </content>
       </ScrollPane>
-      <ButtonBar layoutX="273.0" layoutY="10.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="5.0">
-        <buttons>
-          <Button mnemonicParsing="false" text="Neuladen" />
+      <HBox alignment="CENTER" layoutX="375.0" layoutY="327.0" prefHeight="40.0" prefWidth="580.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <Button mnemonicParsing="false" text="Reload" />
+            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             <Button mnemonicParsing="false" text="Abbrechen" />
             <Button mnemonicParsing="false" text="Speichern" />
-        </buttons>
-      </ButtonBar>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

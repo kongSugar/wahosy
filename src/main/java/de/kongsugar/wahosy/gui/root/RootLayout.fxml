@@ -29,9 +29,9 @@
             <children>
                 <AnchorPane fx:id="menuLeft" maxWidth="200.0" minHeight="400.0" minWidth="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <VBox minWidth="192.0" prefHeight="411.0" prefWidth="198.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                        <VBox minWidth="192.0" prefHeight="411.0" prefWidth="198.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
                             <children>
-                                <Button fx:id="btn" mnemonicParsing="false" onAction="#loadTestScene" prefHeight="25.0" prefWidth="264.0" text="Start" />
+                                <Button fx:id="btn" mnemonicParsing="false" onAction="#loadStartScene" prefHeight="25.0" prefWidth="264.0" text="Start" />
                                 <Button fx:id="btnStoreOverview" mnemonicParsing="false" onAction="#loadStoreOverview" prefHeight="25.0" prefWidth="264.0" text="Übersicht" />
                         <Button mnemonicParsing="false" onAction="#loadSettings" prefHeight="25.0" prefWidth="252.0" text="Einstellungen" />
                             </children>
