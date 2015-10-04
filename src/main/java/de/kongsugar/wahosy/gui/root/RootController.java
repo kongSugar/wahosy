@@ -71,9 +71,14 @@ public class RootController implements Initializable {
     public void loadStoreOverview() {
         setContent(Scenes.STORE_OVERVIEW);
     }
+
+    public void loadSettings(){
+        setContent(Scenes.SETTINGS);
+    }
 }
 
 class Scenes {
     static final String TEST_LAYOUT = "scene/test/TestLayout.fxml";
     static final String STORE_OVERVIEW = "scene/store/OverviewLayout.fxml";
+    static final String SETTINGS = "scene/settings/SettingsLayout.fxml";
 }
