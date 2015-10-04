@@ -58,28 +58,29 @@ public class RootController implements Initializable {
             application.stage.minWidthProperty().bind(menuLeft.minWidthProperty().multiply(3));
             application.stage.minHeightProperty().bind(menuLeft.minHeightProperty());
         });
-
-        setContent(Scenes.STARTPAGE);
-
+        loadStartScene();
     }
 
 
     public void loadStartScene() {
         setContent(Scenes.STARTPAGE);
+
     }
 
     public void loadStoreOverview() {
         setContent(Scenes.STORE_OVERVIEW);
     }
 
-    public void loadSettings(){
+    public void loadSettings() {
         setContent(Scenes.SETTINGS);
     }
 }
 
-class Scenes {
-    static final String TEST_LAYOUT = "scene/test/TestLayout.fxml";
+final class Scenes {
     static final String STARTPAGE = "scene/start/StartpageLayout.fxml";
-    static final String STORE_OVERVIEW = "scene/store/OverviewLayout.fxml";
     static final String SETTINGS = "scene/settings/SettingsLayout.fxml";
+    static final String STORE_OVERVIEW = "scene/store/OverviewLayout.fxml";
+
+    private Scenes(){}
+
 }

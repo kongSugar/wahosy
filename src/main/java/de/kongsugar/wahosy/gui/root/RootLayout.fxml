@@ -33,6 +33,9 @@
                             <children>
                                 <Button fx:id="btn" mnemonicParsing="false" onAction="#loadStartScene" prefHeight="25.0" prefWidth="264.0" text="Start" />
                                 <Button fx:id="btnStoreOverview" mnemonicParsing="false" onAction="#loadStoreOverview" prefHeight="25.0" prefWidth="264.0" text="Übersicht" />
+                        <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Eventplaner" VBox.vgrow="NEVER" />
+                        <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="236.0" text="..." />
+                        <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                         <Button mnemonicParsing="false" onAction="#loadSettings" prefHeight="25.0" prefWidth="252.0" text="Einstellungen" />
                             </children>
                         </VBox>
