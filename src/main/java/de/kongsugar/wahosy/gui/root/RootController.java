@@ -3,6 +3,7 @@ package de.kongsugar.wahosy.gui.root;
 import de.kongsugar.wahosy.gui.MainApp;
 import de.kongsugar.wahosy.gui.root.scene.store.OverviewController;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -64,8 +65,7 @@ public class RootController implements Initializable {
 
     public void loadStartScene() {
         setContent(Scenes.STARTPAGE);
-
-    }
+            }
 
     public void loadStoreOverview() {
         OverviewController o = (OverviewController) setContent(Scenes.STORE_OVERVIEW);
