@@ -1,6 +1,7 @@
 package de.kongsugar.wahosy.gui.root;
 
 import de.kongsugar.wahosy.gui.MainApp;
+import de.kongsugar.wahosy.gui.root.scene.store.OverviewController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +34,7 @@ public class RootController implements Initializable {
         this.application = mainApp;
     }
 
-    private void setContent(String scene) {
+    private Initializable setContent(String scene) {
         try {
             URL url = getClass().getResource(scene);
             FXMLLoader fxmlLoader = new FXMLLoader();
@@ -44,11 +45,10 @@ public class RootController implements Initializable {
 
             node.prefHeightProperty().bind(content.heightProperty());
             node.prefWidthProperty().bind(content.widthProperty());
-
-
+            return (Initializable) fxmlLoader.getController();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        } return null;
     }
 
 
@@ -68,7 +68,8 @@ public class RootController implements Initializable {
     }
 
     public void loadStoreOverview() {
-        setContent(Scenes.STORE_OVERVIEW);
+        OverviewController o = (OverviewController) setContent(Scenes.STORE_OVERVIEW);
+        o.setApplication(application);
     }
 
     public void loadSettings() {
