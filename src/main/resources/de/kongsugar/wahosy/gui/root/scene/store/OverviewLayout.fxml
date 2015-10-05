@@ -11,7 +11,7 @@
       <HBox layoutX="136.0" layoutY="450.0" prefHeight="25.0" prefWidth="297.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="10.0">
          <children>
                   <Button mnemonicParsing="false" onAction="#showInsertDialog" text="Neues Item" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" onAction="#showNewBoxDialog" text="Neue Box" />
             <Button mnemonicParsing="false" text="Button" />
          </children>
       </HBox>

@@ -45,6 +45,10 @@ public class OverviewController implements Initializable {
 
     }
 
+    public void showNewBoxDialog() throws IOException {
+        showDialog(Dialoges.NEW_BOX);
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -53,6 +57,7 @@ public class OverviewController implements Initializable {
 
 final class Dialoges {
     static final String NEW_ITEM = "NewItemLayout.fxml";
+    static final String NEW_BOX = "NewBoxLayout.fxml";
 
     private Dialoges() {
     }
