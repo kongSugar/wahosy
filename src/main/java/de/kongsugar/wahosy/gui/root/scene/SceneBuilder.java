@@ -3,6 +3,7 @@ package de.kongsugar.wahosy.gui.root.scene;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Node;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.layout.AnchorPane;
@@ -27,15 +28,34 @@ public class SceneBuilder {
             fxmlLoader.setLocation(url);
             fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
             AnchorPane node = fxmlLoader.load(url.openStream());
-            content.getChildren().setAll(node);
 
-            node.prefHeightProperty().bind(content.heightProperty());
-            node.prefWidthProperty().bind(content.widthProperty());
+            if (content != null) {
+                content.getChildren().setAll(node);
+                node.prefHeightProperty().bind(content.heightProperty());
+                node.prefWidthProperty().bind(content.widthProperty());
+            }
+
             return (Initializable) fxmlLoader.getController();
         } catch (IOException e) {
             e.printStackTrace();
         } return null;
     }
+
+    public Node getNode(SceneHelper scene) {
+        URL url = getClass().getResource(scene.getFxml());
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(url);
+        fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
+        AnchorPane node = null;
+        try {
+            node = fxmlLoader.load(url.openStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return node;
+    }
+
+
 
     public Dialog showDialog(SceneHelper dialog) throws IOException {
         URL url = getClass().getResource(dialog.getFxml());
