@@ -26,7 +26,8 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        gotoSplash();
+        //gotoSplash();
+        gotoRoot();
         stage.show();
     }
 
@@ -35,6 +36,7 @@ public class MainApp extends Application {
             SplashController splash = (SplashController) replaceSceneContent("splash/SplashLayout.fxml");
             splash.setApp(this);
             stage.setResizable(false);
+            stage.setTitle("Wahosy");
             stage.centerOnScreen();
             stage.setWidth(600);
             stage.setHeight(400);
@@ -52,6 +54,7 @@ public class MainApp extends Application {
             stage.setHeight(800);
             stage.centerOnScreen();
             stage.setMaximized(true);
+            stage.setTitle("Wahosy");
 
             RootController root = (RootController) replaceSceneContent("root/RootLayout.fxml");
             root.setApp(this);

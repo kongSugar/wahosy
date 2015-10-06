@@ -1,12 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="187.0" layoutY="138.0" text="ItemView" />
+      <Label layoutX="14.0" layoutY="14.0" text="Gegenstands-Übersicht" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Separator layoutX="14.0" layoutY="41.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+      <TreeTableView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+        <columns>
+          <TreeTableColumn maxWidth="25.0" minWidth="25.0" prefWidth="25.0" />
+            <TreeTableColumn prefWidth="75.0" text="ItemID" />
+          <TreeTableColumn prefWidth="93.0" text="Bezeichnung" />
+            <TreeTableColumn prefWidth="86.0" text="Hersteller" />
+            <TreeTableColumn prefWidth="58.0" text="Gewicht" />
+            <TreeTableColumn prefWidth="113.0" text="Anmerkung" />
+            <TreeTableColumn prefWidth="53.0" text="zu Box" />
+        </columns>
+      </TreeTableView>
+      <HBox layoutX="345.0" layoutY="325.0" prefHeight="36.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Hinzufügen" />
+            <Pane prefHeight="36.0" prefWidth="23.0" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Entfernen" />
+         </children>
+      </HBox>
+      <HBox layoutX="47.0" layoutY="332.0" prefHeight="50.0" prefWidth="319.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="271.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Mixed" />
+                  <RadioButton mnemonicParsing="false" text="Boxed" />
+                  <RadioButton mnemonicParsing="false" text="Not Boxed" />
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="RadioButton" />
+                  <RadioButton mnemonicParsing="false" text="RadioButton" />
+                  <RadioButton mnemonicParsing="false" text="RadioButton" />
+               </children>
+            </VBox>
+            <VBox prefHeight="51.0" prefWidth="119.0" spacing="1.0">
+               <children>
+                  <DatePicker prefHeight="25.0" prefWidth="124.0" promptText="Datum" />
+                  <ComboBox prefWidth="150.0" promptText="Category" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <TextField layoutX="403.0" layoutY="13.0" opacity="0.75" prefHeight="25.0" prefWidth="183.0" promptText="Suche" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
    </children>
 </AnchorPane>

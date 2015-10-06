@@ -1,4 +1,4 @@
-package de.kongsugar.wahosy.gui.root.scene.store;
+package de.kongsugar.wahosy.gui.root.scene.box;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;

@@ -5,14 +5,13 @@ package de.kongsugar.wahosy.gui.root.scene;
  */
 public enum SceneHelper {
     BOX_VIEW("box/BoxViewLayout.fxml"),
-    BOX_CREATE("box/NewBoxLayout.fxml"),
     DASHBOARD("dashboard/StartpageLayout.fxml"),
     ITEM_VIEW("item/ItemViewLayout.fxml"),
-    ITEM_CREATE("item/NewItemLayout.fxml"),
     SETTINGS("setting/SettingsLayout.fxml"),
     STORE_VIEW("store/OverviewLayout.fxml"),
     DIALOG_NEW_ITEM("item/NewItemLayout.fxml"),
     DIALOG_NEW_BOX("box/NewBoxLayout.fxml"),
+    PLANER_VIEW("planer/PlanerViewLayout.fxml"),
     ;
 
     public String getFxml() {

@@ -63,6 +63,9 @@ public class RootController implements Initializable {
     }
     public void loadItemView(){sb.build(SceneHelper.ITEM_VIEW);}
     public void loadBoxView(){sb.build(SceneHelper.BOX_VIEW);}
+    public void loadPlanerView(){
+        sb.build(SceneHelper.PLANER_VIEW);
+    }
 
 }
 

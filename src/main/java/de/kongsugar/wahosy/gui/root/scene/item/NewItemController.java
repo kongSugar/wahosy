@@ -1,4 +1,4 @@
-package de.kongsugar.wahosy.gui.root.scene.store;
+package de.kongsugar.wahosy.gui.root.scene.item;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
