@@ -6,14 +6,10 @@ import de.kongsugar.wahosy.gui.root.scene.SceneHelper;
 import de.kongsugar.wahosy.gui.root.scene.store.OverviewController;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.control.Button;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,8 +23,6 @@ public class RootController implements Initializable {
     private AnchorPane menuLeft;
     @FXML
     private TitledPane homeMenu;
-    @FXML
-    private Button btn;
     @FXML
     private AnchorPane content;
 

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="452.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.kongsugar.wahosy.gui.root.RootController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="452.0" prefWidth="679.0"
+            xmlns="http://javafx.com/javafx/8.0.40" fx:controller="de.kongsugar.wahosy.gui.root.RootController">
     <children>
         <MenuBar layoutY="2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
@@ -20,6 +19,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#loadStartScene" text="Hilfe"/>
                         <MenuItem mnemonicParsing="false" text="About" />
                     </items>
                 </Menu>
@@ -31,7 +31,6 @@
                     <children>
                         <VBox minWidth="192.0" prefHeight="411.0" prefWidth="198.0" spacing="5.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="10.0">
                             <children>
-                                <Button fx:id="btn" mnemonicParsing="false" onAction="#loadStartScene" prefHeight="25.0" prefWidth="264.0" text="Start" />
                                 <Button fx:id="btnStoreOverview" mnemonicParsing="false" onAction="#loadStoreOverview" prefHeight="25.0" prefWidth="264.0" text="Übersicht" />
                         <Button mnemonicParsing="false" onAction="#loadItemView" prefHeight="25.0" prefWidth="275.0" text="Gegenstände" />
                         <Button mnemonicParsing="false" onAction="#loadBoxView" prefHeight="25.0" prefWidth="271.0" text="Boxen" />

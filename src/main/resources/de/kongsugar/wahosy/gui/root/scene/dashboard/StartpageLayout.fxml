@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40">
    <children>
-      <TextArea editable="false" prefHeight="64.0" prefWidth="361.0" text="awddddddddddddddddddddddddddddddddddddddddddddddddddd&#10;awdddddddddd&#10;wadddddddddd&#10;aaaaaaaa&#10;aaaaaaaaaaaaaaadasfdasfasf&#10;asfaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa&#10;asfffff&#10;a&#10;a&#10;a&#10;&#10;a&#10;a&#10;aaaa&#10;&#10;&#10;&#10;&#10;aassssssssdasd&#10;asdas&#10;das&#10;da&#10;sdfa&#10;dsf&#10;&#10;fag&#10;dsg&#10;a&#10;dgs&#10;g&#10;a&#10;dsg&#10;a&#10;dsg&#10;asdg&#10;asdg&#10;asd&#10;g&#10;sd&#10;g&#10;qew&#10;fd&#10;as&#10;d&#10;gd&#10;cvx&#10;yv&#10;d&#10;av&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label prefHeight="296.0" prefWidth="349.0"
+             text="Hilfeblablabla Dieser Text/Scene öffnet sich automatisch nach dem Starten. Erneuter Zugriff wird \nüber die Menüleiste ermöglicht Hilfe-&gt;&quot;Hilfe anzeigen&quot;"
+             wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0"/>
    </children>
 </AnchorPane>
