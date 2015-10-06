@@ -1,9 +1,10 @@
 package de.kongsugar.wahosy.gui.root;
 
 import de.kongsugar.wahosy.gui.MainApp;
+import de.kongsugar.wahosy.gui.root.scene.SceneBuilder;
+import de.kongsugar.wahosy.gui.root.scene.SceneHelper;
 import de.kongsugar.wahosy.gui.root.scene.store.OverviewController;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -31,27 +32,11 @@ public class RootController implements Initializable {
     @FXML
     private AnchorPane content;
 
+    private SceneBuilder sb;
+
     public void setApp(MainApp mainApp) {
         this.application = mainApp;
     }
-
-    private Initializable setContent(String scene) {
-        try {
-            URL url = getClass().getResource(scene);
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(url);
-            fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
-            AnchorPane node = fxmlLoader.load(url.openStream());
-            content.getChildren().setAll(node);
-
-            node.prefHeightProperty().bind(content.heightProperty());
-            node.prefWidthProperty().bind(content.widthProperty());
-            return (Initializable) fxmlLoader.getController();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } return null;
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,29 +44,26 @@ public class RootController implements Initializable {
             application.stage.minWidthProperty().bind(menuLeft.minWidthProperty().multiply(3));
             application.stage.minHeightProperty().bind(menuLeft.minHeightProperty());
         });
+        sb = new SceneBuilder(content);
         loadStartScene();
     }
 
 
     public void loadStartScene() {
-        setContent(Scenes.STARTPAGE);
-            }
+        sb.build(SceneHelper.DASHBOARD);
+    }
 
     public void loadStoreOverview() {
-        OverviewController o = (OverviewController) setContent(Scenes.STORE_OVERVIEW);
+        OverviewController o = (OverviewController) sb.build(SceneHelper.STORE_VIEW);
         o.setApplication(application);
     }
 
     public void loadSettings() {
-        setContent(Scenes.SETTINGS);
+        sb.build(SceneHelper.SETTINGS);
     }
-}
-
-final class Scenes {
-    static final String STARTPAGE = "scene/start/StartpageLayout.fxml";
-    static final String SETTINGS = "scene/settings/SettingsLayout.fxml";
-    static final String STORE_OVERVIEW = "scene/store/OverviewLayout.fxml";
-
-    private Scenes(){}
+    public void loadItemView(){sb.build(SceneHelper.ITEM_VIEW);}
+    public void loadBoxView(){sb.build(SceneHelper.BOX_VIEW);}
 
 }
+
+

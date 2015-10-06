@@ -1,9 +1,12 @@
 package de.kongsugar.wahosy.gui.root.scene.store;
 
 import de.kongsugar.wahosy.gui.MainApp;
+import de.kongsugar.wahosy.gui.root.scene.SceneBuilder;
+import de.kongsugar.wahosy.gui.root.scene.SceneHelper;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
+import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.layout.AnchorPane;
@@ -17,49 +20,23 @@ import java.util.ResourceBundle;
  */
 public class OverviewController implements Initializable {
     private MainApp application;
+    private SceneBuilder sb = new SceneBuilder(null);
 
     public void setApplication(MainApp application) {
         this.application = application;
     }
 
-    private void showDialog(String dialog) throws IOException {
-        URL url = getClass().getResource(dialog);
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setLocation(url);
-        fxmlLoader.setBuilderFactory(new JavaFXBuilderFactory());
-        AnchorPane node = fxmlLoader.load(url.openStream());
 
-        DialogPane dp = new DialogPane();
-        dp.setContent(node);
-        Dialog d = new Dialog();
-        d.setDialogPane(dp);
-        d.show();
-    }
-
-    public void showInsertDialog() {
-        try {
-            showDialog(Dialoges.NEW_ITEM);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    public void showInsertDialog() throws IOException {
+        sb.showDialog(SceneHelper.DIALOG_NEW_ITEM);
     }
 
     public void showNewBoxDialog() throws IOException {
-        showDialog(Dialoges.NEW_BOX);
-    }
+        sb.showDialog(SceneHelper.DIALOG_NEW_BOX);    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-}
-
-final class Dialoges {
-    static final String NEW_ITEM = "NewItemLayout.fxml";
-    static final String NEW_BOX = "NewBoxLayout.fxml";
-
-    private Dialoges() {
     }
 }
 
