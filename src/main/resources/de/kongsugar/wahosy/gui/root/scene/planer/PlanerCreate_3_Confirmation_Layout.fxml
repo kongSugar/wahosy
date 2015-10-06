@@ -1,11 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40">
+            minWidth="-Infinity" prefHeight="577.0" prefWidth="514.0" xmlns="http://javafx.com/javafx/8.0.40">
     <children>
-        <Label layoutX="234.0" layoutY="127.0" text="ToDo"/>
+        <Label layoutX="28.0" layoutY="23.0" text="3. Schritt - Bestätigung" AnchorPane.leftAnchor="10.0"
+               AnchorPane.topAnchor="10.0">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+        <TreeTableView layoutX="28.0" layoutY="337.0" prefHeight="206.0" prefWidth="494.0"
+                       AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+                       AnchorPane.topAnchor="340.0">
+            <columns>
+                <TreeTableColumn prefWidth="75.0" text="ID"/>
+                <TreeTableColumn prefWidth="121.0" text="Name"/>
+                <TreeTableColumn prefWidth="224.0" text="Beschreibung"/>
+            </columns>
+        </TreeTableView>
+        <Separator layoutX="134.0" layoutY="39.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0"
+                   AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0"/>
+        <GridPane layoutX="28.0" layoutY="53.0" prefHeight="263.0" prefWidth="494.0" AnchorPane.leftAnchor="10.0"
+                  AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="25.0" prefWidth="25.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="24.0" minHeight="9.0" prefHeight="9.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="20.0" prefHeight="20.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="18.0" minHeight="0.0" prefHeight="18.0" vgrow="SOMETIMES"/>
+                <RowConstraints maxHeight="20.0" minHeight="13.0" prefHeight="13.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label text="Vorname" GridPane.rowIndex="3"/>
+                <Label text="Nachname/Firma" GridPane.rowIndex="2"/>
+                <Label text="Rechnungsdaten"/>
+                <Label text="PLZ" GridPane.rowIndex="4"/>
+                <Label text="Ort" GridPane.rowIndex="5"/>
+                <Label text="Adresse" GridPane.rowIndex="6"/>
+                <Label text="Lieferdaten" GridPane.columnIndex="3"/>
+                <Label text="Nachname/Firma" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                <Label text="Adresszusatz" GridPane.rowIndex="7"/>
+                <Label text="Telefon" GridPane.rowIndex="8"/>
+                <Label text="Telefax" GridPane.rowIndex="9"/>
+                <Label text="E-Mail" GridPane.rowIndex="10"/>
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+                <Label text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+                <Label text="Vorname" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                <Label text="PLZ" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+                <Label text="Ort" GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+                <Label text="Adresse" GridPane.columnIndex="3" GridPane.rowIndex="6"/>
+                <Label text="Adresszusatz" GridPane.columnIndex="3" GridPane.rowIndex="7"/>
+                <Label text="Telefon" GridPane.columnIndex="3" GridPane.rowIndex="8"/>
+                <Label text="Telefax" GridPane.columnIndex="3" GridPane.rowIndex="9"/>
+                <Label text="E-Mail" GridPane.columnIndex="3" GridPane.rowIndex="10"/>
+                <Label text="Label" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+                <Label text="Label" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+                <Label text="Label" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+                <Label text="Label" GridPane.columnIndex="4" GridPane.rowIndex="5"/>
+                <Label text="Label" GridPane.columnIndex="4" GridPane.rowIndex="6"/>
+                <Label text="Label" GridPane.columnIndex="4" GridPane.rowIndex="10"/>
+                <Label text="Label" GridPane.columnIndex="4" GridPane.rowIndex="9"/>
+                <Label text="Label" GridPane.columnIndex="4" GridPane.rowIndex="8"/>
+                <Label text="Label" GridPane.columnIndex="4" GridPane.rowIndex="7"/>
+                <DatePicker editable="false" GridPane.columnIndex="4" GridPane.rowIndex="12"/>
+                <DatePicker editable="false" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+                <Label text="Von" GridPane.columnIndex="3" GridPane.rowIndex="12"/>
+                <Label text="Bis" GridPane.rowIndex="12"/>
+            </children>
+        </GridPane>
+        <HBox layoutX="320.0" layoutY="359.0" prefHeight="17.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0"
+              AnchorPane.rightAnchor="10.0">
+            <children>
+                <Label text="Gewicht:"/>
+                <Pane prefHeight="30.0" prefWidth="84.0"/>
+                <Label text="99999 KG"/>
+            </children>
+        </HBox>
     </children>
 </AnchorPane>

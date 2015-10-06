@@ -34,6 +34,10 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
         </rowConstraints>
          <children>
             <Label text="Rechnungsadresse" />
@@ -78,6 +82,10 @@
             <TextField GridPane.columnIndex="4" GridPane.rowIndex="8" />
             <TextField GridPane.columnIndex="4" GridPane.rowIndex="9" />
             <TextField GridPane.columnIndex="4" GridPane.rowIndex="10" />
+             <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+             <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="14"/>
+             <Label text="Von" GridPane.rowIndex="12"/>
+             <Label text="Bis" GridPane.rowIndex="14"/>
          </children>
       </GridPane>
    </children>

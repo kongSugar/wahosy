@@ -20,7 +20,7 @@ public class PlanerViewController  implements Initializable{
     }
 
     public void newEvent() {
-        Wizard wizard = new Wizard();
+        Wizard wizard = new Wizard(null, "New Event");
         WizardPane p1 = new WizardPane();
         WizardPane p2 = new WizardPane();
         WizardPane p3 = new WizardPane();
@@ -28,10 +28,10 @@ public class PlanerViewController  implements Initializable{
         p2.setContent(sb.getNode(SceneHelper.PLANER_CREATE_2_LIST));
         p3.setContent(sb.getNode(SceneHelper.PLANER_CREATE_3_CONFIRMATION));
         wizard.setFlow(new Wizard.LinearFlow(p1, p2, p3));
-        wizard.setTitle("New Order");
         wizard.showAndWait().ifPresent(result -> {
             if (result == ButtonType.FINISH) {
                 System.out.println("Könnte nun speichern! " + wizard.getSettings());
+
             }
         });
     }
