@@ -7,7 +7,6 @@ import javafx.scene.control.ButtonType;
 import org.controlsfx.dialog.Wizard;
 import org.controlsfx.dialog.WizardPane;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -17,7 +16,10 @@ import java.util.ResourceBundle;
 public class PlanerViewController  implements Initializable{
     SceneBuilder sb = new SceneBuilder(null);
 
-    public void loadCreateNewOrderScene() throws IOException {
+    public void deleteEvent() {
+    }
+
+    public void newEvent() {
         Wizard wizard = new Wizard();
         WizardPane p1 = new WizardPane();
         WizardPane p2 = new WizardPane();
