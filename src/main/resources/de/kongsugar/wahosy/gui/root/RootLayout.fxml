@@ -35,8 +35,7 @@
                                 <Button fx:id="btnStoreOverview" mnemonicParsing="false" onAction="#loadStoreOverview" prefHeight="25.0" prefWidth="264.0" text="Übersicht" />
                         <Button mnemonicParsing="false" onAction="#loadItemView" prefHeight="25.0" prefWidth="275.0" text="Gegenstände" />
                         <Button mnemonicParsing="false" onAction="#loadBoxView" prefHeight="25.0" prefWidth="271.0" text="Boxen" />
-                        <Button mnemonicParsing="false" onAction="#loadPlanerView" prefHeight="25.0" prefWidth="318.0" text="Planung" />
-                        <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="202.0" text="Eventplaner" VBox.vgrow="NEVER" />
+                        <Button mnemonicParsing="false" onAction="#loadPlanerView" prefHeight="25.0" prefWidth="318.0" text="Eventplaner" />
                         <Button disable="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="236.0" text="..." />
                         <Pane maxHeight="50.0" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                         <Button mnemonicParsing="false" onAction="#loadSettings" prefHeight="25.0" prefWidth="252.0" text="Einstellungen" />

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="524.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TreeTableView layoutX="14.0" layoutY="40.0" prefHeight="374.0" prefWidth="450.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+        <columns>
+            <TreeTableColumn prefWidth="75.0" text="ID" />
+          <TreeTableColumn prefWidth="116.0" text="Name" />
+            <TreeTableColumn prefWidth="106.0" text="Gewicht" />
+            <TreeTableColumn prefWidth="151.0" text="Anmerkung" />
+        </columns>
+      </TreeTableView>
+      <Label layoutX="14.0" layoutY="14.0" text="Planer" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Separator layoutX="56.0" layoutY="39.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
+      <ComboBox layoutX="440.0" layoutY="13.0" opacity="0.5" prefWidth="150.0" promptText="Lade ..." AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <Button layoutX="624.0" layoutY="485.0" mnemonicParsing="false" text="Weiter" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <Button layoutX="561.0" layoutY="485.0" mnemonicParsing="false" text="Zurück" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="75.0" />
+      <Button layoutX="17.0" layoutY="442.0" mnemonicParsing="false" text="Add Items.." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+      <Button layoutX="131.0" layoutY="442.0" mnemonicParsing="false" text="Add Boxes..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" />
+      <Button layoutX="434.0" layoutY="10.0" mnemonicParsing="false" opacity="0.5" prefHeight="12.0" prefWidth="80.0" text="Liste speichern" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="11.0">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
