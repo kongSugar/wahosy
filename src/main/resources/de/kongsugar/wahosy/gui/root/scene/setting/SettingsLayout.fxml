@@ -16,11 +16,83 @@
          <content>
             <VBox prefHeight="488.0" prefWidth="348.0">
                <children>
+                  <Label prefHeight="106.0" prefWidth="400.0"
+                         text="Firma (interessant für die spätere Generierung der PDF-Dokumente)" wrapText="true">
+                     <font>
+                        <Font size="20.0"/>
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0"/>
+                  <BorderPane maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" prefHeight="200.0"
+                              prefWidth="400.0">
+                     <left>
+                        <Label text="Firmenname" BorderPane.alignment="CENTER"/>
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER"/>
+                     </right>
+                  </BorderPane>
+                  <BorderPane maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" prefHeight="200.0"
+                              prefWidth="400.0">
+                     <left>
+                        <Label text="Adresse" BorderPane.alignment="CENTER"/>
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER"/>
+                     </right>
+                  </BorderPane>
+                  <BorderPane maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" prefHeight="200.0"
+                              prefWidth="400.0">
+                     <left>
+                        <Label text="Adresszusatz" BorderPane.alignment="CENTER"/>
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER"/>
+                     </right>
+                  </BorderPane>
+                  <BorderPane maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" prefHeight="200.0"
+                              prefWidth="400.0">
+                     <left>
+                        <Label text="Telefon" BorderPane.alignment="CENTER"/>
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER"/>
+                     </right>
+                  </BorderPane>
+                  <BorderPane maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" prefHeight="29.0"
+                              prefWidth="400.0">
+                     <left>
+                        <Label text="Telefax" BorderPane.alignment="CENTER"/>
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER"/>
+                     </right>
+                  </BorderPane>
+                  <BorderPane maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" prefHeight="40.0"
+                              prefWidth="400.0">
+                     <left>
+                        <Label text="E-Mail" BorderPane.alignment="CENTER"/>
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER"/>
+                     </right>
+                  </BorderPane>
+                  <BorderPane maxHeight="40.0" maxWidth="400.0" minHeight="40.0" minWidth="400.0" prefHeight="40.0"
+                              prefWidth="400.0">
+                     <left>
+                        <Label text="Firmenlogo (png, jpg, jpeg, gif, bmp)" BorderPane.alignment="CENTER"/>
+                     </left>
+                     <right>
+                        <TextField BorderPane.alignment="CENTER"/>
+                     </right>
+                  </BorderPane>
+                  <Pane prefHeight="40.0" prefWidth="348.0"/>
                   <Label text="Datenbank">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
+                  <Separator prefWidth="200.0"/>
                   <BorderPane prefHeight="40.0" prefWidth="400.0">
                      <left>
                         <Label text="Adresse" BorderPane.alignment="CENTER" />
@@ -57,6 +129,9 @@
             </VBox>
          </content>
       </ScrollPane>
+      <Label layoutX="189.0" prefHeight="48.0" prefWidth="392.0"
+             text="...Datenbankänderung -&gt; Änderungen an den Datenbankeinstellungen werden erst nach dem neustart des Programmes wirksam!"
+             wrapText="true"/>
       <HBox alignment="CENTER" layoutX="375.0" layoutY="327.0" prefHeight="40.0" prefWidth="580.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
             <Button mnemonicParsing="false" text="Reload" />
