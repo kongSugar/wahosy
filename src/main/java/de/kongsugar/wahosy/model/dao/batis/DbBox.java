@@ -62,6 +62,7 @@ public class DbBox implements BoxDAO {
 	@Override
 	public List<Item> getItems(int boxID) {
 		try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+			//TODO Box.getItems
 			List<Integer> ids = session.selectList("Box.getItems",boxID);
 			ItemDAO dao = new DbItem();
 			List<Item> items = new ArrayList<>();

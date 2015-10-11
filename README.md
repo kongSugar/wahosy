@@ -14,6 +14,7 @@
 - [x] DAO-Interface Methoden bestimmen
 - [x] passende iBatis SQL-Mapper schreiben
 - [x] implementieren
+- [ ] DAO testen
 
 - [ ] GUI Ansichten bestimmen
 - [ ] Grundgerüst aufbauen
