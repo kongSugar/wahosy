@@ -2,15 +2,23 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.*?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/null" fx:controller="de.kongsugar.wahosy.gui.splash.SplashController">
+            xmlns="http://javafx.com/javafx/8.0.40" fx:controller="de.kongsugar.wahosy.gui.splash.SplashController">
     <children>
-        <ProgressBar fx:id="progBar" layoutX="131.0" layoutY="347.0" prefWidth="300.0" progress="0.0"/>
-        <Label fx:id="countdown" layoutX="465.0" layoutY="347.0" text="Countdown"/>
-        <Label fx:id="credits" layoutX="343.0" layoutY="318.0" text="Credits"/>
+        <ProgressBar fx:id="progBar" layoutX="131.0" layoutY="347.0" prefWidth="300.0" progress="0.0"
+                     AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0"/>
+        <Label fx:id="countdown" layoutX="465.0" layoutY="347.0" text="Countdown" AnchorPane.bottomAnchor="50.0"
+               AnchorPane.leftAnchor="20.0"/>
+        <Label fx:id="credits" layoutX="343.0" layoutY="318.0" text="Credits" AnchorPane.bottomAnchor="50.0"
+               AnchorPane.rightAnchor="20.0"/>
         <ImageView fx:id="logo" fitHeight="369.0" fitWidth="570.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true"
-                   preserveRatio="true"/>
+                   preserveRatio="true" AnchorPane.bottomAnchor="80.0" AnchorPane.leftAnchor="20.0"
+                   AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0"/>
     </children>
+    <cursor>
+        <Cursor fx:constant="NONE"/>
+    </cursor>
 </AnchorPane>

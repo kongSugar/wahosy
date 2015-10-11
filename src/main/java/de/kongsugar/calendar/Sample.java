@@ -4,6 +4,8 @@ package de.kongsugar.calendar;/**
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -16,9 +18,12 @@ public class Sample extends Application {
     @Override
     public void start(Stage primaryStage) {
         AnchorPane pane = new AnchorPane();
+        Control c = new Button("Btn");
+        pane.getChildren().add(c);
         primaryStage.setScene(new Scene(pane));
         primaryStage.setTitle("Calendar");
         primaryStage.show();
+
 
     }
 }

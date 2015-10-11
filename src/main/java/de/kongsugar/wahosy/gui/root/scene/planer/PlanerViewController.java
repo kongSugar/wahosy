@@ -31,7 +31,6 @@ public class PlanerViewController  implements Initializable{
         wizard.showAndWait().ifPresent(result -> {
             if (result == ButtonType.FINISH) {
                 System.out.println("Könnte nun speichern! " + wizard.getSettings());
-
             }
         });
     }

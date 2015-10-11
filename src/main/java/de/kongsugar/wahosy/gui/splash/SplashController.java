@@ -64,5 +64,6 @@ public class SplashController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         startCountdown();
         logo.setImage(new Image(this.getClass().getClassLoader().getResourceAsStream("Images/test.jpg")));
+
     }
 }

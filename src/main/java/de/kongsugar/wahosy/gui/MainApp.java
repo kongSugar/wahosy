@@ -26,8 +26,9 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        //gotoSplash();
-        gotoRoot();
+        //TODO
+        gotoSplash();
+        //gotoRoot();
         stage.show();
     }
 
@@ -70,7 +71,7 @@ public class MainApp extends Application {
         loader.setLocation(MainApp.class.getResource(fxml));
         AnchorPane page;
         try {
-            page = (AnchorPane) loader.load(in);
+            page = loader.load(in);
         } finally {
             in.close();
         }
