@@ -4,6 +4,31 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Box">
+    <delete id="delete"></delete>
+    <update id="update"></update>
+    <insert id="insert"></insert>
+
+    <select id="get">
+        SELECT *
+        FROM Box
+        WHERE boxID = #{boxID}
+    </select>
+
+    <select id="getAll">
+        SELECT *
+        FROM Box
+    </select>
+
+    <select id="getItems">
+        SELECT itemID
+        FROM Box_has_Item
+        WHERE boxID = #{boxID}
+    </select>
+
+    <insert id="addItem" parameterType="java.util.Map"></insert>
+    <delete id="deleteItem" parameterType="java.util.Map"></delete>
+
+
     <resultMap id="resultBoxMap" type="Box">
         <id property="boxID" column="boxID"/>
         <result property="name" column="name"/>
@@ -20,7 +45,7 @@
         </collection>
     </resultMap>
 
-    <select id="getAll" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
+    <select id="OLDgetAll" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
         SELECT
         *,
         b.note AS boxNote,
@@ -30,7 +55,7 @@
         LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
     </select>
 
-    <select id="get" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
+    <select id="OLDget" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
         SELECT
         *,
         b.note AS boxNote,
@@ -41,7 +66,7 @@
         WHERE b.boxID = #{boxID}
     </select>
 
-    <select id="selectByItem" resultMap="resultBoxMap">
+    <select id="OLDselectByItem" resultMap="resultBoxMap">
         SELECT
             *,
             b.note AS boxNote,
@@ -55,9 +80,9 @@
             LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
     </select>
 
-    <select id="getItems"></select>
+    <select id="OLDgetItems"></select>
 
-    <update id="update">
+    <update id="OLDupdate">
         UPDATE Box
         SET
             name = #{name},
@@ -65,7 +90,7 @@
         WHERE boxID = #{boxID}
     </update>
 
-    <delete id="delete">
+    <delete id="OLDdelete">
         DELETE FROM Box
         WHERE boxID = #{boxID}
     </delete>

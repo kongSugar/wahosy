@@ -67,8 +67,9 @@ public class DbBox implements BoxDAO {
 	@Override
 	public void addItem(int boxID, Item item) {
 		try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            Map<Integer,Item> map = new HashMap<>();
-            map.put(boxID,item);
+			Map<String,Integer> map = new HashMap<>();
+			map.put("boxID",boxID);
+			map.put("itemID",item.getItemID());
 			session.insert("Box.addItem", map);
 		}
 	}
@@ -81,8 +82,9 @@ public class DbBox implements BoxDAO {
 	@Override
 	public void deleteItem(int boxID, Item item) {
 		try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            Map<Integer,Item> map = new HashMap<>();
-            map.put(boxID,item);
+			Map<String,Integer> map = new HashMap<>();
+			map.put("boxID",boxID);
+			map.put("itemID",item.getItemID());
 			session.delete("Box.removeItem",map);
 		}
 	}

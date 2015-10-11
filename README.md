@@ -12,7 +12,7 @@
 - [x] Datenbank-Schema erzeugen
 
 - [x] DAO-Interface Methoden bestimmen
-- [ ] passende iBatis SQL-Mapper schreiben
+- [x] passende iBatis SQL-Mapper schreiben
 - [x] implementieren
 
 - [ ] GUI Ansichten bestimmen
