@@ -11,9 +11,9 @@
 - [x] Libraries raussuchen
 - [x] Datenbank-Schema erzeugen
 
-- [ ] DAO-Interface Methoden bestimmen
+- [x] DAO-Interface Methoden bestimmen
 - [ ] passende iBatis SQL-Mapper schreiben
-- [ ] implementieren
+- [x] implementieren
 
 - [ ] GUI Ansichten bestimmen
 - [ ] Grundgerüst aufbauen

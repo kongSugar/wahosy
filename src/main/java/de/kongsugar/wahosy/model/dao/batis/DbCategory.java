@@ -8,15 +8,53 @@ import java.util.List;
 
 
 public class DbCategory implements CategoryDAO {
-    public List<Category> getAllCategories() {
+    @Override
+    public List<Category> getAll() {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectList("Category.selectAll");
+            return session.selectList("Category.getAll");
         }
     }
 
-    public Category getCategory(int categoryID) {
+    @Override
+    public Category get(int categoryID) {
         try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-            return session.selectOne("Category.selectById", categoryID);
+            return session.selectOne("Category.get", categoryID);
+        }    }
+
+    @Override
+    public void delete(int categoryID) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            session.delete("Category.delete",categoryID);
+        }
+    }
+
+    @Override
+    public void delete(Category category) {
+        delete(category.getCategoryID());
+    }
+
+    @Override
+    public void delete(List<Category> categories) {
+        categories.stream().forEach(category -> delete(category.getCategoryID()));
+    }
+
+    @Override
+    public void insert(Category category) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            session.insert("Category.insert", category);
+        }
+    }
+
+    @Override
+    public void insert(List<Category> categories) {
+        categories.stream().forEach(category -> insert(category));
+
+    }
+
+    @Override
+    public void update(Category category) {
+        try (SqlSession session = ConnectionFactory.getSession().openSession()) {
+            session.update("Category.update",category);
         }
     }
 }

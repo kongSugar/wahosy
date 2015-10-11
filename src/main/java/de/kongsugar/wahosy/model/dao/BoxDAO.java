@@ -11,12 +11,18 @@ import java.util.List;
  * @author Niko Gillen
  */
 public interface BoxDAO {
+    void delete(int boxID);
+    void delete(Box box);
+    void delete(List<Box> boxes);
+    void update(Box box);
+    void insert(Box box);
 
-    List<Box> getAllBoxes();
+    Box get(int boxID);
+    List<Box> getAll();
 
-    Box getBox(int boxID);
-
-    Box getBoxByItem(Item item);
-
-    Box getBoxByItem(int itemID);
+    List<Item> getItems(int boxID);
+    void addItem(int boxID, Item item);
+    void addItems(int boxID, List<Item> items);
+    void deleteItem(int boxID, Item item);
+    void deleteItems(int boxID, List<Item> items);
 }

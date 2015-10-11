@@ -5,12 +5,12 @@
 
 <mapper namespace="Category">
 
-        <select id="selectAll" resultType="de.kongsugar.wahosy.model.to.Category">
+        <select id="getAll" resultType="de.kongsugar.wahosy.model.to.Category">
                 SELECT *
                 FROM Category
         </select>
 
-        <select id="selectById" resultType="de.kongsugar.wahosy.model.to.Category">
+        <select id="get" resultType="de.kongsugar.wahosy.model.to.Category">
                 SELECT *
                 FROM Category
                 WHERE categoryID = #{categoryID}

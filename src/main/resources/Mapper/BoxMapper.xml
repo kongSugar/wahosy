@@ -20,7 +20,7 @@
         </collection>
     </resultMap>
 
-    <select id="selectAll" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
+    <select id="getAll" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
         SELECT
         *,
         b.note AS boxNote,
@@ -30,7 +30,7 @@
         LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
     </select>
 
-    <select id="selectById" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
+    <select id="get" resultMap="resultBoxMap" parameterType="de.kongsugar.wahosy.model.to.Box">
         SELECT
         *,
         b.note AS boxNote,
@@ -54,6 +54,8 @@
                                                     LIMIT 1)
             LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
     </select>
+
+    <select id="getItems"></select>
 
     <update id="update">
         UPDATE Box
