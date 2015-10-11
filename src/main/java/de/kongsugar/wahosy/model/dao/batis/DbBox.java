@@ -1,9 +1,11 @@
 package de.kongsugar.wahosy.model.dao.batis;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import de.kongsugar.wahosy.model.dao.ItemDAO;
 import org.apache.ibatis.session.SqlSession;
 
 import de.kongsugar.wahosy.model.dao.BoxDAO;
@@ -60,7 +62,12 @@ public class DbBox implements BoxDAO {
 	@Override
 	public List<Item> getItems(int boxID) {
 		try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-			return session.selectList("Box.getItems", boxID);
+			List<Integer> ids = session.selectList("Box.getItems",boxID);
+			ItemDAO dao = new DbItem();
+			List<Item> items = new ArrayList<>();
+			ids.stream().map(dao::get).forEach(items::add);
+			return items;
+			//return session.selectList("Box.getItems", boxID);
 		}
 	}
 

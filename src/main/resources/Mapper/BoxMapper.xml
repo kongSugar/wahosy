@@ -4,17 +4,31 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Box">
-    <delete id="delete"></delete>
-    <update id="update"></update>
-    <insert id="insert"></insert>
+    <delete id="delete">
+        DELETE FROM Box
+        WHERE boxID = #{boxID}
+    </delete>
 
-    <select id="get">
+    <update id="update">
+        UPDATE Box
+        SET
+            name = #{name},
+            note = #{note}
+        WHERE boxID = #{boxID}
+    </update>
+
+    <insert id="insert">
+        INSERT INTO Box (name, note)
+        VALUES (#{name}, #{note})
+    </insert>
+
+    <select id="get" resultType="de.kongsugar.wahosy.model.to.Box">
         SELECT *
         FROM Box
         WHERE boxID = #{boxID}
     </select>
 
-    <select id="getAll">
+    <select id="getAll" resultType="de.kongsugar.wahosy.model.to.Box">
         SELECT *
         FROM Box
     </select>
@@ -25,8 +39,15 @@
         WHERE boxID = #{boxID}
     </select>
 
-    <insert id="addItem" parameterType="java.util.Map"></insert>
-    <delete id="deleteItem" parameterType="java.util.Map"></delete>
+    <insert id="addItem" parameterType="java.util.Map">
+        INSERT INTO Box_has_item (boxID, itemID)
+        VALUES (#{boxID}, #{itemID})
+    </insert>
+
+    <delete id="deleteItem" parameterType="java.util.Map">
+        DELETE FROM Box_has_item
+        WHERE itemID = #{itemID} AND boxID = #{boxID}
+    </delete>
 
 
     <resultMap id="resultBoxMap" type="Box">
