@@ -1,31 +1,32 @@
 package de.kongsugar.wahosy.model.dao;
 
-import de.kongsugar.wahosy.model.to.Category;
 import de.kongsugar.wahosy.model.to.Item;
 
 import java.util.List;
 
+/**
+ * Created by nikog on 11.10.2015.
+ */
 public interface ItemDAO {
-    Item getItem(int itemID);
-
-    List<Item> getAllItems();
-
-    List<Item> getAllBoxed();
-
-    Item insertItem(Item item);
-
     void delete(int itemID);
+    void delete(Item item);
+    void delete(List<Item> items);
 
-    Item update(Item item);
+    void insert(Item item);
+    void insert(List<Item> items);
 
-    List<Item> findBy(String s);
+    void update(Item item);
 
-    List<Item> findUnboxedBy(String s);
+    Item get(int itemID);
 
-    List<Item> findBoxedBy(String s);
-
+    List<Item> getAll();
+    List<Item> getUnboxed();
+    List<Item> getBoxed();
     List<Item> getByCategory(int categoryID);
+    List<Item> find(String string);
+    List<Item> findUnboxed(String string);
+    List<Item> findBoxed(String string);
 
-    List<Item> getByCategory(Category category);
+    boolean isBoxed(Item item);
 
 }

@@ -4,37 +4,31 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Item">
-
-    <select id="selectById" resultType="de.kongsugar.wahosy.model.to.Item">
-        SELECT *
-        FROM item
-        WHERE itemID = #{itemID}
+    <select id="get" resultType="de.kongsugar.wahosy.model.to.Item">
+        SELECT * FROM Item WHERE itemID = #{itemID}
     </select>
 
-    <select id="selectAll" resultType="de.kongsugar.wahosy.model.to.Item">
-        SELECT *
-        FROM item
+    <select id="getAll" resultType="de.kongsugar.wahosy.model.to.Item">
+        SELECT * FROM Item
     </select>
 
-    <select id="selectByCategory" resultType="de.kongsugar.wahosy.model.to.Item">
-        SELECT *
-        FROM Item
-        WHERE categoryID = #{id}
-    </select>
-
-    <select id="selectAllBoxed" resultType="de.kongsugar.wahosy.model.to.Item">
-        SELECT i.*
-        FROM Box b
-            LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
-            LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
-    </select>
-
-    <select id="selectAllNotBoxed" resultType="de.kongsugar.wahosy.model.to.Item">
+    <select id="getUnboxed" resultType="de.kongsugar.wahosy.model.to.Item">
         SELECT DISTINCT i.*
         FROM Item i
         WHERE NOT EXISTS(SELECT *
         FROM box_has_item b
         WHERE i.itemID = b.itemID)
+    </select>
+
+    <select id="getBoxed" resultType="de.kongsugar.wahosy.model.to.Item">
+        SELECT i.*
+        FROM Box b
+        LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
+        LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
+    </select>
+
+    <select id="getByCategory">
+        SELECT * FROM Item WHERE categoryID=#{categoryID}
     </select>
 
     <select id="find" parameterType="String" resultType="de.kongsugar.wahosy.model.to.Item">
@@ -43,6 +37,16 @@
         WHERE LOWER(name) LIKE LOWER('%${value}%') OR
         LOWER(manufacturer) LIKE LOWER('%${value}%') OR
         LOWER(note) LIKE LOWER('%${value}%')
+    </select>
+
+    <select id="findBoxed" parameterType="String" resultType="de.kongsugar.wahosy.model.to.Item">
+        SELECT i.*
+        FROM Box b
+        LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
+        LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
+        WHERE i.name LIKE '%${value}%' OR
+        i.manufacturer LIKE '%${value}%' OR
+        i.note LIKE '%${value}%'
     </select>
 
     <select id="findUnboxed" parameterType="String" resultType="de.kongsugar.wahosy.model.to.Item">
@@ -54,16 +58,6 @@
         AND (i.name LIKE '%${value}%' OR
         i.manufacturer LIKE '%${value}%' OR
         i.note LIKE '%${value}%')
-    </select>
-
-    <select id="findBoxed" parameterType="String" resultType="de.kongsugar.wahosy.model.to.Item">
-        SELECT i.*
-        FROM Box b
-        LEFT OUTER JOIN box_has_item bhi ON b.boxID = bhi.boxID
-        LEFT OUTER JOIN Item i ON bhi.itemID = i.itemID
-        WHERE i.name LIKE '%${value}%' OR
-        i.manufacturer LIKE '%${value}%' OR
-        i.note LIKE '%${value}%'
     </select>
 
     <insert id="insert" useGeneratedKeys="true" keyProperty="itemID" keyColumn="itemID"

@@ -1,4 +1,4 @@
-package de.kongsugar.wahosy.model.dao;
+package de.kongsugar.wahosy.model.dao.fuer_spaeter;
 
 import de.kongsugar.wahosy.model.to.Event;
 

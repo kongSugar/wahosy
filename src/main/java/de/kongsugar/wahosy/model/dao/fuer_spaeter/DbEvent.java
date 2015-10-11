@@ -1,6 +1,9 @@
-package de.kongsugar.wahosy.model.dao.batis;
+package de.kongsugar.wahosy.model.dao.fuer_spaeter;
 
-import de.kongsugar.wahosy.model.dao.EventDAO;
+import de.kongsugar.wahosy.model.dao.batis.ConnectionFactory;
+import de.kongsugar.wahosy.model.dao.batis.DbBox;
+import de.kongsugar.wahosy.model.dao.batis.DbItem;
+import de.kongsugar.wahosy.model.dao.fuer_spaeter.EventDAO;
 import de.kongsugar.wahosy.model.to.Event;
 import org.apache.ibatis.session.SqlSession;
 
@@ -54,7 +57,7 @@ public class DbEvent implements EventDAO {
         if (event != null) {
             if (!event.getBoxes().isEmpty()) event.getBoxes().replaceAll(box -> new DbBox().getBox(box.getBoxID()));
             if (!event.getItems().isEmpty())
-                event.getItems().replaceAll(item -> new DbItem().getItem(item.getItemID()));
+                event.getItems().replaceAll(item -> new DbItem().get(item.getItemID()));
         }
         return event;
     }
@@ -65,7 +68,7 @@ public class DbEvent implements EventDAO {
                 if (e != null) {
                     if (!e.getBoxes().isEmpty()) e.getBoxes().replaceAll(box -> new DbBox().getBox(box.getBoxID()));
                     if (!e.getItems().isEmpty())
-                        e.getItems().replaceAll(item -> new DbItem().getItem(item.getItemID()));
+                        e.getItems().replaceAll(item -> new DbItem().get(item.getItemID()));
                 }
             }
         }

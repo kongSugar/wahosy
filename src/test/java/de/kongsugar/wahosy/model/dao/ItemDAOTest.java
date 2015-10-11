@@ -55,12 +55,12 @@ public class ItemDAOTest extends Item {
 
 	@Test
 	public void testGetItem() throws Exception {
-		assertEquals("Obj", i12, dao.getItem(12));
+		assertEquals("Obj", i12, dao.get(12));
 	}
 
 	@Test
 	public void testGetAllItems() throws Exception {
-		List<Item> act = dao.getAllItems();
+		List<Item> act = dao.getAll();
 		assertEquals("Length", 23, act.size());
 		assertEquals("Contains", true, act.contains(i12));
 		assertEquals("Contains", true, act.contains(i20));
@@ -68,7 +68,7 @@ public class ItemDAOTest extends Item {
 
 	@Test
 	public void testGetAllBoxed() throws Exception {
-		List<Item> act = dao.getAllBoxed();
+		List<Item> act = dao.getBoxed();
 		assertEquals("Length", 9, act.size());
 		assertEquals("Contains", true, act.contains(i12));
 		assertEquals("Contains", false, act.contains(i20));
@@ -91,7 +91,7 @@ public class ItemDAOTest extends Item {
 
 	@Test
 	public void testFindBy() throws Exception {
-		System.out.println(dao.findBy("par"));
+		System.out.println(dao.find("par"));
 	}
 
 	@Test
