@@ -8,6 +8,8 @@ import de.kongsugar.wahosy.model.dao.batis.DbItem;
  */
 public class Sample {
     public static void main(String[] args) {
+        String s = "";
+
 
     }
 }
