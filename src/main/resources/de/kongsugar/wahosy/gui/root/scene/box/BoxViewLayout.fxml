@@ -7,7 +7,9 @@
             minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40"
             fx:controller="de.kongsugar.wahosy.gui.root.scene.box.BoxViewController">
    <children>
-      <TreeTableView layoutX="40.0" layoutY="74.0" prefHeight="272.0" prefWidth="522.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+       <TreeTableView fx:id="tableView" layoutX="40.0" layoutY="74.0" prefHeight="272.0" prefWidth="522.0"
+                      AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+                      AnchorPane.topAnchor="50.0">
         <columns>
             <TreeTableColumn maxWidth="25.0" minWidth="25.0" prefWidth="25.0" resizable="false" />
             <TreeTableColumn prefWidth="56.0" text="BoxID" />

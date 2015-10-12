@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.kongsugar.wahosy.gui.root.scene.item.ItemViewController">
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40"
+            fx:controller="de.kongsugar.wahosy.gui.root.scene.item.ItemViewController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Gegenstands-Übersicht" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="20.0" />
          </font></Label>
       <Separator layoutX="14.0" layoutY="41.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="40.0" />
-      <TreeTableView prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
+      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="75.0"
+                 AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
         <columns>
-          <TreeTableColumn maxWidth="25.0" minWidth="25.0" prefWidth="25.0" />
-            <TreeTableColumn prefWidth="75.0" text="ItemID" />
-          <TreeTableColumn prefWidth="93.0" text="Bezeichnung" />
-            <TreeTableColumn prefWidth="86.0" text="Hersteller" />
-            <TreeTableColumn prefWidth="58.0" text="Gewicht" />
-            <TreeTableColumn prefWidth="113.0" text="Anmerkung" />
-            <TreeTableColumn prefWidth="53.0" text="zu Box" />
+           <TableColumn maxWidth="25.0" minWidth="25.0" prefWidth="25.0"/>
+           <TableColumn fx:id="itemIdColumn" prefWidth="75.0" text="ItemID"/>
+           <TableColumn fx:id="nameColumn" prefWidth="93.0" text="Bezeichnung"/>
+           <TableColumn fx:id="manufacturerColumn" prefWidth="86.0" text="Hersteller"/>
+           <TableColumn fx:id="weightColumn" prefWidth="58.0" text="Gewicht"/>
+           <TableColumn fx:id="noteColumn" prefWidth="113.0" text="Anmerkung"/>
+           <TableColumn prefWidth="53.0" text="zu Box"/>
         </columns>
-      </TreeTableView>
+      </TableView>
       <HBox layoutX="345.0" layoutY="325.0" prefHeight="36.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
             <Button mnemonicParsing="false" onAction="#addItem" prefHeight="25.0" prefWidth="141.0" text="Hinzufügen" />
