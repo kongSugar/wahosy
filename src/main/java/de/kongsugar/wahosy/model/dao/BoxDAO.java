@@ -24,5 +24,6 @@ public interface BoxDAO {
     void addItem(int boxID, Item item);
     void addItems(int boxID, List<Item> items);
     void deleteItem(int boxID, Item item);
+    void deleteItem(int boxID, int itemID);
     void deleteItems(int boxID, List<Item> items);
 }

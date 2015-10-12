@@ -19,7 +19,8 @@ public class DbItem implements ItemDAO {
 	@Override
 	public void delete(int itemID) {
 		try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-			session.delete("Item.delete", itemID);
+			session.delete("Item.delete", itemID);			session.commit();
+
 		}
 	}
 
@@ -37,6 +38,7 @@ public class DbItem implements ItemDAO {
 	public void insert(Item item) {
 		try (SqlSession session = ConnectionFactory.getSession().openSession()) {
 			session.insert("Item.insert", item);
+			session.commit();
 		}
 	}
 
@@ -48,7 +50,8 @@ public class DbItem implements ItemDAO {
 	@Override
 	public void update(Item item) {
 		try (SqlSession session = ConnectionFactory.getSession().openSession()) {
-			session.update("Item.update", item);
+			session.update("Item.update", item);			session.commit();
+
 		}
 	}
 
