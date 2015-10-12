@@ -30,6 +30,19 @@ public class FXItem {
 		this.storeID = new SimpleStringProperty(i.getStoreID());
 	}
 
+	public Item asItem() {
+		Item item = new Item();
+		item.setItemID(getItemID());
+		item.setName(getName());
+		item.setManufacturer(getManufacturer());
+		item.setWeight(getWeight());
+		item.setSerialNumber(getSerialNumber());
+		item.setNote(getNote());
+		item.setCategoryID(getCategoryID());
+		item.setStoreID(getStoreID());
+		return item;
+	}
+
 	public int getItemID() {
 		return itemID.get();
 	}

@@ -15,20 +15,18 @@ public class Item {
     private int categoryID;
     private String storeID = "";
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Item item = (Item) o;
-        return Objects.equals(itemID, item.itemID) &&
-                Objects.equals(weight, item.weight) &&
-                Objects.equals(categoryID, item.categoryID) &&
-                Objects.equals(name, item.name) &&
-                Objects.equals(manufacturer, item.manufacturer) &&
-                Objects.equals(serialNumber, item.serialNumber) &&
-                Objects.equals(note, item.note) &&
-                Objects.equals(storeID, item.storeID);
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Item item = (Item) o;
+		return Objects.equals(itemID, item.itemID) && Objects.equals(weight, item.weight)
+				&& Objects.equals(categoryID, item.categoryID) && Objects.equals(name, item.name)
+				&& Objects.equals(manufacturer, item.manufacturer) && Objects.equals(serialNumber, item.serialNumber)
+				&& Objects.equals(note, item.note) && Objects.equals(storeID, item.storeID);
+	}
 
     @Override
     public int hashCode() {
@@ -37,6 +35,10 @@ public class Item {
 
     public int getItemID() {
         return itemID;
+	}
+
+	public void setItemID(int itemID) {
+		this.itemID = itemID;
     }
 
     public String getName() {
@@ -89,6 +91,10 @@ public class Item {
 
     public String getStoreID() {
         return storeID;
+	}
+
+	public void setStoreID(String storeID) {
+		this.storeID = storeID;
     }
 
     @Override
