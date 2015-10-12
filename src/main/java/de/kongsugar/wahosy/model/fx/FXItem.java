@@ -19,6 +19,7 @@ public class FXItem {
 	private StringProperty note;
 	private IntegerProperty categoryID;
 	private StringProperty storeID;
+
 	public FXItem(Item i) {
 		this.itemID = new SimpleIntegerProperty(i.getItemID());
 		this.name = new SimpleStringProperty(i.getName());
@@ -137,5 +138,12 @@ public class FXItem {
 
 	public StringProperty storeIDProperty() {
 		return storeID;
+	}
+
+	@Override
+	public String toString() {
+		return "FXItem{" + "itemID=" + itemID + ", name=" + name + ", manufacturer=" + manufacturer + ", weight="
+				+ weight + ", serialNumber=" + serialNumber + ", note=" + note + ", categoryID=" + categoryID
+				+ ", storeID=" + storeID + '}';
 	}
 }

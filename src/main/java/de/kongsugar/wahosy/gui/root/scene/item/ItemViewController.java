@@ -56,6 +56,9 @@ public class ItemViewController implements Initializable{
 			weightColumn.setCellValueFactory(d -> d.getValue().weightProperty().asObject());
 
 			tableView.setItems(items);
+			tableView.getSelectionModel().selectedItemProperty()
+					.addListener((observable, oldValue, newValue) -> System.out.println(observable));
+
 		});
     }
 }
