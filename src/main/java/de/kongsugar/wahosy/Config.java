@@ -2,7 +2,6 @@ package de.kongsugar.wahosy;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
 
@@ -22,6 +21,8 @@ public final class Config {
         return prop;
     }
 
+	// TODO Strategy to save and load properties defined BY CLIENT!
+	// Preferences vs Properties
 
 
 }

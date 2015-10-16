@@ -21,7 +21,9 @@ import de.kongsugar.wahosy.model.fx.FXItem;
 /**
  * Created by Niko on 06.10.2015.
  */
-public class ItemViewController implements Initializable{
+public class ItemViewController implements Initializable {
+	SceneBuilder sb = new SceneBuilder(null);
+
 	@FXML
 	TableColumn<FXItem, String> noteColumn;
 	@FXML
@@ -30,20 +32,20 @@ public class ItemViewController implements Initializable{
 	TableColumn<FXItem, String> manufacturerColumn;
 	@FXML
 	TableColumn<FXItem, Integer> weightColumn;
-    SceneBuilder sb = new SceneBuilder(null);
 	@FXML
-	private TableView<FXItem> tableView;
+	TableView<FXItem> tableView;
 	@FXML
-	private TableColumn<FXItem, String> itemIdColumn;
+	TableColumn<FXItem, String> itemIdColumn;
 
-    public void addItem() throws IOException {
-        sb.showDialog(SceneHelper.DIALOG_NEW_ITEM);
-    }
+	public void addItem() throws IOException {
+		sb.showDialog(SceneHelper.DIALOG_NEW_ITEM);
+	}
 
-    public void removeItem(){};
+	public void removeItem() {
+	};
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
 		Platform.runLater(() -> {
 			ObservableList<FXItem> items = FXCollections.observableArrayList();
 			ItemDAO dao = new DbItem();
@@ -60,5 +62,5 @@ public class ItemViewController implements Initializable{
 					.addListener((observable, oldValue, newValue) -> System.out.println(observable));
 
 		});
-    }
+	}
 }
