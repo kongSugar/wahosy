@@ -10,7 +10,7 @@ apply plugin: 'idea'
 apply plugin: 'eclipse'
 apply plugin: 'application'
 apply plugin: 'com.github.johnrengelman.shadow'
-apply from: 'javafx.plugin'
+apply from: "http://dl.bintray.com/content/shemnon/javafx-gradle/8.1.1/javafx.plugin"
 
 mainClassName = 'de.kongsugar.wahosy.gui.MainApp'
 group 'de.kongsugar.wahosy'
