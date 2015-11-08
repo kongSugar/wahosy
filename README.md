@@ -15,20 +15,20 @@
 - [x] passende iBatis SQL-Mapper schreiben
 - [x] implementieren
 - [ ] DAO testen
-###
+
 - [ ] GUI Ansichten bestimmen
 - [ ] Grundgerüst aufbauen
 - [ ] Splash implementieren
 - [ ] Content-Container füllen
 - [ ] Wizards erstellen
-###
+
 - [ ] Controller implementieren
 - [ ] DAO mit GUI verbinden
-###
+
 - [ ] Logger implementieren
 - [ ] Dokumentation
 - [ ] Tests schreiben
-###
+
 - [ ] Mit Features fortfahren
 - [ ] PDF export
 - [ ] Barcode-Generierung
@@ -38,4 +38,4 @@
 - [ ] Auto-Update
 - [ ] Alternative zu SQL finden?
 - [ ] als Webapplikation ausbauen?
-###
+
