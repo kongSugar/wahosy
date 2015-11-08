@@ -14,7 +14,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by nikog on 21.09.2015.
+ * MainApp is the entry-point of the application.
+ * It is responsible for loading the stage and to switch from the splashscreen to the root.
  */
 public class MainApp extends Application {
     public Stage stage;
@@ -32,6 +33,9 @@ public class MainApp extends Application {
         stage.show();
     }
 
+    /**
+     * Calling this method replaces the scene to display the splashscreen
+     */
     public void gotoSplash() {
         try {
             SplashController splash = (SplashController) replaceSceneContent("splash/SplashLayout.fxml");
@@ -48,6 +52,9 @@ public class MainApp extends Application {
         }
     }
 
+    /**
+     * Calling this method replaces the scene to display the root scene
+     */
     public void gotoRoot() {
         try {
             stage.setResizable(true);
@@ -64,6 +71,13 @@ public class MainApp extends Application {
         }
     }
 
+    /**
+     * Replaces the scene in the stage of the app and returns the instance of it´s controller
+     *
+     * @param fxml - location of the fxml-file to load
+     * @return controller addressed with the fxml file
+     * @throws IOException
+     */
     private Initializable replaceSceneContent(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         InputStream in = MainApp.class.getResourceAsStream(fxml);

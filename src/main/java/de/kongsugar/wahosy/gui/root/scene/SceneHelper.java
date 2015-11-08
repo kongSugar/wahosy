@@ -1,7 +1,7 @@
 package de.kongsugar.wahosy.gui.root.scene;
 
 /**
- * Created by Niko on 06.10.2015.
+ * Enum containing the locations of all scenes. This is used by SceneBuilder.
  */
 public enum SceneHelper {
     BOX_VIEW("box/BoxViewLayout.fxml"),
@@ -17,12 +17,13 @@ public enum SceneHelper {
     PLANER_CREATE_3_CONFIRMATION("planer/PlanerCreate_3_Confirmation_Layout.fxml")
     ;
 
-    public String getFxml() {
-        return fxml;
-    }
-
     private String fxml;
+
     SceneHelper(String s) {
         this.fxml = s;
+    }
+
+    public String getFxml() {
+        return fxml;
     }
 }

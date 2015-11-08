@@ -34,6 +34,7 @@ public class RootController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        // Fix to adjust the min width/height of the app (in relation to the menu)
         Platform.runLater(() -> {
             application.stage.minWidthProperty().bind(menuLeft.minWidthProperty().multiply(3));
             application.stage.minHeightProperty().bind(menuLeft.minHeightProperty());

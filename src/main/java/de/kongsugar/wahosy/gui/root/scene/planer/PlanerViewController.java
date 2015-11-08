@@ -30,7 +30,7 @@ public class PlanerViewController  implements Initializable{
         wizard.setFlow(new Wizard.LinearFlow(p1, p2, p3));
         wizard.showAndWait().ifPresent(result -> {
             if (result == ButtonType.FINISH) {
-                System.out.println("Könnte nun speichern! " + wizard.getSettings());
+                System.out.println("KÃ¶nnte nun speichern! " + wizard.getSettings());
             }
         });
     }

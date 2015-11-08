@@ -25,6 +25,10 @@ public class SplashController implements Initializable {
 
     private MainApp application;
 
+    /**
+     * Starts a countdown counting back, modifies the displayed counter in the gui
+     * and calls the gotoRoot method in main to go to root after it finished.
+     */
     private void startCountdown() {
         Task<Long> task = new Task<Long>() {
             @Override
@@ -56,6 +60,11 @@ public class SplashController implements Initializable {
         th.start();
     }
 
+    /**
+     * Sets the mainApp in this instance to enable the class to change the scene to root.
+     *
+     * @param mainApp
+     */
     public void setApp(MainApp mainApp) {
         this.application = mainApp;
     }
