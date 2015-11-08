@@ -14,7 +14,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * NOT IMPLEMENTED YET!
+ */
 public class QRCodeTest {
 
     public static void main(String[] args) throws WriterException, IOException,

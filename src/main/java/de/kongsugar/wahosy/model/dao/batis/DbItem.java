@@ -1,18 +1,16 @@
 package de.kongsugar.wahosy.model.dao.batis;
 
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-
 import de.kongsugar.wahosy.model.dao.ItemDAO;
 import de.kongsugar.wahosy.model.to.Item;
+import org.apache.ibatis.session.SqlSession;
+
+import java.util.List;
 
 /**
- * DAO-Implementation of Item. Provides methodes for retrieving data from the
- * database.
- *
- * @author Niko Gillen
- * @version 1.0
+ * DbItem is an implementation of the ItemDAO in iBatis.
+ * It offers several operations on the database that connections are managed by the ConnectionFactory.
+ * The locations of the SQL-Statements that are addressed by the string-parameter like Item.update are
+ * located in the configuration.xml under /resources .
  */
 public class DbItem implements ItemDAO {
 

@@ -14,7 +14,10 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Properties;
 
-public class ConnectionFactory {
+/**
+ * ConnectionFactory manages the sessions/connections to the database with the help of ibatis.
+ */
+class ConnectionFactory {
 
     private static SqlSessionFactory sqlMapper;
 
@@ -29,12 +32,19 @@ public class ConnectionFactory {
         }
     }
 
-    public static SqlSessionFactory getSession() {
+    /**
+     * @return the SqlSessionFactory
+     * @see SqlSessionFactory
+     */
+    static SqlSessionFactory getSession() {
         return sqlMapper;
     }
 
+
     /**
      * Sets parameters in data/jdbc.properties required for connection to the database
+     * @deprecated Settings should be configured in Config class
+     * @see de.kongsugar.wahosy.Config
      *
      * @param server
      * @param port
@@ -65,6 +75,9 @@ public class ConnectionFactory {
         }
     }
 
+    /**
+     * @deprecated Connection should not be reset! Instead user should restart the program
+     */
     public static void reset() {
         try {
             Properties props = new Properties();

@@ -1,149 +1,155 @@
 package de.kongsugar.wahosy.model.fx;
 
+import de.kongsugar.wahosy.model.to.Item;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import de.kongsugar.wahosy.model.to.Item;
-
 /**
- * Created by nikog on 12.10.2015.
+ * FXItem is the FX-compatible model of the TO.
+ * Instead of simple datatypes FXItem uses properties that are used by JavaFX for bindings and more.
+ * An Item-Object is transfered to a FXItem by passing it in the constructor.
  */
 public class FXItem {
-	private IntegerProperty itemID;
-	private StringProperty name;
-	private StringProperty manufacturer;
-	private IntegerProperty weight;
-	private StringProperty serialNumber;
-	private StringProperty note;
-	private IntegerProperty categoryID;
-	private StringProperty storeID;
+    private IntegerProperty itemID;
+    private StringProperty name;
+    private StringProperty manufacturer;
+    private IntegerProperty weight;
+    private StringProperty serialNumber;
+    private StringProperty note;
+    private IntegerProperty categoryID;
+    private StringProperty storeID;
 
-	public FXItem(Item i) {
-		this.itemID = new SimpleIntegerProperty(i.getItemID());
-		this.name = new SimpleStringProperty(i.getName());
-		this.manufacturer = new SimpleStringProperty(i.getManufacturer());
-		this.weight = new SimpleIntegerProperty(i.getWeight());
-		this.serialNumber = new SimpleStringProperty(i.getSerialNumber());
-		this.note = new SimpleStringProperty(i.getNote());
-		this.categoryID = new SimpleIntegerProperty(i.getCategoryID());
-		this.storeID = new SimpleStringProperty(i.getStoreID());
-	}
+    private FXItem() {
+    }
 
-	public Item asItem() {
-		Item item = new Item();
-		item.setItemID(getItemID());
-		item.setName(getName());
-		item.setManufacturer(getManufacturer());
-		item.setWeight(getWeight());
-		item.setSerialNumber(getSerialNumber());
-		item.setNote(getNote());
-		item.setCategoryID(getCategoryID());
-		item.setStoreID(getStoreID());
-		return item;
-	}
+    ;
 
-	public int getItemID() {
-		return itemID.get();
-	}
+    public FXItem(Item i) {
+        this.itemID = new SimpleIntegerProperty(i.getItemID());
+        this.name = new SimpleStringProperty(i.getName());
+        this.manufacturer = new SimpleStringProperty(i.getManufacturer());
+        this.weight = new SimpleIntegerProperty(i.getWeight());
+        this.serialNumber = new SimpleStringProperty(i.getSerialNumber());
+        this.note = new SimpleStringProperty(i.getNote());
+        this.categoryID = new SimpleIntegerProperty(i.getCategoryID());
+        this.storeID = new SimpleStringProperty(i.getStoreID());
+    }
 
-	public void setItemID(int itemID) {
-		this.itemID.set(itemID);
-	}
+    public Item asItem() {
+        Item item = new Item();
+        item.setItemID(getItemID());
+        item.setName(getName());
+        item.setManufacturer(getManufacturer());
+        item.setWeight(getWeight());
+        item.setSerialNumber(getSerialNumber());
+        item.setNote(getNote());
+        item.setCategoryID(getCategoryID());
+        item.setStoreID(getStoreID());
+        return item;
+    }
 
-	public IntegerProperty itemIDProperty() {
-		return itemID;
-	}
+    public int getItemID() {
+        return itemID.get();
+    }
 
-	public String getName() {
-		return name.get();
-	}
+    public void setItemID(int itemID) {
+        this.itemID.set(itemID);
+    }
 
-	public void setName(String name) {
-		this.name.set(name);
-	}
+    public IntegerProperty itemIDProperty() {
+        return itemID;
+    }
 
-	public StringProperty nameProperty() {
-		return name;
-	}
+    public String getName() {
+        return name.get();
+    }
 
-	public String getManufacturer() {
-		return manufacturer.get();
-	}
+    public void setName(String name) {
+        this.name.set(name);
+    }
 
-	public void setManufacturer(String manufacturer) {
-		this.manufacturer.set(manufacturer);
-	}
+    public StringProperty nameProperty() {
+        return name;
+    }
 
-	public StringProperty manufacturerProperty() {
-		return manufacturer;
-	}
+    public String getManufacturer() {
+        return manufacturer.get();
+    }
 
-	public int getWeight() {
-		return weight.get();
-	}
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer.set(manufacturer);
+    }
 
-	public void setWeight(int weight) {
-		this.weight.set(weight);
-	}
+    public StringProperty manufacturerProperty() {
+        return manufacturer;
+    }
 
-	public IntegerProperty weightProperty() {
-		return weight;
-	}
+    public int getWeight() {
+        return weight.get();
+    }
 
-	public String getSerialNumber() {
-		return serialNumber.get();
-	}
+    public void setWeight(int weight) {
+        this.weight.set(weight);
+    }
 
-	public void setSerialNumber(String serialNumber) {
-		this.serialNumber.set(serialNumber);
-	}
+    public IntegerProperty weightProperty() {
+        return weight;
+    }
 
-	public StringProperty serialNumberProperty() {
-		return serialNumber;
-	}
+    public String getSerialNumber() {
+        return serialNumber.get();
+    }
 
-	public String getNote() {
-		return note.get();
-	}
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber.set(serialNumber);
+    }
 
-	public void setNote(String note) {
-		this.note.set(note);
-	}
+    public StringProperty serialNumberProperty() {
+        return serialNumber;
+    }
 
-	public StringProperty noteProperty() {
-		return note;
-	}
+    public String getNote() {
+        return note.get();
+    }
 
-	public int getCategoryID() {
-		return categoryID.get();
-	}
+    public void setNote(String note) {
+        this.note.set(note);
+    }
 
-	public void setCategoryID(int categoryID) {
-		this.categoryID.set(categoryID);
-	}
+    public StringProperty noteProperty() {
+        return note;
+    }
 
-	public IntegerProperty categoryIDProperty() {
-		return categoryID;
-	}
+    public int getCategoryID() {
+        return categoryID.get();
+    }
 
-	public String getStoreID() {
-		return storeID.get();
-	}
+    public void setCategoryID(int categoryID) {
+        this.categoryID.set(categoryID);
+    }
 
-	public void setStoreID(String storeID) {
-		this.storeID.set(storeID);
-	}
+    public IntegerProperty categoryIDProperty() {
+        return categoryID;
+    }
 
-	public StringProperty storeIDProperty() {
-		return storeID;
-	}
+    public String getStoreID() {
+        return storeID.get();
+    }
 
-	@Override
-	public String toString() {
-		return "FXItem{" + "itemID=" + itemID + ", name=" + name + ", manufacturer=" + manufacturer + ", weight="
-				+ weight + ", serialNumber=" + serialNumber + ", note=" + note + ", categoryID=" + categoryID
-				+ ", storeID=" + storeID + '}';
-	}
+    public void setStoreID(String storeID) {
+        this.storeID.set(storeID);
+    }
+
+    public StringProperty storeIDProperty() {
+        return storeID;
+    }
+
+    @Override
+    public String toString() {
+        return "FXItem{" + "itemID=" + itemID + ", name=" + name + ", manufacturer=" + manufacturer + ", weight="
+                + weight + ", serialNumber=" + serialNumber + ", note=" + note + ", categoryID=" + categoryID
+                + ", storeID=" + storeID + '}';
+    }
 }

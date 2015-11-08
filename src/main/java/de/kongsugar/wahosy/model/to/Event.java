@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by nikog on 17.09.2015.
+ * Simple POJO of the Event-objects
  */
 public class Event {
     private int eventID;

@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.Properties;
 
 /**
- * Created by nikog on 12.10.2015.
+ * Class that shall offer (static) save and load methods for the database-properties and more
  */
 public final class Config {
     public static final String PROPERTY_FILE ="config.properties";

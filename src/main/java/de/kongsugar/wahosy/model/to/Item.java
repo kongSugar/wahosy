@@ -3,7 +3,7 @@ package de.kongsugar.wahosy.model.to;
 import java.util.Objects;
 
 /**
- * Created by nikog on 07.09.2015.
+ * Simple POJO of the Item-objects
  */
 public class Item {
     private int itemID;

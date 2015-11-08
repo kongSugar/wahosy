@@ -1,12 +1,17 @@
 package de.kongsugar.wahosy.model.dao.batis;
 
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-
 import de.kongsugar.wahosy.model.dao.CategoryDAO;
 import de.kongsugar.wahosy.model.to.Category;
+import org.apache.ibatis.session.SqlSession;
 
+import java.util.List;
+
+/**
+ * DbCategory is an implementation of the CategoryDAO in iBatis.
+ * It offers several operations on the database that connections are managed by the ConnectionFactory.
+ * The locations of the SQL-Statements that are addressed by the string-parameter like Category.update are
+ * located in the configuration.xml under /resources .
+ */
 public class DbCategory implements CategoryDAO {
 	@Override
 	public List<Category> getAll() {

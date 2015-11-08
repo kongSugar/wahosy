@@ -5,7 +5,7 @@ import de.kongsugar.wahosy.model.to.Item;
 import java.util.List;
 
 /**
- * Created by nikog on 11.10.2015.
+ * Interface of the DAO that provides methods to access items
  */
 public interface ItemDAO {
     void delete(int itemID);

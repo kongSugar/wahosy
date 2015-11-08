@@ -6,9 +6,7 @@ import de.kongsugar.wahosy.model.to.Item;
 import java.util.List;
 
 /**
- * Provides access to box-objects in the database
- *
- * @author Niko Gillen
+ * Interface of the DAO that provides methods to access boxes
  */
 public interface BoxDAO {
     void delete(int boxID);

@@ -1,7 +1,9 @@
 package de.kongsugar.wahosy.model.to;
 
+import java.util.Objects;
+
 /**
- * Created by nikog on 17.09.2015.
+ * Simple POJO of the Category-objects
  */
 public class Category {
     private int categoryID;
@@ -49,5 +51,21 @@ public class Category {
                 ", abbreviation='" + abbreviation + '\'' +
                 ", lastID=" + lastID +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Category category = (Category) o;
+        return categoryID == category.categoryID &&
+                lastID == category.lastID &&
+                Objects.equals(name, category.name) &&
+                Objects.equals(abbreviation, category.abbreviation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(categoryID, name, abbreviation, lastID);
     }
 }

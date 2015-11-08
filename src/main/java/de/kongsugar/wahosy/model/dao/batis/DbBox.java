@@ -1,17 +1,22 @@
 package de.kongsugar.wahosy.model.dao.batis;
 
+import de.kongsugar.wahosy.model.dao.BoxDAO;
+import de.kongsugar.wahosy.model.dao.ItemDAO;
+import de.kongsugar.wahosy.model.to.Box;
+import de.kongsugar.wahosy.model.to.Item;
+import org.apache.ibatis.session.SqlSession;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import de.kongsugar.wahosy.model.dao.ItemDAO;
-import org.apache.ibatis.session.SqlSession;
-
-import de.kongsugar.wahosy.model.dao.BoxDAO;
-import de.kongsugar.wahosy.model.to.Box;
-import de.kongsugar.wahosy.model.to.Item;
-
+/**
+ * DbBox is an implementation of the BoxDAO in iBatis.
+ * It offers several operations on the database that connections are managed by the ConnectionFactory.
+ * The locations of the SQL-Statements that are addressed by the string-parameter like Box.update are
+ * located in the configuration.xml under /resources .
+ */
 public class DbBox implements BoxDAO {
 
 	@Override

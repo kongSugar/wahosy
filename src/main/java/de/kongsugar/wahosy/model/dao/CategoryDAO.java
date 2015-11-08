@@ -4,7 +4,9 @@ import de.kongsugar.wahosy.model.to.Category;
 
 import java.util.List;
 
-
+/**
+ * Interface of the DAO that provides methods to access categories
+ */
 public interface CategoryDAO {
     List<Category> getAll();
     Category get(int categoryID);

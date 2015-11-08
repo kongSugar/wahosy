@@ -1,20 +1,17 @@
 package de.kongsugar.wahosy.pdf;
 
-import com.lowagie.text.*;
-import com.lowagie.text.pdf.PdfContentByte;
-import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.DocumentException;
 import org.apache.ibatis.io.Resources;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Created by nikog on 21.09.2015.
+ * NOT IMPLEMETED YET
  */
 public class PdfCreator {
 

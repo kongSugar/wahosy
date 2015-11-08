@@ -2,9 +2,10 @@ package de.kongsugar.wahosy.model.to;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 /**
- * Created by nikog on 17.09.2015.
+ * Simple POJO of the Box-objects
  */
 public class Box {
     private int boxID;
@@ -52,5 +53,21 @@ public class Box {
                 ", note='" + note + '\'' +
                 ", items=" + items +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Box box = (Box) o;
+        return boxID == box.boxID &&
+                Objects.equals(name, box.name) &&
+                Objects.equals(note, box.note) &&
+                Objects.equals(items, box.items);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(boxID, name, note, items);
     }
 }

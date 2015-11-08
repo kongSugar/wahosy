@@ -1,7 +1,6 @@
 package de.kongsugar.wahosy.model.dao;
 
 import de.kongsugar.wahosy.model.dao.batis.DbItem;
-import de.kongsugar.wahosy.model.dao.batis.ConnectionFactory;
 import de.kongsugar.wahosy.model.to.Item;
 import org.junit.After;
 import org.junit.Before;
@@ -50,7 +49,7 @@ public class ItemDAOTest extends Item {
 
 	@After
 	public void tearDown() throws Exception {
-		ConnectionFactory.getSession().openSession().getConnection().createStatement().execute("SHUTDOWN");
+		//ConnectionFactory.getSession().openSession().getConnection().createStatement().execute("SHUTDOWN");
 	}
 
 	@Test

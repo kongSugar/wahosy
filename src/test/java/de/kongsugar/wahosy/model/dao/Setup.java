@@ -1,6 +1,5 @@
 package de.kongsugar.wahosy.model.dao;
 
-import de.kongsugar.wahosy.model.dao.batis.ConnectionFactory;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -34,7 +33,7 @@ public class Setup {
             BufferedWriter bw = Files.newBufferedWriter(p, StandardCharsets.ISO_8859_1, StandardOpenOption.CREATE);
             prop.store(bw, null);
 
-            ConnectionFactory.reset();
+            //ConnectionFactory.reset();
         } catch (IOException e) {
             e.printStackTrace();
         }
