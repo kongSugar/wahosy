@@ -72,6 +72,14 @@ public class MainApp extends Application {
     }
 
     /**
+     * /**
+     * Calling this method replaces the scene to display the config scene.
+     * It should be called if no config is found else go to root.
+     */
+    public void gotoConfig() { //TODO
+    }
+
+    /**
      * Replaces the scene in the stage of the app and returns the instance of it´s controller
      *
      * @param fxml - location of the fxml-file to load
