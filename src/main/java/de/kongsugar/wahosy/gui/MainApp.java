@@ -28,8 +28,8 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         //TODO
-        gotoSplash();
-        //gotoRoot();
+        //gotoSplash();
+        gotoRoot();
         stage.show();
     }
 
