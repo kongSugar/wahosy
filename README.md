@@ -1,4 +1,5 @@
 # Wahosy
+# Outdated! See sfman-webui & sfman-rest . Wahosy is now a webapp based on mean stack
 
 ### [Trello](https://trello.com/b/TbM1DAna)
 
